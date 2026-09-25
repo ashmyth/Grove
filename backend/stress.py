@@ -1,6 +1,19 @@
 import numpy as np
-from scipy.signal import savgol_filter
 from typing import Dict, Tuple
+
+try:
+    from scipy.signal import savgol_filter
+    SCIPY_AVAILABLE = True
+except ImportError:
+    SCIPY_AVAILABLE = False
+    def savgol_filter(x, window_length, polyorder):
+        # Graceful pure numpy rolling average fallback when scipy is not yet installed
+        kernel_size = min(len(x), window_length)
+        if kernel_size <= 1:
+            return np.array(x)
+        kernel = np.ones(kernel_size) / kernel_size
+        return np.convolve(x, kernel, mode='same')
+
 
 class PhenologyStressEngine:
     def __init__(self, window_length: int = 5, polyorder: int = 2):
