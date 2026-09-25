@@ -1,0 +1,50 @@
+{
+  "scripts/build_graph.py": {
+    "mtime": 1790332905.4724753,
+    "seen": 1790337145.435316,
+    "ast_hash": "c9dbf9b51f3973188890fd24d10b296c",
+    "semantic_hash": ""
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1790332905.4503818,
+    "seen": 1790337145.435321,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": ""
+  },
+  ".agents/skills/graphify/SKILL.md": {
+    "mtime": 1790332905.450907,
+    "seen": 1790337145.4353232,
+    "ast_hash": "7389845b8591161652143890a02b9ac4",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1790332905.450907,
+    "seen": 1790337145.4353244,
+    "ast_hash": "a831cf3669f1e6ab85d8a80ebe655f99",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1790333999.2456508,
+    "seen": 1790337145.4353254,
+    "ast_hash": "34be348f9a936b657248c04522cf4e88",
+    "semantic_hash": ""
+  },
+  "architecture.md": {
+    "mtime": 1790331875.8204424,
+    "seen": 1790337145.4353266,
+    "ast_hash": "dd457be49be8d9103a4d074e418dbe4c",
+    "semantic_hash": ""
+  },
+  "prd.md": {
+    "mtime": 1790331875.8209698,
+    "seen": 1790337145.4353275,
+    "ast_hash": "b4417e61a08d7c018dfe3d61c79091a7",
+    "semantic_hash": ""
+  },
+  "work-division.md": {
+    "mtime": 1790337124.7301042,
+    "seen": 1790337145.4353285,
+    "ast_hash": "727c88dae83b55584763c48fa6d8dec6",
+    "semantic_hash": ""
+  }
+}
