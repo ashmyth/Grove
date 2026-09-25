@@ -16,6 +16,7 @@ It delivers automated 10m crop parcel boundary mapping, all-weather moisture str
 
 - 📋 **[Product Requirements Document (PRD)](./prd.md):** Complete specifications following `/to-spec` with extensive user stories, implementation decisions, and testing seams.
 - 🏗️ **[Technical Architecture & System Specification](./architecture.md):** In-depth engineering design covering multi-modal neural architectures, GEE cloud offloading, SAR polarimetric processing, hydrological formulations, and React GIS dashboard architecture.
+- 👥 **[Team Work Breakdown & Plan](./work-division.md):** Modular 3-way task demarcation, file ownership, and interface contracts.
 - 🗺️ **[Knowledge Graph Report](./graphify-out/GRAPH_REPORT.md):** Architectural relationship map, God Nodes, cross-cutting dependencies, and community clusters generated via [Graphify](https://github.com/Graphify-Labs/graphify). Interactive map available at [`graphify-out/graph.html`](./graphify-out/graph.html).
 
 ---
