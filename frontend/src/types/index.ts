@@ -79,3 +79,20 @@ export interface CanalLineFeatureCollection {
   type: "FeatureCollection";
   features: CanalLineFeature[];
 }
+
+export interface AnalysisInputPayload {
+  command_area_id: string;
+  start_date: string;
+  end_date: string;
+  available_discharge_cumecs: number;
+  custom_geojson?: any;
+}
+
+export interface AnalysisRunResponse {
+  status: "success" | "error";
+  message: string;
+  overview: CommandOverview;
+  parcels: ParcelFeatureCollection;
+  advisories: CanalAdvisoryItem[];
+  canal_network: CanalLineFeatureCollection;
+}

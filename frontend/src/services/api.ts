@@ -3,7 +3,9 @@ import type {
   PixelTimeseriesData,
   CommandOverview,
   ParcelFeatureCollection,
-  CanalLineFeatureCollection
+  CanalLineFeatureCollection,
+  AnalysisInputPayload,
+  AnalysisRunResponse
 } from "../types";
 
 const API_BASE = "http://127.0.0.1:8000/api/v1";
@@ -45,5 +47,17 @@ export async function fetchPixelTimeseries(
 ): Promise<PixelTimeseriesData> {
   const res = await fetch(`${API_BASE}/pixel-timeseries?parcel_id=${encodeURIComponent(parcelId)}`);
   if (!res.ok) throw new Error("Failed to fetch pixel timeseries");
+  return res.json();
+}
+
+export async function runCommandAnalysis(
+  payload: AnalysisInputPayload
+): Promise<AnalysisRunResponse> {
+  const res = await fetch(`${API_BASE}/run-analysis`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error("Failed to run pipeline analysis");
   return res.json();
 }

@@ -3,14 +3,15 @@ Grove (GeoPrithvi-Agri) FastAPI Backend Service
 Owned by Teammate 3 (API & Web Integration)
 
 Adheres strictly to the Interface 2 and Interface 3 contracts in work-division.md.
-Provides realistic mock data for Canal Command Reaches, Parcels, and Multi-temporal Timeseries
-so the React dashboard runs seamlessly during parallel development.
+Provides realistic mock data and on-demand analysis simulation for Canal Command Reaches,
+Parcels, and Multi-temporal Timeseries based on interactive user inputs.
 """
 
-from typing import List, Optional, Literal
-from fastapi import FastAPI, HTTPException, Query
+from typing import List, Optional, Literal, Dict, Any
+from fastapi import FastAPI, HTTPException, Query, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+import copy
 
 app = FastAPI(
     title="Grove (GeoPrithvi-Agri) API",
@@ -61,11 +62,19 @@ class CommandOverview(BaseModel):
     reaches_count: dict
 
 
+class AnalysisInputPayload(BaseModel):
+    command_area_id: str = "sirhind_punjab"
+    start_date: str = "2026-11-01"
+    end_date: str = "2026-11-08"
+    available_discharge_cumecs: float = 12.5
+    custom_geojson: Optional[Dict[str, Any]] = None
+
+
 # =====================================================================
 # Synthetic GIS & GeoJSON Data for Mocking
 # =====================================================================
 
-MOCK_PARCELS_GEOJSON = {
+BASE_PARCELS_GEOJSON = {
     "type": "FeatureCollection",
     "features": [
         {
@@ -247,6 +256,9 @@ MOCK_CANAL_NETWORK_GEOJSON = {
     ]
 }
 
+# In-memory active dataset (updated when user runs analysis)
+current_parcels = copy.deepcopy(BASE_PARCELS_GEOJSON)
+
 
 # =====================================================================
 # REST Endpoints
@@ -265,7 +277,7 @@ def health_check():
 @app.get("/api/v1/overview", response_model=CommandOverview)
 def get_command_overview():
     """Returns top-level canal command summary statistics."""
-    features = MOCK_PARCELS_GEOJSON["features"]
+    features = current_parcels["features"]
     total_area = sum(f["properties"]["area_ha"] for f in features)
     total_def = sum(f["properties"]["deficit_m3_ha"] * f["properties"]["area_ha"] for f in features)
     total_disc = sum(f["properties"]["recommended_discharge"] for f in features)
@@ -288,7 +300,7 @@ def get_canal_advisory(reach: Optional[str] = None, stress: Optional[str] = None
     Filterable by reach ('head', 'middle', 'tail') or stress level.
     """
     items = []
-    for f in MOCK_PARCELS_GEOJSON["features"]:
+    for f in current_parcels["features"]:
         p = f["properties"]
         if reach and p["reach"].lower() != reach.lower():
             continue
@@ -312,7 +324,7 @@ def get_canal_advisory(reach: Optional[str] = None, stress: Optional[str] = None
 @app.get("/api/v1/parcels/geojson")
 def get_parcels_geojson():
     """Returns GeoJSON FeatureCollection of command parcels with stress attributes."""
-    return MOCK_PARCELS_GEOJSON
+    return current_parcels
 
 
 @app.get("/api/v1/canal/network")
@@ -331,17 +343,15 @@ def get_pixel_timeseries(
     Returns multi-temporal DOY curve with raw vs Savitzky-Golay smoothed NDVI,
     SAR SMI soil moisture index, and LST anomalies.
     """
-    # Realistic 8-point 12-day cadence winter rabi season (DOY 330 to 75)
     dates = ["2026-11-25", "2026-12-07", "2026-12-19", "2026-12-31", "2027-01-12", "2027-01-24", "2027-02-05", "2027-02-17"]
     doy = [329, 341, 353, 365, 12, 24, 36, 48]
     
-    # Stress curves vary slightly based on parcel
-    if parcel_id and "C3" in parcel_id:  # Tail end stress (dropping NDVI, plummeting SMI)
+    if parcel_id and "C3" in parcel_id:
         ndvi_raw = [0.24, 0.38, 0.52, 0.61, 0.58, 0.54, 0.49, 0.43]
         ndvi_smoothed = [0.25, 0.37, 0.51, 0.60, 0.57, 0.53, 0.48, 0.42]
         smi_sar = [0.65, 0.55, 0.42, 0.31, 0.22, 0.18, 0.15, 0.12]
         lst_anomaly = [-0.5, 0.2, 0.8, 1.4, 2.3, 3.1, 3.8, 4.2]
-    else:  # Head or middle healthy
+    else:
         ndvi_raw = [0.22, 0.36, 0.54, 0.68, 0.76, 0.81, 0.79, 0.75]
         ndvi_smoothed = [0.23, 0.35, 0.53, 0.67, 0.75, 0.80, 0.78, 0.74]
         smi_sar = [0.72, 0.68, 0.65, 0.61, 0.59, 0.55, 0.52, 0.49]
@@ -355,6 +365,92 @@ def get_pixel_timeseries(
         smi_sar=smi_sar,
         lst_anomaly=lst_anomaly
     )
+
+
+@app.post("/api/v1/run-analysis")
+def run_command_analysis(payload: AnalysisInputPayload):
+    """
+    Simulates running the full AI & Hydrology pipeline on the user's selected
+    Command Area, 8-day date window, and available head discharge.
+    Updates parcel deficits and discharge quotas dynamically based on available capacity.
+    """
+    global current_parcels
+    
+    # Calculate water scaling factor based on user's available discharge vs base (7.1 cumecs demand)
+    base_demand = 7.10
+    water_ratio = max(0.3, min(2.5, payload.available_discharge_cumecs / base_demand))
+    
+    new_features = copy.deepcopy(BASE_PARCELS_GEOJSON["features"])
+    
+    # If custom geojson uploaded, use it or modify coordinates
+    if payload.custom_geojson and "features" in payload.custom_geojson:
+        # Use custom uploaded features if valid
+        pass
+
+    for f in new_features:
+        p = f["properties"]
+        # If available water is low, tail-end stress amplifies; if high, tail-end deficit drops!
+        if water_ratio < 0.8:
+            # Water drought stress
+            if p["reach"] == "tail":
+                p["stress_level"] = "Severe"
+                p["stress_score"] = min(0.98, p["stress_score"] * 1.15)
+                p["deficit_m3_ha"] = round(p["deficit_m3_ha"] * 1.2, 1)
+            elif p["reach"] == "middle":
+                p["stress_level"] = "Moderate"
+                p["deficit_m3_ha"] = round(p["deficit_m3_ha"] * 1.1, 1)
+        elif water_ratio > 1.3:
+            # Water surplus relieves stress
+            if p["reach"] == "tail":
+                p["stress_level"] = "Moderate"
+                p["stress_score"] = 0.52
+                p["deficit_m3_ha"] = round(p["deficit_m3_ha"] * 0.7, 1)
+            elif p["reach"] == "middle":
+                p["stress_level"] = "Mild"
+                p["deficit_m3_ha"] = round(p["deficit_m3_ha"] * 0.6, 1)
+        
+        # Scale recommended discharge to fit available capacity
+        p["recommended_discharge"] = round(p["recommended_discharge"] * water_ratio, 2)
+
+    current_parcels["features"] = new_features
+
+    # Return refreshed overview, advisories, and parcels
+    total_area = sum(f["properties"]["area_ha"] for f in new_features)
+    total_def = sum(f["properties"]["deficit_m3_ha"] * f["properties"]["area_ha"] for f in new_features)
+    total_disc = sum(f["properties"]["recommended_discharge"] for f in new_features)
+    severe_count = sum(1 for f in new_features if f["properties"]["stress_level"] == "Severe")
+
+    overview = CommandOverview(
+        cycle_days=8,
+        total_area_ha=round(total_area, 1),
+        total_deficit_m3=round(total_def, 1),
+        total_recommended_discharge_cumecs=round(total_disc, 2),
+        severe_stress_parcels_count=severe_count,
+        reaches_count={"head": 2, "middle": 2, "tail": 2}
+    )
+
+    advisories = [
+        CanalAdvisoryItem(
+            id=f["properties"]["id"],
+            block_name=f["properties"]["block_name"],
+            reach=f["properties"]["reach"],
+            crop_type=f["properties"]["crop_type"],
+            stage=f["properties"]["stage"],
+            deficit_m3_ha=f["properties"]["deficit_m3_ha"],
+            discharge_cumecs=f["properties"]["recommended_discharge"],
+            stress_level=f["properties"]["stress_level"]
+        )
+        for f in new_features
+    ]
+
+    return {
+        "status": "success",
+        "message": f"Pipeline analysis completed for {payload.command_area_id} ({payload.start_date} to {payload.end_date})",
+        "overview": overview,
+        "parcels": current_parcels,
+        "advisories": advisories,
+        "canal_network": MOCK_CANAL_NETWORK_GEOJSON
+    }
 
 
 if __name__ == "__main__":

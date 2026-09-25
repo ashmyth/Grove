@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Header } from "./components/layout/Header";
+import { CommandControlBar } from "./components/layout/CommandControlBar";
 import { CanalTelemetry } from "./components/telemetry/CanalTelemetry";
 import { MapViewer } from "./components/map/MapViewer";
 import { AnalyticsDrawer } from "./components/analytics/AnalyticsDrawer";
@@ -8,6 +9,7 @@ import {
   fetchCanalAdvisory,
   fetchParcelsGeoJSON,
   fetchCanalNetworkGeoJSON,
+  runCommandAnalysis,
 } from "./services/api";
 import type {
   CommandOverview,
@@ -15,6 +17,7 @@ import type {
   ParcelFeatureCollection,
   CanalLineFeatureCollection,
   ReachType,
+  AnalysisInputPayload,
 } from "./types";
 
 export function App() {
@@ -26,8 +29,9 @@ export function App() {
   const [selectedParcelId, setSelectedParcelId] = useState<string | null>("PARCEL-C309");
   const [reachFilter, setReachFilter] = useState<ReachType | "all">("all");
   const [activeLayer, setActiveLayer] = useState<"stress" | "optical" | "sar" | "thermal">("stress");
+  const [isComputing, setIsComputing] = useState(false);
 
-  // Load telemetry & geospatial data
+  // Initial load
   const loadData = async () => {
     try {
       const [ov, adv, parc, canal] = await Promise.all([
@@ -48,6 +52,27 @@ export function App() {
   useEffect(() => {
     loadData();
   }, [reachFilter]);
+
+  // Handle User Input Submission: Run Analysis Pipeline
+  const handleRunAnalysis = async (payload: AnalysisInputPayload) => {
+    setIsComputing(true);
+    try {
+      // Simulate realistic computing delay
+      await new Promise((res) => setTimeout(res, 800));
+      const result = await runCommandAnalysis(payload);
+      if (result.status === "success") {
+        setOverview(result.overview);
+        setParcels(result.parcels);
+        setAdvisories(result.advisories);
+        setCanalNetwork(result.canal_network);
+      }
+    } catch (err) {
+      console.error("Error running analysis pipeline:", err);
+      alert("Failed to compute advisory. Check backend status.");
+    } finally {
+      setIsComputing(false);
+    }
+  };
 
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
@@ -70,6 +95,12 @@ export function App() {
         onRefresh={loadData}
         onExport={() => alert("Exporting 8-Day Canal Command Advisory (PDF/CSV)...")}
         cycleDays={overview?.cycle_days || 8}
+      />
+
+      {/* Interactive Command Input Panel */}
+      <CommandControlBar
+        onRunAnalysis={handleRunAnalysis}
+        isRunning={isComputing}
       />
 
       {/* 3-Panel GIS Command Deck */}
