@@ -46,11 +46,15 @@ Grove couples Cloud-native Earth Observation (EO) preprocessing on Google Earth 
                    │                         └──────────────────┬───────────────────┘
                    └─────────────────┬──────────────────────────┘
                                      ▼
-                      [STREAMLIT INTERACTIVE DASHBOARD]
-        ├── 10m Spatial Crop Classification Boundary Layer (Leaflet / Folium)
+                        [FASTAPI ASYNC REST BACKEND]
+     /api/crops (GeoJSON) | /api/stress (COG/Tiles) | /api/advisories | /api/phenology
+                                     │
+                                     ▼
+                   [REACT INTERACTIVE WEB APPLICATION]
+        ├── Interactive WebGL/Leaflet Geospatial Map (10m Crop & Stress Boundaries)
         ├── Stage-Wise Moisture Stress Categorization (None, Mild, Moderate, Severe)
-        ├── Canal Command Block Aggregated Sluice Release Advisories (Q = V / t)
-        └── Dynamic Pixel-Level Phenological Curve Inspector (Plotly)
+        ├── Canal Command Block Aggregated Sluice Release Table & Gauges (Q = V / t)
+        └── Dynamic Pixel-Level Phenological Curve Inspector (Recharts / Canvas)
 ```
 
 ---
@@ -66,8 +70,10 @@ Grove couples Cloud-native Earth Observation (EO) preprocessing on Google Earth 
 | **Raster & Array I/O** | Geospatial Array Processing | **Rasterio >= 1.3.8**, **GDAL >= 3.6.0**, **NumPy >= 1.24.0** | Handles memory-mapped windowed reads (`numpy.memmap`) of regional GeoTIFFs to prevent Out-Of-Memory (OOM) errors. |
 | **Vector & GIS** | Vector Topologies | **GeoPandas >= 0.14.0**, **Shapely >= 2.0.0** | Parses canal command boundary polygons, distributary reach shapes, and field parcels; performs high-speed spatial joins. |
 | **Time-Series & Signal** | Signal Processing | **SciPy >= 1.11.0** (`scipy.signal.savgol_filter`) | Fits dynamic Savitzky-Golay polynomial filters on temporal NDVI vectors for Region-Adaptive Phenology Alignment (RAM). |
-| **Frontend & UI** | Interactive Web Dashboard | **Streamlit >= 1.28.0**, **Streamlit-Folium >= 0.15.0** | Production dashboard with interactive raster tile layers, vector polygon overlays, and responsive parameter sliders. |
-| **Data Visualization** | Scientific Plotting | **Plotly >= 5.17.0** | Interactive, GPU-accelerated phenology curves, stage-wise water deficit profiles, and sluice discharge plots. |
+| **Backend REST API** | High-Performance Server | **FastAPI >= 0.109.0**, **Uvicorn >= 0.27.0**, **Pydantic v2** | High-throughput asynchronous REST API serving GeoJSON vector boundaries, raster tile endpoints, and JSON advisory payloads. |
+| **Frontend Framework** | Client User Interface | **React 18/19**, **TypeScript >= 5.0**, **Vite >= 5.0** | Responsive, component-driven client architecture; zero full-page reloads, rich client-side caching, and modern UX state management. |
+| **Geospatial Map UI** | Interactive Web Map | **MapLibre GL JS >= 3.6.0** / **React-Leaflet >= 4.2.0** | GPU-accelerated raster and vector tiling for 10m parcel boundaries, stress overlays, and interactive parcel click handlers. |
+| **Data Visualization** | Scientific Charts | **Recharts >= 2.10.0** / **Chart.js** | Client-side responsive charts for Savitzky-Golay smoothed NDVI trajectories, SAR soil moisture index, and LST anomaly curves. |
 
 ---
 
@@ -273,24 +279,34 @@ where $\eta_{\text{canal}} = 0.70$ is the standard canal conveyance efficiency f
 
 ## 6. Modular Codebase Architecture
 
-The project codebase is partitioned into five clean, decoupled Python modules (~1,500 lines total):
+The project codebase is partitioned into a high-performance Python/FastAPI backend and a modern React client application:
 
 ```
 Grove/
-├── .gitignore               # Standard Python, ML checkpoints & Geospatial rasters
+├── .gitignore               # Standard Python, Node, ML checkpoints & Geospatial rasters
 ├── README.md                # Project README & quickstart
 ├── prd.md                   # Product Requirements Document (/to-spec format)
 ├── architecture.md          # Technical Architecture & System Specification
-├── requirements.txt         # Pinned production dependencies
-├── data/                    # Local sample GeoTIFFs, boundary GeoJSONs, shapefiles
-├── src/
-│   ├── __init__.py
-│   ├── gee_pipeline.py      # Module 1: Earth Engine pipeline & raster exporter
-│   ├── data_loader.py       # Module 2: Memory-mapped raster loader & PyTorch datasets
-│   ├── model.py             # Module 3: Prithvi-EO ViT, SAR 2D CNN, MSF-Net, RF fallback
-│   ├── stress.py            # Module 4: Savitzky-Golay RAM tracker & stress ensemble
-│   ├── hydrology.py         # Module 5: Hargreaves ET0, FAO-56 balance, 8-day deficit
-│   └── app.py               # Module 6: Streamlit dashboard & Leaflet spatial engine
+├── backend/                 # Python / PyTorch / FastAPI Service
+│   ├── requirements.txt     # Pinned Python dependencies
+│   ├── main.py              # FastAPI server & route orchestration
+│   ├── gee_pipeline.py      # Earth Engine pipeline & raster exporter
+│   ├── data_loader.py       # Memory-mapped raster loader & PyTorch datasets
+│   ├── model.py             # Prithvi-EO ViT, SAR 2D CNN, MSF-Net, RF fallback
+│   ├── stress.py            # Savitzky-Golay RAM tracker & stress ensemble
+│   └── hydrology.py         # Hargreaves ET0, FAO-56 balance, 8-day deficit
+├── frontend/                # React (TypeScript + Vite) Client Application
+│   ├── package.json         # Node dependencies (React 18+, MapLibre/Leaflet, Recharts)
+│   ├── vite.config.ts       # Vite bundler configuration & proxy settings
+│   ├── src/
+│   │   ├── App.tsx          # Root application layout & state provider
+│   │   ├── components/
+│   │   │   ├── MapViewer.tsx        # GPU-accelerated raster/vector GIS map viewer
+│   │   │   ├── CanalAdvisory.tsx    # Sluice release tables, discharge gauges (Q = V / t)
+│   │   │   ├── PhenologyChart.tsx   # Recharts dynamic Savitzky-Golay time-series
+│   │   │   └── StressGauge.tsx      # Composite moisture stress breakdown cards
+│   │   └── services/
+│   │       └── api.ts               # Axios / Fetch client connecting to FastAPI
 └── tests/
     ├── test_hydrology.py    # Unit tests for Hargreaves, Kc, and deficit equations
     ├── test_model.py        # Tensor shape, auxiliary loss, and fallback verification
@@ -391,13 +407,22 @@ class HydrologyBalanceEngine:
         """Outputs total volume in m^3 and recommended discharge in m^3/s."""
 ```
 
-#### Module 6: `app.py`
-* **Technology:** Streamlit with `streamlit-folium`, `folium.raster_layers.ImageOverlay`, and `plotly.express`.
-* **Features:**
-  1. Interactive dual-layer map with toggleable 10m crop classification boundaries and stage moisture stress heatmaps.
-  2. Canal block selector showing aggregated 8-day water deficit ($m^3/\text{ha}$) and recommended sluice discharge ($m^3/s$).
-  3. Interactive time-series drawer: clicking any pixel plots its temporal Savitzky-Golay smoothed NDVI trajectory, $SMI_{\text{SAR}}$ radar moisture, and LST anomaly.
-  4. CSV/PDF export of official irrigation advisories formatted for field engineers.
+#### Module 6: Backend REST API (`backend/main.py`) & React Frontend (`frontend/`)
+
+##### A. Backend REST API Endpoints (`FastAPI`):
+* `GET /api/v1/health`: Cluster & GPU status probe.
+* `GET /api/v1/crops/geojson`: Streams 10m vectorized crop classification parcel boundaries.
+* `GET /api/v1/stress/tiles/{z}/{x}/{y}.png`: Dynamic XYZ map tile server rendering Stage-Wise Moisture Stress heatmaps.
+* `GET /api/v1/canals/advisories`: Returns 8-day volumetric water deficit ($m^3/\text{ha}$) and sluice discharge metrics ($Q = V / t$) per canal distributary.
+* `GET /api/v1/pixel/timeseries?lat={lat}&lon={lon}`: Delivers raw and Savitzky-Golay smoothed NDVI, $SMI_{\text{SAR}}$, and LST temporal profiles for pixel-level drill-down.
+
+##### B. Frontend Application (`React + Vite + TypeScript`):
+* **Technology Stack:** React 18/19, Vite, TypeScript, MapLibre GL / React-Leaflet, Recharts, TailwindCSS / Vanilla CSS, Lucide Icons.
+* **Component Architecture:**
+  1. **`MapViewer.tsx`**: Interactive dual-layer WebGL/Leaflet GIS map with toggleable 10m crop classification boundaries and stage moisture stress heatmaps. Supports click-to-inspect on any parcel.
+  2. **`CanalAdvisory.tsx`**: Responsive data table and metric cards showing aggregated 8-day water deficit ($m^3/\text{ha}$), current crop stage, and recommended sluice discharge ($m^3/s$) with status indicators (Normal, Alert, Critical).
+  3. **`PhenologyChart.tsx`**: Interactive Recharts time-series chart plotting temporal Savitzky-Golay smoothed NDVI curves, radar moisture index ($SMI_{\text{SAR}}$), and thermal anomalies ($TAI_{\text{LST}}$).
+  4. **`ExportAdvisory.tsx`**: Official PDF and CSV report generator for irrigation engineers and field sluice operators.
 
 ---
 
