@@ -52,35 +52,38 @@ gee_service_account.json
 *.shx
 *.dbf
 *.prj
-data/
 outputs/
 checkpoints/
+
+# Raw dataset files inside data/ (too large for GitHub)
+# Folder structure and .gitkeep are committed; raw files are not
+data/**/*.tif
+data/**/*.tiff
+data/**/*.geotiff
+data/**/*.nc
+data/**/*.hdf
+data/**/*.h5
+data/**/*.zip
+data/**/*.tar
+data/**/*.tgz
+data/**/*.jp2
+data/**/*.safe
+data/**/*.shp
+data/**/*.shx
+data/**/*.dbf
+data/**/*.prj
+data/**/*.geojson
+data/**/*.parquet
+# Always keep .gitkeep so folders are visible on GitHub
+!data/**/.gitkeep
 
 # Graphify temporary files & caches
 .graphify_*
 graphify-out/cache/
 graphify-out/.graphify_*
 
-# Dataset raw data (large files - do NOT push to GitHub)
-# Only the folder structure and README.md are committed
-dataset/**/*.tif
-dataset/**/*.tiff
-dataset/**/*.geotiff
-dataset/**/*.nc
-dataset/**/*.hdf
-dataset/**/*.h5
-dataset/**/*.zip
-dataset/**/*.tar
-dataset/**/*.tgz
-dataset/**/*.shp
-dataset/**/*.shx
-dataset/**/*.dbf
-dataset/**/*.prj
-dataset/**/*.geojson
-dataset/**/*.jp2
-dataset/**/*.safe
-# Keep README.md committed in each dataset subfolder
-!dataset/**/README.md
+# Ignore old dataset/ folder entirely
+dataset/
 
 
 # IDE & Editor caches
