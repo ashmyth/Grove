@@ -8,7 +8,7 @@ import type {
   AnalysisRunResponse
 } from "../types";
 
-const API_BASE = "http://127.0.0.1:8000/api/v1";
+const API_BASE = "/api/v1";
 
 export async function fetchCommandOverview(): Promise<CommandOverview> {
   const res = await fetch(`${API_BASE}/overview`);

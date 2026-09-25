@@ -3,9 +3,13 @@ Grove (GeoPrithvi-Agri) FastAPI Backend Service
 Fully integrates Teammate 1 (GEE Pipeline), Teammate 2 (ML & Hydrology), and Teammate 3 (API & React UI).
 """
 
+import os
+from pathlib import Path
 from typing import List, Optional, Literal, Dict, Any
 from fastapi import FastAPI, HTTPException, Query, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 import copy
 import numpy as np
@@ -475,6 +479,32 @@ def run_command_analysis(payload: AnalysisInputPayload):
     }
 
 
+# =====================================================================
+# Mount React Frontend Build (Single Port FastAPI + React)
+# =====================================================================
+
+FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+
+if FRONTEND_DIST.exists():
+    # Mount compiled static assets (/assets, icons, etc.)
+    assets_dir = FRONTEND_DIST / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
+
+    # Serve index.html on root and SPA client-side routes
+    @app.get("/{full_path:path}")
+    async def serve_react_app(full_path: str):
+        # Allow API endpoints to take precedence
+        if full_path.startswith("api/"):
+            raise HTTPException(status_code=404, detail="API route not found")
+        
+        file_path = FRONTEND_DIST / full_path
+        if file_path.is_file():
+            return FileResponse(file_path)
+        return FileResponse(FRONTEND_DIST / "index.html")
+
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("backend.main:app", host="127.0.0.1", port=8000, reload=True)
+
