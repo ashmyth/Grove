@@ -1,0 +1,121 @@
+{
+  "type": "FeatureCollection",
+  "name": "sample_parcels",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL_001",
+        "crop_type": "Paddy",
+        "crop_code": 0,
+        "area_ha": 12.5,
+        "canal_block": "BLOCK_NORTH_MAIN",
+        "planting_date": "2026-06-15"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [76.4000, 9.4900],
+            [76.4150, 9.4900],
+            [76.4150, 9.5050],
+            [76.4000, 9.5050],
+            [76.4000, 9.4900]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL_002",
+        "crop_type": "Cotton",
+        "crop_code": 1,
+        "area_ha": 18.2,
+        "canal_block": "BLOCK_NORTH_MAIN",
+        "planting_date": "2026-06-20"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [76.4200, 9.4900],
+            [76.4350, 9.4900],
+            [76.4350, 9.5050],
+            [76.4200, 9.5050],
+            [76.4200, 9.4900]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL_003",
+        "crop_type": "Maize",
+        "crop_code": 2,
+        "area_ha": 9.4,
+        "canal_block": "BLOCK_WEST_DISTRIBUTARY",
+        "planting_date": "2026-07-01"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [76.4400, 9.4900],
+            [76.4550, 9.4900],
+            [76.4550, 9.5050],
+            [76.4400, 9.5050],
+            [76.4400, 9.4900]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL_004",
+        "crop_type": "Sugarcane",
+        "crop_code": 3,
+        "area_ha": 25.0,
+        "canal_block": "BLOCK_WEST_DISTRIBUTARY",
+        "planting_date": "2026-05-10"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [76.4000, 9.5100],
+            [76.4250, 9.5100],
+            [76.4250, 9.5300],
+            [76.4000, 9.5300],
+            [76.4000, 9.5100]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL_005",
+        "crop_type": "Pulses",
+        "crop_code": 4,
+        "area_ha": 8.1,
+        "canal_block": "BLOCK_SOUTH_REACH",
+        "planting_date": "2026-07-15"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [76.4300, 9.5100],
+            [76.4500, 9.5100],
+            [76.4500, 9.5250],
+            [76.4300, 9.5250],
+            [76.4300, 9.5100]
+          ]
+        ]
+      }
+    }
+  ]
+}
