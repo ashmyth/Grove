@@ -61,6 +61,27 @@ checkpoints/
 graphify-out/cache/
 graphify-out/.graphify_*
 
+# Dataset raw data (large files - do NOT push to GitHub)
+# Only the folder structure and README.md are committed
+dataset/**/*.tif
+dataset/**/*.tiff
+dataset/**/*.geotiff
+dataset/**/*.nc
+dataset/**/*.hdf
+dataset/**/*.h5
+dataset/**/*.zip
+dataset/**/*.tar
+dataset/**/*.tgz
+dataset/**/*.shp
+dataset/**/*.shx
+dataset/**/*.dbf
+dataset/**/*.prj
+dataset/**/*.geojson
+dataset/**/*.jp2
+dataset/**/*.safe
+# Keep README.md committed in each dataset subfolder
+!dataset/**/README.md
+
 
 # IDE & Editor caches
 .vscode/
