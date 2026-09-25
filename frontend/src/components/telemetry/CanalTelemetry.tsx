@@ -24,7 +24,7 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
       style={{
         width: "350px",
         minWidth: "350px",
-        height: "calc(100vh - 56px)",
+        height: "100%",
         backgroundColor: "var(--bg-panel)",
         borderRight: "1px solid var(--border-subtle)",
         display: "flex",
@@ -34,33 +34,33 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
       }}
     >
       {/* Top Telemetry KPI Bar */}
-      <div style={{ padding: "16px", borderBottom: "1px solid var(--border-subtle)" }}>
+      <div style={{ padding: "var(--space-md)", borderBottom: "1px solid var(--border-subtle)" }}>
         <span
           style={{
-            fontSize: "11px",
+            fontSize: "10px",
             fontWeight: 700,
             textTransform: "uppercase",
-            letterSpacing: "0.05em",
+            letterSpacing: "0.06em",
             color: "var(--text-dim)",
             display: "block",
-            marginBottom: "12px",
+            marginBottom: "var(--space-sm)",
           }}
         >
           Canal Command Telemetry
         </span>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-xs)" }}>
           {/* Discharge Allocation */}
           <div
             style={{
-              padding: "10px",
+              padding: "var(--space-xs) var(--space-sm)",
               borderRadius: "8px",
               backgroundColor: "var(--bg-surface)",
               border: "1px solid var(--border-subtle)",
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "var(--accent-water)", marginBottom: "4px" }}>
-              <Gauge size={14} />
+              <Gauge size={13} />
               <span style={{ fontSize: "11px", color: "var(--text-muted)" }}>Target Discharge</span>
             </div>
             <div className="telemetry-num" style={{ fontSize: "18px", fontWeight: 700 }}>
@@ -72,14 +72,14 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
           {/* Water Deficit */}
           <div
             style={{
-              padding: "10px",
+              padding: "var(--space-xs) var(--space-sm)",
               borderRadius: "8px",
               backgroundColor: "var(--bg-surface)",
               border: "1px solid var(--border-subtle)",
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "var(--stress-severe)", marginBottom: "4px" }}>
-              <Droplets size={14} />
+              <Droplets size={13} />
               <span style={{ fontSize: "11px", color: "var(--text-muted)" }}>Total Deficit</span>
             </div>
             <div className="telemetry-num" style={{ fontSize: "18px", fontWeight: 700 }}>
@@ -93,8 +93,8 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
         {overview && overview.severe_stress_parcels_count > 0 && (
           <div
             style={{
-              marginTop: "10px",
-              padding: "8px 12px",
+              marginTop: "var(--space-xs)",
+              padding: "var(--space-xs) var(--space-sm)",
               borderRadius: "6px",
               backgroundColor: "oklch(0.60 0.22 25 / 0.12)",
               border: "1px solid oklch(0.60 0.22 25 / 0.3)",
@@ -103,7 +103,7 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
               gap: "8px",
             }}
           >
-            <AlertTriangle size={15} color="var(--stress-severe)" />
+            <AlertTriangle size={14} color="var(--stress-severe)" />
             <span style={{ fontSize: "11px", color: "var(--stress-severe)", fontWeight: 600 }}>
               {overview.severe_stress_parcels_count} Tail-End Parcels in Severe Water Deficit
             </span>
@@ -115,8 +115,8 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
       <div
         style={{
           display: "flex",
-          padding: "10px 16px",
-          gap: "6px",
+          padding: "var(--space-xs) var(--space-md)",
+          gap: "var(--space-2xs)",
           borderBottom: "1px solid var(--border-subtle)",
           backgroundColor: "var(--bg-panel)",
         }}
@@ -127,7 +127,7 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
             onClick={() => onFilterReach(r)}
             style={{
               flex: 1,
-              padding: "5px 0",
+              padding: "6px 0",
               fontSize: "11px",
               fontWeight: 600,
               textTransform: "capitalize",
@@ -136,6 +136,7 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
               backgroundColor: reachFilter === r ? "var(--accent-brand-glow)" : "var(--bg-surface)",
               color: reachFilter === r ? "var(--accent-brand)" : "var(--text-muted)",
               cursor: "pointer",
+              transition: "all 0.15s ease",
             }}
           >
             {r}
@@ -144,22 +145,22 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
       </div>
 
       {/* Priority Canal Advisory List */}
-      <div style={{ flex: 1, overflowY: "auto", padding: "12px 16px" }}>
+      <div style={{ flex: 1, overflowY: "auto", padding: "var(--space-sm) var(--space-md)" }}>
         <span
           style={{
-            fontSize: "11px",
+            fontSize: "10px",
             fontWeight: 700,
             textTransform: "uppercase",
-            letterSpacing: "0.05em",
+            letterSpacing: "0.06em",
             color: "var(--text-dim)",
             display: "block",
-            marginBottom: "10px",
+            marginBottom: "var(--space-xs)",
           }}
         >
           Canal Distributary Advisories ({advisories.length})
         </span>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xs)" }}>
           {advisories.map((item) => {
             const isSelected = selectedParcelId === item.id;
             const badgeClass =
@@ -176,7 +177,7 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
                 key={item.id}
                 onClick={() => onSelectParcel(item.id)}
                 style={{
-                  padding: "12px",
+                  padding: "var(--space-sm)",
                   borderRadius: "8px",
                   backgroundColor: isSelected ? "var(--bg-surface-hover)" : "var(--bg-surface)",
                   border: isSelected ? "1px solid var(--accent-brand)" : "1px solid var(--border-subtle)",
@@ -189,7 +190,7 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
                     <span style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-main)", display: "block" }}>
                       {item.block_name}
                     </span>
-                    <span style={{ fontSize: "11px", color: "var(--text-dim)", display: "flex", alignItems: "center", gap: "3px" }}>
+                    <span style={{ fontSize: "11px", color: "var(--text-dim)", display: "flex", alignItems: "center", gap: "3px", marginTop: "2px" }}>
                       <MapPin size={10} /> {item.id} • {item.crop_type} ({item.stage})
                     </span>
                   </div>
@@ -211,7 +212,7 @@ export const CanalTelemetry: React.FC<CanalTelemetryProps> = ({
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    paddingTop: "6px",
+                    paddingTop: "var(--space-xs)",
                     borderTop: "1px dashed var(--border-subtle)",
                     fontSize: "11px",
                   }}

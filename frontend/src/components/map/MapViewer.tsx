@@ -145,7 +145,7 @@ export const MapViewer: React.FC<MapViewerProps> = ({
   }, [parcels, selectedParcelId, activeLayer, onSelectParcel]);
 
   return (
-    <div style={{ flex: 1, position: "relative", height: "calc(100vh - 56px)" }}>
+    <div style={{ flex: 1, position: "relative", height: "100%", overflow: "hidden" }}>
       {/* Leaflet DOM container */}
       <div ref={mapContainerRef} style={{ width: "100%", height: "100%" }} />
 
@@ -153,13 +153,13 @@ export const MapViewer: React.FC<MapViewerProps> = ({
       <div
         style={{
           position: "absolute",
-          top: "16px",
-          left: "16px",
+          top: "var(--space-md)",
+          left: "var(--space-md)",
           zIndex: 1000,
           display: "flex",
-          gap: "6px",
+          gap: "var(--space-2xs)",
           backgroundColor: "var(--bg-panel)",
-          padding: "6px",
+          padding: "var(--space-2xs)",
           borderRadius: "8px",
           border: "1px solid var(--border-subtle)",
           boxShadow: "var(--shadow-panel)",
@@ -192,39 +192,39 @@ export const MapViewer: React.FC<MapViewerProps> = ({
       <div
         style={{
           position: "absolute",
-          bottom: "20px",
-          left: "16px",
+          bottom: "var(--space-md)",
+          left: "var(--space-md)",
           zIndex: 1000,
           backgroundColor: "var(--bg-panel)",
-          padding: "10px 14px",
+          padding: "var(--space-sm) var(--space-md)",
           borderRadius: "8px",
           border: "1px solid var(--border-subtle)",
           boxShadow: "var(--shadow-panel)",
           fontSize: "11px",
         }}
       >
-        <div style={{ fontWeight: 700, marginBottom: "6px", color: "var(--text-dim)", textTransform: "uppercase" }}>
+        <div style={{ fontWeight: 700, marginBottom: "var(--space-2xs)", color: "var(--text-dim)", textTransform: "uppercase", fontSize: "10px", letterSpacing: "0.05em" }}>
           Stress Severity (CMSI)
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-2xs)" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ width: "12px", height: "12px", borderRadius: "3px", backgroundColor: "#ef4444" }} />
+            <span style={{ width: "10px", height: "10px", borderRadius: "2px", backgroundColor: "#ef4444" }} />
             <span>Severe Water Deficit (&gt; 0.75)</span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ width: "12px", height: "12px", borderRadius: "3px", backgroundColor: "#eab308" }} />
+            <span style={{ width: "10px", height: "10px", borderRadius: "2px", backgroundColor: "#eab308" }} />
             <span>Moderate Stress (0.50 - 0.75)</span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ width: "12px", height: "12px", borderRadius: "3px", backgroundColor: "#84cc16" }} />
+            <span style={{ width: "10px", height: "10px", borderRadius: "2px", backgroundColor: "#84cc16" }} />
             <span>Mild Stress (0.35 - 0.50)</span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ width: "12px", height: "12px", borderRadius: "3px", backgroundColor: "#10b981" }} />
+            <span style={{ width: "10px", height: "10px", borderRadius: "2px", backgroundColor: "#10b981" }} />
             <span>Healthy Crop / Low Deficit (&lt; 0.35)</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "4px", paddingTop: "4px", borderTop: "1px dashed var(--border-subtle)" }}>
-            <span style={{ width: "16px", height: "3px", backgroundColor: "#38bdf8" }} />
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "var(--space-2xs)", paddingTop: "var(--space-2xs)", borderTop: "1px dashed var(--border-subtle)" }}>
+            <span style={{ width: "14px", height: "3px", backgroundColor: "#38bdf8" }} />
             <span>Canal Distribution Network</span>
           </div>
         </div>

@@ -52,7 +52,7 @@ export const AnalyticsDrawer: React.FC<AnalyticsDrawerProps> = ({
       style={{
         width: "420px",
         minWidth: "420px",
-        height: "calc(100vh - 56px)",
+        height: "100%",
         backgroundColor: "var(--bg-panel)",
         borderLeft: "1px solid var(--border-subtle)",
         display: "flex",
@@ -68,15 +68,15 @@ export const AnalyticsDrawer: React.FC<AnalyticsDrawerProps> = ({
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "16px",
+          padding: "var(--space-md)",
           borderBottom: "1px solid var(--border-subtle)",
         }}
       >
         <div>
-          <span style={{ fontSize: "11px", fontWeight: 700, color: "var(--text-dim)", textTransform: "uppercase" }}>
+          <span style={{ fontSize: "10px", fontWeight: 700, color: "var(--text-dim)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
             Parcel Earth Observation Inspector
           </span>
-          <h2 style={{ fontSize: "16px", fontWeight: 700, marginTop: "2px" }}>{props.block_name}</h2>
+          <h2 style={{ fontSize: "15px", fontWeight: 700, marginTop: "2px" }}>{props.block_name}</h2>
         </div>
         <button
           onClick={onClose}
@@ -93,29 +93,29 @@ export const AnalyticsDrawer: React.FC<AnalyticsDrawerProps> = ({
       </div>
 
       {/* Parcel Metrics Strip */}
-      <div style={{ padding: "16px", borderBottom: "1px solid var(--border-subtle)" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-          <div style={{ padding: "8px", background: "var(--bg-surface)", borderRadius: "6px" }}>
+      <div style={{ padding: "var(--space-md)", borderBottom: "1px solid var(--border-subtle)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-xs)" }}>
+          <div style={{ padding: "var(--space-xs) var(--space-sm)", background: "var(--bg-surface)", borderRadius: "6px" }}>
             <span style={{ fontSize: "10px", color: "var(--text-dim)" }}>Crop & Growth Stage</span>
-            <div style={{ fontSize: "13px", fontWeight: 600 }}>
+            <div style={{ fontSize: "13px", fontWeight: 600, marginTop: "2px" }}>
               {props.crop_type} ({props.stage})
             </div>
           </div>
-          <div style={{ padding: "8px", background: "var(--bg-surface)", borderRadius: "6px" }}>
+          <div style={{ padding: "var(--space-xs) var(--space-sm)", background: "var(--bg-surface)", borderRadius: "6px" }}>
             <span style={{ fontSize: "10px", color: "var(--text-dim)" }}>Command Reach</span>
-            <div style={{ fontSize: "13px", fontWeight: 600, textTransform: "capitalize" }}>
+            <div style={{ fontSize: "13px", fontWeight: 600, textTransform: "capitalize", marginTop: "2px" }}>
               {props.reach} Distributary
             </div>
           </div>
-          <div style={{ padding: "8px", background: "var(--bg-surface)", borderRadius: "6px" }}>
+          <div style={{ padding: "var(--space-xs) var(--space-sm)", background: "var(--bg-surface)", borderRadius: "6px" }}>
             <span style={{ fontSize: "10px", color: "var(--text-dim)" }}>Irrigation Deficit</span>
-            <div className="telemetry-num" style={{ fontSize: "14px", fontWeight: 700, color: "var(--stress-severe)" }}>
+            <div className="telemetry-num" style={{ fontSize: "14px", fontWeight: 700, color: "var(--stress-severe)", marginTop: "2px" }}>
               {props.deficit_m3_ha} <span className="telemetry-decimal">m³/ha</span>
             </div>
           </div>
-          <div style={{ padding: "8px", background: "var(--bg-surface)", borderRadius: "6px" }}>
+          <div style={{ padding: "var(--space-xs) var(--space-sm)", background: "var(--bg-surface)", borderRadius: "6px" }}>
             <span style={{ fontSize: "10px", color: "var(--text-dim)" }}>Recommended Gate Discharge</span>
-            <div className="telemetry-num" style={{ fontSize: "14px", fontWeight: 700, color: "var(--accent-water)" }}>
+            <div className="telemetry-num" style={{ fontSize: "14px", fontWeight: 700, color: "var(--accent-water)", marginTop: "2px" }}>
               {props.recommended_discharge} <span className="telemetry-decimal">m³/s</span>
             </div>
           </div>
@@ -123,10 +123,10 @@ export const AnalyticsDrawer: React.FC<AnalyticsDrawerProps> = ({
       </div>
 
       {/* Multi-temporal Phenology Chart */}
-      <div style={{ padding: "16px", flex: 1 }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
-          <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--text-main)", display: "flex", alignItems: "center", gap: "6px" }}>
-            <Activity size={14} color="var(--accent-brand)" />
+      <div style={{ padding: "var(--space-md)", flex: 1 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "var(--space-xs)" }}>
+          <span style={{ fontSize: "11px", fontWeight: 700, color: "var(--text-main)", display: "flex", alignItems: "center", gap: "6px" }}>
+            <Activity size={13} color="var(--accent-brand)" />
             Savitzky-Golay Smoothed Phenology
           </span>
           <span style={{ fontSize: "10px", color: "var(--text-dim)" }}>12-Day Sentinel Cadence</span>
@@ -161,13 +161,13 @@ export const AnalyticsDrawer: React.FC<AnalyticsDrawerProps> = ({
         </div>
 
         {/* LST Thermal Anomaly Track */}
-        <div style={{ marginTop: "16px" }}>
-          <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--text-main)", display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px" }}>
-            <Thermometer size={14} color="#f97316" />
+        <div style={{ marginTop: "var(--space-md)" }}>
+          <span style={{ fontSize: "11px", fontWeight: 700, color: "var(--text-main)", display: "flex", alignItems: "center", gap: "6px", marginBottom: "var(--space-xs)" }}>
+            <Thermometer size={13} color="#f97316" />
             Landsat-8 Thermal Baseline Anomaly (ΔT)
           </span>
 
-          <div style={{ display: "flex", gap: "6px", overflowX: "auto", paddingBottom: "4px" }}>
+          <div style={{ display: "flex", gap: "var(--space-2xs)", overflowX: "auto", paddingBottom: "4px" }}>
             {chartData.map((d, i) => (
               <div
                 key={i}
@@ -199,7 +199,7 @@ export const AnalyticsDrawer: React.FC<AnalyticsDrawerProps> = ({
         </div>
 
         {/* Action Button */}
-        <div style={{ marginTop: "24px" }}>
+        <div style={{ marginTop: "var(--space-lg)" }}>
           <button
             onClick={() => alert(`Advisory Note for ${props.block_name} ready to export:\nRecommended Gate Discharge: ${props.recommended_discharge} m³/s\nDeficit: ${props.deficit_m3_ha} m³/ha`)}
             style={{
