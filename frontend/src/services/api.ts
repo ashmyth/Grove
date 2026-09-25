@@ -61,3 +61,10 @@ export async function runCommandAnalysis(
   if (!res.ok) throw new Error("Failed to run pipeline analysis");
   return res.json();
 }
+
+export async function fetchModelDiagnostics(): Promise<import("../types").ModelDiagnostics> {
+  const res = await fetch(`${API_BASE}/model-diagnostics`);
+  if (!res.ok) throw new Error("Failed to fetch model diagnostics");
+  return res.json();
+}
+

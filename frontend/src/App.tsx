@@ -28,7 +28,7 @@ export function App() {
   const [canalNetwork, setCanalNetwork] = useState<CanalLineFeatureCollection | null>(null);
   const [selectedParcelId, setSelectedParcelId] = useState<string | null>("PARCEL-C309");
   const [reachFilter, setReachFilter] = useState<ReachType | "all">("all");
-  const [activeLayer, setActiveLayer] = useState<"stress" | "optical" | "sar" | "thermal">("stress");
+  const [activeLayer, setActiveLayer] = useState<"stress" | "crop" | "optical" | "sar" | "thermal">("stress");
   const [isComputing, setIsComputing] = useState(false);
 
   // Initial load
@@ -57,8 +57,6 @@ export function App() {
   const handleRunAnalysis = async (payload: AnalysisInputPayload) => {
     setIsComputing(true);
     try {
-      // Simulate realistic computing delay
-      await new Promise((res) => setTimeout(res, 800));
       const result = await runCommandAnalysis(payload);
       if (result.status === "success") {
         setOverview(result.overview);

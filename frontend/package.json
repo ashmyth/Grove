@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "electron:dev": "concurrently -k \"npm run dev\" \"cross-env NODE_ENV=development electron .\"",
     "electron:start": "cross-env NODE_ENV=development electron .",
-    "electron:build": "npm run build && electron ."
+    "electron:build": "npm run build && electron .",
+    "backend:dev": "cd ../.. && python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.22",

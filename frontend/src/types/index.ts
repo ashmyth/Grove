@@ -49,6 +49,39 @@ export interface ParcelProperties {
   smi_sar?: number;
   lst_anomaly?: number;
   farmer?: string;
+  ai_predicted_crop?: string;
+  ai_confidence?: number;
+  ai_class_probabilities?: Record<string, number>;
+  features_used?: {
+    s2_ndvi: number;
+    s1_smi: number;
+    sar_vh_db: number;
+    lst_anomaly: number;
+  };
+}
+
+export interface ModelDiagnostics {
+  model_name: string;
+  training_samples: number;
+  test_samples: number;
+  accuracy: number;
+  macro_f1: number;
+  macro_precision: number;
+  macro_recall: number;
+  confusion_matrix: number[][];
+  class_names: string[];
+  per_class_metrics: Record<string, {
+    precision: number;
+    recall: number;
+    f1_score: number;
+    support: number;
+  }>;
+  top_features: Array<{
+    feature: string;
+    importance: number;
+  }>;
+  status?: string;
+  message?: string;
 }
 
 export interface ParcelFeature {

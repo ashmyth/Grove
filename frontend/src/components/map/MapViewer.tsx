@@ -7,8 +7,8 @@ interface MapViewerProps {
   canalNetwork: CanalLineFeatureCollection | null;
   selectedParcelId: string | null;
   onSelectParcel: (id: string) => void;
-  activeLayer: "stress" | "optical" | "sar" | "thermal";
-  onLayerChange: (layer: "stress" | "optical" | "sar" | "thermal") => void;
+  activeLayer: "stress" | "crop" | "optical" | "sar" | "thermal";
+  onLayerChange: (layer: "stress" | "crop" | "optical" | "sar" | "thermal") => void;
 }
 
 export const MapViewer: React.FC<MapViewerProps> = ({
@@ -93,6 +93,14 @@ export const MapViewer: React.FC<MapViewerProps> = ({
     }
 
     const getParcelColor = (props: any) => {
+      if (activeLayer === "crop") {
+        const crop = props.ai_predicted_crop || props.crop_type || "";
+        if (crop.includes("Paddy") || crop.includes("Rice")) return "#0284c7"; // Blue
+        if (crop.includes("Cotton")) return "#f59e0b"; // Warm Amber
+        if (crop.includes("Maize")) return "#84cc16"; // Lime Green
+        if (crop.includes("Sugarcane")) return "#10b981"; // Emerald
+        return "#eab308"; // Golden Wheat / Mustard
+      }
       if (activeLayer === "optical") {
         const ndvi = props.ndvi ?? 0.6;
         if (ndvi >= 0.75) return "#15803d";
@@ -152,7 +160,10 @@ export const MapViewer: React.FC<MapViewerProps> = ({
             <div style="font-size:11px; color:#cbd5e1; font-weight:600;">
               ${p.id} • ${p.crop_type}
             </div>
-            <div style="font-size:11px; color:#94a3b8;">
+            <div style="font-size:11px; color:#38bdf8; font-weight:600; margin-top:2px;">
+              AI Classified: <strong>${p.ai_predicted_crop ?? p.crop_type}</strong> ${p.ai_confidence ? `(${Math.round(p.ai_confidence * 100)}% conf)` : ''}
+            </div>
+            <div style="font-size:11px; color:#94a3b8; margin-top:2px;">
               Stage: <span style="color:#e2e8f0;">${p.stage}</span> • Area: <span style="color:#e2e8f0;">${p.area_ha} ha</span>
             </div>
             <div style="display:flex; gap:8px; margin-top:4px; font-size:10px; background:#0f172a; padding:3px 6px; border-radius:4px;">

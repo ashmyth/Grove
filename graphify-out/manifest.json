@@ -40,8 +40,8 @@
     "semantic_hash": ""
   },
   "backend/main.py": {
-    "mtime": 1790354327.8805382,
-    "ast_hash": "0727a7095c48f75fd676eeec9abb6063",
+    "mtime": 1790358950.3599224,
+    "ast_hash": "13ce0c06b654ecbb224321f5bb0a2516",
     "semantic_hash": ""
   },
   "frontend/.oxlintrc.json": {
@@ -55,8 +55,8 @@
     "semantic_hash": ""
   },
   "frontend/src/App.tsx": {
-    "mtime": 1790351862.052055,
-    "ast_hash": "a54572c899b3278b3a0c5f53404e6adc",
+    "mtime": 1790358902.1980665,
+    "ast_hash": "c527d22211865f644caf189be6e68a02",
     "semantic_hash": ""
   },
   "frontend/src/components/analytics/AnalyticsDrawer.tsx": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "frontend/src/components/map/MapViewer.tsx": {
-    "mtime": 1790354357.1530654,
-    "ast_hash": "d70707adb73fbd206e271e5afc3b5df8",
+    "mtime": 1790356862.0770812,
+    "ast_hash": "59e25c0e012013b4a2e13fb4156ef1f4",
     "semantic_hash": ""
   },
   "frontend/src/components/telemetry/CanalTelemetry.tsx": {
@@ -85,13 +85,13 @@
     "semantic_hash": ""
   },
   "frontend/src/services/api.ts": {
-    "mtime": 1790353409.8515177,
-    "ast_hash": "0337a440b27ae56461f3d883d55a63c9",
+    "mtime": 1790356827.7047107,
+    "ast_hash": "314e9d4e61428d366dc150748d22ed55",
     "semantic_hash": ""
   },
   "frontend/src/types/index.ts": {
-    "mtime": 1790354426.1456332,
-    "ast_hash": "8dc849797f7716acb3d728ce57623d46",
+    "mtime": 1790356814.7608771,
+    "ast_hash": "a5dfe5b1c0cabf46a6d499c1853de6bb",
     "semantic_hash": ""
   },
   "frontend/tsconfig.app.json": {
@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   "backend/data_loader.py": {
-    "mtime": 1790352401.3837895,
-    "ast_hash": "c74e35af2718fd6147109cb26b9de13f",
+    "mtime": 1790359072.7102983,
+    "ast_hash": "3cdd7e32780a910238dbb016569591c9",
     "semantic_hash": ""
   },
   "backend/gee_pipeline.py": {
@@ -160,28 +160,23 @@
     "semantic_hash": ""
   },
   "backend/hydrology.py": {
-    "mtime": 1790351845.011038,
-    "ast_hash": "9ff96056d606507e16d87f5725ad4195",
+    "mtime": 1790357508.9542646,
+    "ast_hash": "0fdd4677257cb273d2ff1b24ac0b905e",
     "semantic_hash": ""
   },
   "backend/model.py": {
-    "mtime": 1790351845.0120926,
-    "ast_hash": "5c1f8666635808dd7327bcc5976b75cf",
+    "mtime": 1790358871.9145372,
+    "ast_hash": "89a8dbdfa575b3f426206b8f2cf7be87",
     "semantic_hash": ""
   },
   "backend/stress.py": {
-    "mtime": 1790352044.5877326,
-    "ast_hash": "a2f93e17e2620e95a190c2fa566bb759",
+    "mtime": 1790358566.3161333,
+    "ast_hash": "fc47cf31cbd71bd1661f6fe8b0549cc2",
     "semantic_hash": ""
   },
   "frontend/src/components/layout/CommandControlBar.tsx": {
     "mtime": 1790354395.401781,
     "ast_hash": "abc4b4be570de2b32af4029a37795b50",
-    "semantic_hash": ""
-  },
-  "scripts/generate_synthetic_geotiff.py": {
-    "mtime": 1790352401.3864212,
-    "ast_hash": "f0eddbe1f1ba86bece35df0082cd1b3c",
     "semantic_hash": ""
   },
   "tests/test_data_loader.py": {
@@ -222,6 +217,16 @@
   "backend/command_data.py": {
     "mtime": 1790354246.9258542,
     "ast_hash": "52bcb75fba3b8890146b137817d22d3b",
+    "semantic_hash": ""
+  },
+  "backend/train.py": {
+    "mtime": 1790356480.4220884,
+    "ast_hash": "557dab11f522a38bad9d7305c26cef6d",
+    "semantic_hash": ""
+  },
+  "backend/weights/model_metrics.json": {
+    "mtime": 1790356513.6848423,
+    "ast_hash": "d447abd39dad62989b1ab55391eea197",
     "semantic_hash": ""
   }
 }

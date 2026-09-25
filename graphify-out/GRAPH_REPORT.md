@@ -1,16 +1,16 @@
 # Graph Report - Grove  (2026-09-25)
 
 ## Corpus Check
-- 39 files · ~29,350 words
+- 40 files · ~31,245 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 420 nodes · 588 edges · 21 communities (17 shown, 4 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.5)
+- 448 nodes · 647 edges · 21 communities (17 shown, 4 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2a7e8a63`
+- Built from commit: `c86cbd4f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,7 +18,6 @@
 - FastAPI Async REST Service
 - App.tsx
 - devDependencies
-- test_data_loader.py
 - main.py
 - 🔄 The Standard Parallel Git Lifecycle
 - Grove (GeoPrithvi-Agri)
@@ -31,21 +30,22 @@
 - tsconfig.json
 - main.ts
 - /graphify
-- test_model.py
+- model.py
 - rules/graphify.md
 - workflows/graphify.md
+- HydrologyEngine
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 18 edges
-2. `compilerOptions` - 15 edges
-3. `HydrologyEngine` - 13 edges
+2. `HydrologyEngine` - 17 edges
+3. `compilerOptions` - 15 edges
 4. `/graphify` - 13 edges
 5. `What You Must Do When Invoked` - 13 edges
-6. `get_command_system()` - 10 edges
-7. `GEEPipeline` - 10 edges
-8. `run_command_analysis()` - 9 edges
-9. `PhenologyStressEngine` - 9 edges
-10. `GroveDataset` - 8 edges
+6. `compute_block_water_deficit()` - 11 edges
+7. `get_command_system()` - 10 edges
+8. `GEEPipeline` - 10 edges
+9. `run_command_analysis()` - 10 edges
+10. `load_feature_tensors()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `test_effective_rainfall()` --calls--> `HydrologyEngine`  [EXTRACTED]
@@ -69,20 +69,16 @@ Cohesion: 0.06
 Nodes (41): Agricultural Extension Officer, GET /api/v1/canals/advisories, GET /api/v1/crops/geojson, GET /api/v1/pixel/timeseries, GET /api/v1/stress/tiles, Branch-Specific Auxiliary Loss Heads, CanalAdvisory Component (Sluice Tables & Gauges), Canal Command Engineer / Sluice Operator (+33 more)
 
 ### Community 1 - "App.tsx"
-Cohesion: 0.13
-Nodes (31): App(), AnalyticsDrawer(), AnalyticsDrawerProps, CommandControlBar(), CommandControlBarProps, Header(), HeaderProps, MapViewer() (+23 more)
+Cohesion: 0.11
+Nodes (34): App(), AnalyticsDrawer(), AnalyticsDrawerProps, CommandControlBar(), CommandControlBarProps, Header(), HeaderProps, MapViewer() (+26 more)
 
 ### Community 2 - "devDependencies"
 Cohesion: 0.08
 Nodes (25): concurrently, cross-env, electron, devDependencies, concurrently, cross-env, electron, oxlint (+17 more)
 
-### Community 3 - "test_data_loader.py"
-Cohesion: 0.07
-Nodes (28): _generate_fallback_dict(), GroveDataset, load_feature_tensors(), Any, Memory-Mapped Geospatial Data Loader & PyTorch Dataset Part of Grove…, Generates synthetic memory-mapped feature tensors matching Interface 1…, Memory-Mapped PyTorch Dataset for streaming 10m Sentinel optical/SAR chip…, Interface 1 Implementation (Teammate 1 -> Teammate 2) Args: sample_id: Unique… (+20 more)
-
 ### Community 4 - "main.py"
-Cohesion: 0.06
-Nodes (49): get_command_system(), load_kuttanad_data(), Any, Grove (GeoPrithvi-Agri) - High-Fidelity Agricultural GIS Datasets Provides…, Loads and formats the real Kuttanad dataset created by Teammate 1., Returns (canal_network_geojson, parcels_geojson) matching the selected region., GEEPipeline, Wrapper class providing high-level interface to Earth Engine routines. (+41 more)
+Cohesion: 0.07
+Nodes (47): get_command_system(), load_kuttanad_data(), Any, Loads and formats the real Kuttanad dataset created by Teammate 1., Returns (canal_network_geojson, parcels_geojson) matching the selected region., GEEPipeline, Wrapper class providing high-level interface to Earth Engine routines., AnalysisInputPayload (+39 more)
 
 ### Community 6 - "🔄 The Standard Parallel Git Lifecycle"
 Cohesion: 0.06
@@ -97,8 +93,8 @@ Cohesion: 0.10
 Nodes (19): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection, noEmit, noFallthroughCasesInSwitch (+11 more)
 
 ### Community 10 - "gee_pipeline.py"
-Cohesion: 0.16
-Nodes (18): apply_refined_lee_filter(), build_composite_image(), compute_landsat_lst(), compute_sar_polarimetric_proxies(), compute_spectral_indices(), fetch_era5_meteorology(), mask_s2_clouds(), Any (+10 more)
+Cohesion: 0.07
+Nodes (38): get_available_satellite_chips(), GroveDataset, load_feature_tensors(), Any, Memory-Mapped Geospatial Data Loader & PyTorch Dataset Part of Grove…, Memory-Mapped PyTorch Dataset for streaming 10m Sentinel optical/SAR chip…, Returns all available authentic HLS / Sentinel satellite chips in the data…, Interface 1 Implementation: Memory-Mapped Geospatial Satellite Loader. Loads… (+30 more)
 
 ### Community 11 - "package.json"
 Cohesion: 0.07
@@ -120,29 +116,33 @@ Nodes (6): { app, BrowserWindow }, __dirname, __filename, path, ref_path, ref_ur
 Cohesion: 0.07
 Nodes (28): For --cluster-only, For git commit hook, For /graphify add, For /graphify explain, For /graphify path, For /graphify query, For --update (incremental re-extraction), For --watch (+20 more)
 
-### Community 18 - "test_model.py"
-Cohesion: 0.14
-Nodes (14): MSFNetCropClassifier, PrithviFeatureExtractor, ndarray, RandomForestCropClassifier, optical_seq: (B, T, C=6, H=224, W=224) sar_patches: (B, C=2, H=11, W=11), Interface Contract 2: ML / Hydrology -> FastAPI Backend Returns 2D integer…, run_crop_inference(), SARPatchEncoder (+6 more)
+### Community 18 - "model.py"
+Cohesion: 0.07
+Nodes (32): Grove (GeoPrithvi-Agri) - High-Fidelity Agricultural GIS Datasets Provides…, extract_feature_vector(), get_prithvi_model(), MSFNetCropClassifier, predict_crop_from_features(), Any, ndarray, RandomForestCropClassifier (+24 more)
+
+### Community 21 - "HydrologyEngine"
+Cohesion: 0.13
+Nodes (16): compute_block_water_deficit(), HydrologyEngine, Any, ndarray, Grove (GeoPrithvi-Agri) - Satellite Hydrology & Irrigation Deficit Engine…, USDA Soil Conservation Service (SCS) formula for 8-day effective precipitation…, Computes 8-day actual crop evapotranspiration, effective rainfall, and net…, Computes rigorous hydrological deficit and canal gate discharge release… (+8 more)
 
 ## Knowledge Gaps
-- **143 isolated node(s):** `$schema`, `typescript`, `oxc`, `react/rules-of-hooks`, `warn` (+138 more)
+- **144 isolated node(s):** `$schema`, `typescript`, `oxc`, `react/rules-of-hooks`, `warn` (+139 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `HydrologyEngine` connect `HydrologyEngine` to `main.py`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Why does `compute_block_water_deficit()` connect `HydrologyEngine` to `main.py`?**
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **Are the 4 inferred relationships involving `HydrologyEngine` (e.g. with `AnalysisInputPayload` and `CanalAdvisoryItem`) actually correct?**
   _`HydrologyEngine` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `$schema`, `typescript`, `oxc` to the rest of the system?**
-  _143 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _144 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `FastAPI Async REST Service` be split into smaller, more focused modules?**
   _Cohesion score 0.06219512195121951 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.12564102564102564 - nodes in this community are weakly interconnected._
-- **Should `devDependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
-- **Should `test_data_loader.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.07057057057057058 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1109936575052854 - nodes in this community are weakly interconnected._

@@ -28,7 +28,7 @@ class PhenologyStressEngine:
         # Edge case: if timeseries is shorter than window length
         if len(ndvi_timeseries) < self.window_length:
             wl = max(3, len(ndvi_timeseries)) if len(ndvi_timeseries) >= 3 else 1
-            # Can't easily use savgol if wl is 1, but we mock it.
+            # For short sequences, smooth with adaptive window or return raw series
             if wl > 1 and wl % 2 == 0: wl -= 1
             smoothed_ndvi = savgol_filter(ndvi_timeseries, wl, min(self.polyorder, wl-1)) if wl > 1 else ndvi_timeseries
         else:

@@ -19,6 +19,8 @@ from backend.hydrology import HydrologyEngine, compute_block_water_deficit
 from backend.stress import PhenologyStressEngine
 from backend.gee_pipeline import GEEPipeline
 from backend.command_data import get_command_system, SIRHIND_CANAL_NETWORK, SIRHIND_PARCELS_GEOJSON
+from backend.model import predict_crop_from_features, get_model_diagnostics, run_prithvi_embedding
+from backend.data_loader import get_available_satellite_chips, load_feature_tensors
 
 app = FastAPI(
     title="Grove (GeoPrithvi-Agri) API",
@@ -86,9 +88,20 @@ class AnalysisInputPayload(BaseModel):
 # State & Active GIS System
 # =====================================================================
 
+def enrich_parcels_with_ai(parcels_geojson: Dict[str, Any]) -> Dict[str, Any]:
+    """Enriches parcel GeoJSON with real trained AI model crop predictions, confidence, and spectral inputs."""
+    for f in parcels_geojson.get("features", []):
+        p = f.get("properties", {})
+        pred = predict_crop_from_features(p)
+        p["ai_predicted_crop"] = pred["predicted_crop"]
+        p["ai_confidence"] = pred["confidence"]
+        p["ai_class_probabilities"] = pred["class_probabilities"]
+        p["features_used"] = pred["features_used"]
+    return parcels_geojson
+
 current_command_id = "sirhind_punjab"
 current_canal_network, current_parcels = get_command_system(current_command_id)
-current_parcels = copy.deepcopy(current_parcels)
+current_parcels = enrich_parcels_with_ai(copy.deepcopy(current_parcels))
 
 
 # =====================================================================
@@ -107,6 +120,58 @@ def health_check():
     }
 
 
+@app.get("/api/v1/model-diagnostics")
+def get_diagnostics():
+    """
+    Returns empirical evaluation metrics from the trained Random Forest and MSF-Net models:
+    - Test accuracy, Macro Precision, Recall, F1
+    - Confusion Matrix (5x5: Paddy, Cotton, Maize, Sugarcane, Wheat/Pulses/Mustard)
+    - Per-class metrics
+    - Feature Importance ranking (Optical B2-B12 vs SAR C-band sigma0 vs In-situ Indices)
+    - IBM-NASA Prithvi-EO 100M foundation model specifications
+    """
+    return get_model_diagnostics()
+
+
+@app.get("/api/v1/satellite-chips")
+def list_satellite_chips():
+    """Returns catalog of authentic multi-temporal HLS 18-band satellite chips available for analysis."""
+    chips = get_available_satellite_chips()
+    return {
+        "status": "success",
+        "chips_count": len(chips),
+        "chips": [
+            {
+                "chip_id": os.path.splitext(os.path.basename(c))[0],
+                "filename": os.path.basename(c),
+                "filepath": c,
+                "bands": 18,
+                "temporal_steps": 3,
+                "spectral_bands": ["B2_blue", "B3_green", "B4_red", "B8A_narrow_nir", "B11_swir1", "B12_swir2"],
+                "resolution": "30m HLS",
+                "format": "GeoTIFF"
+            }
+            for c in chips
+        ]
+    }
+
+
+@app.post("/api/v1/satellite-chips/{chip_name}/prithvi-embedding")
+def extract_prithvi_embedding(chip_name: str):
+    """Executes a real forward pass on an authentic satellite chip using the IBM-NASA Prithvi ViT foundation model."""
+    try:
+        sample = load_feature_tensors(chip_name)
+        emb = run_prithvi_embedding(sample["optical_tensor"])
+        return {
+            "status": "success",
+            "chip_name": chip_name,
+            "metadata": sample["metadata"],
+            "embedding": emb
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get("/api/v1/overview", response_model=CommandOverview)
 def get_command_overview(command_area_id: Optional[str] = None):
     global current_parcels, current_canal_network, current_command_id
@@ -114,7 +179,7 @@ def get_command_overview(command_area_id: Optional[str] = None):
         current_command_id = command_area_id
         net, parc = get_command_system(command_area_id)
         current_canal_network = net
-        current_parcels = copy.deepcopy(parc)
+        current_parcels = enrich_parcels_with_ai(copy.deepcopy(parc))
 
     features = current_parcels.get("features", [])
     total_area = sum(f["properties"].get("area_ha", 0) for f in features)
@@ -149,7 +214,7 @@ def get_canal_advisory(
         current_command_id = command_area_id
         net, parc = get_command_system(command_area_id)
         current_canal_network = net
-        current_parcels = copy.deepcopy(parc)
+        current_parcels = enrich_parcels_with_ai(copy.deepcopy(parc))
 
     items = []
     for f in current_parcels.get("features", []):
@@ -180,7 +245,7 @@ def get_parcels_geojson(command_area_id: Optional[str] = None):
         current_command_id = command_area_id
         net, parc = get_command_system(command_area_id)
         current_canal_network = net
-        current_parcels = copy.deepcopy(parc)
+        current_parcels = enrich_parcels_with_ai(copy.deepcopy(parc))
     return current_parcels
 
 
@@ -339,6 +404,13 @@ def run_command_analysis(payload: AnalysisInputPayload):
 
         # Scale recommended gate discharge
         p["recommended_discharge"] = round(block_hydro["recommended_discharge_cumecs"] * inflow_scaling, 2)
+
+        # Re-evaluate AI Crop Classifier and Confidence under dynamic state
+        pred = predict_crop_from_features(p)
+        p["ai_predicted_crop"] = pred["predicted_crop"]
+        p["ai_confidence"] = pred["confidence"]
+        p["ai_class_probabilities"] = pred["class_probabilities"]
+        p["features_used"] = pred["features_used"]
 
     current_parcels["features"] = new_features
 
