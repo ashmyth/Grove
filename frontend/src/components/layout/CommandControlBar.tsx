@@ -101,6 +101,7 @@ export const CommandControlBar: React.FC<CommandControlBarProps> = ({
                 }}
               >
                 <option value="sirhind_punjab">Sirhind Canal Command (Punjab, India)</option>
+                <option value="kuttanad_kerala">Kuttanad Canal Command (Kerala, India)</option>
                 <option value="bhakra_main">Bhakra Main Line (Haryana, India)</option>
                 <option value="indira_gandhi">Indira Gandhi Nahar (Rajasthan, India)</option>
                 <option value="tunga_bhadra">Tungabhadra Left Bank (Karnataka, India)</option>

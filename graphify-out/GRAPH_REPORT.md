@@ -1,16 +1,16 @@
 # Graph Report - Grove  (2026-09-25)
 
 ## Corpus Check
-- 38 files · ~26,926 words
+- 39 files · ~29,350 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 405 nodes · 553 edges · 22 communities (18 shown, 4 thin omitted)
+- 420 nodes · 588 edges · 21 communities (17 shown, 4 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `fa9b1b77`
+- Built from commit: `2a7e8a63`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -41,11 +41,11 @@
 3. `HydrologyEngine` - 13 edges
 4. `/graphify` - 13 edges
 5. `What You Must Do When Invoked` - 13 edges
-6. `GEEPipeline` - 10 edges
-7. `PhenologyStressEngine` - 9 edges
-8. `GroveDataset` - 8 edges
-9. `compute_block_water_deficit()` - 8 edges
-10. `react` - 8 edges
+6. `get_command_system()` - 10 edges
+7. `GEEPipeline` - 10 edges
+8. `run_command_analysis()` - 9 edges
+9. `PhenologyStressEngine` - 9 edges
+10. `GroveDataset` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `test_effective_rainfall()` --calls--> `HydrologyEngine`  [EXTRACTED]
@@ -62,7 +62,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (22 total, 4 thin omitted)
+## Communities (21 total, 4 thin omitted)
 
 ### Community 0 - "FastAPI Async REST Service"
 Cohesion: 0.06
@@ -77,12 +77,12 @@ Cohesion: 0.08
 Nodes (25): concurrently, cross-env, electron, devDependencies, concurrently, cross-env, electron, oxlint (+17 more)
 
 ### Community 3 - "test_data_loader.py"
-Cohesion: 0.08
-Nodes (25): _generate_fallback_dict(), GroveDataset, load_feature_tensors(), Any, Memory-Mapped Geospatial Data Loader & PyTorch Dataset Part of Grove…, Generates synthetic memory-mapped feature tensors matching Interface 1…, Memory-Mapped PyTorch Dataset for streaming 10m Sentinel optical/SAR chip…, Interface 1 Implementation (Teammate 1 -> Teammate 2) Args: sample_id: Unique… (+17 more)
+Cohesion: 0.07
+Nodes (28): _generate_fallback_dict(), GroveDataset, load_feature_tensors(), Any, Memory-Mapped Geospatial Data Loader & PyTorch Dataset Part of Grove…, Generates synthetic memory-mapped feature tensors matching Interface 1…, Memory-Mapped PyTorch Dataset for streaming 10m Sentinel optical/SAR chip…, Interface 1 Implementation (Teammate 1 -> Teammate 2) Args: sample_id: Unique… (+20 more)
 
 ### Community 4 - "main.py"
-Cohesion: 0.08
-Nodes (39): GEEPipeline, Wrapper class providing high-level interface to Earth Engine routines., compute_block_water_deficit(), HydrologyEngine, ndarray, Computes effective rainfall, crop evapotranspiration, and 8-day water deficit., Interface Contract 2: ML / Hydrology -> FastAPI Backend, Computes daily Reference Evapotranspiration (ETo) in mm/day using Hargreaves-… (+31 more)
+Cohesion: 0.06
+Nodes (49): get_command_system(), load_kuttanad_data(), Any, Grove (GeoPrithvi-Agri) - High-Fidelity Agricultural GIS Datasets Provides…, Loads and formats the real Kuttanad dataset created by Teammate 1., Returns (canal_network_geojson, parcels_geojson) matching the selected region., GEEPipeline, Wrapper class providing high-level interface to Earth Engine routines. (+41 more)
 
 ### Community 6 - "🔄 The Standard Parallel Git Lifecycle"
 Cohesion: 0.06
@@ -121,8 +121,8 @@ Cohesion: 0.07
 Nodes (28): For --cluster-only, For git commit hook, For /graphify add, For /graphify explain, For /graphify path, For /graphify query, For --update (incremental re-extraction), For --watch (+20 more)
 
 ### Community 18 - "test_model.py"
-Cohesion: 0.15
-Nodes (13): MSFNetCropClassifier, PrithviFeatureExtractor, ndarray, RandomForestCropClassifier, optical_seq: (B, T, C=6, H=224, W=224) sar_patches: (B, C=2, H=11, W=11), Interface Contract 2: ML / Hydrology -> FastAPI Backend Returns 2D integer…, run_crop_inference(), SARPatchEncoder (+5 more)
+Cohesion: 0.14
+Nodes (14): MSFNetCropClassifier, PrithviFeatureExtractor, ndarray, RandomForestCropClassifier, optical_seq: (B, T, C=6, H=224, W=224) sar_patches: (B, C=2, H=11, W=11), Interface Contract 2: ML / Hydrology -> FastAPI Backend Returns 2D integer…, run_crop_inference(), SARPatchEncoder (+6 more)
 
 ## Knowledge Gaps
 - **143 isolated node(s):** `$schema`, `typescript`, `oxc`, `react/rules-of-hooks`, `warn` (+138 more)
@@ -133,7 +133,7 @@ Nodes (13): MSFNetCropClassifier, PrithviFeatureExtractor, ndarray, RandomForest
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **Are the 4 inferred relationships involving `HydrologyEngine` (e.g. with `AnalysisInputPayload` and `CanalAdvisoryItem`) actually correct?**
   _`HydrologyEngine` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `$schema`, `typescript`, `oxc` to the rest of the system?**
@@ -145,4 +145,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.08 - nodes in this community are weakly interconnected._
 - **Should `test_data_loader.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.0784313725490196 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07057057057057058 - nodes in this community are weakly interconnected._

@@ -45,6 +45,10 @@ export interface ParcelProperties {
   deficit_m3_ha: number;
   recommended_discharge: number;
   area_ha: number;
+  ndvi?: number;
+  smi_sar?: number;
+  lst_anomaly?: number;
+  farmer?: string;
 }
 
 export interface ParcelFeature {

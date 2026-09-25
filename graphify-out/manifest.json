@@ -40,8 +40,8 @@
     "semantic_hash": ""
   },
   "backend/main.py": {
-    "mtime": 1790353496.482405,
-    "ast_hash": "1b6956061c4d872e949ba4de81bfbd18",
+    "mtime": 1790354327.8805382,
+    "ast_hash": "0727a7095c48f75fd676eeec9abb6063",
     "semantic_hash": ""
   },
   "frontend/.oxlintrc.json": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "frontend/src/components/map/MapViewer.tsx": {
-    "mtime": 1790351862.057285,
-    "ast_hash": "88e4e879cdacc067e9d305e742fe6d11",
+    "mtime": 1790354357.1530654,
+    "ast_hash": "d70707adb73fbd206e271e5afc3b5df8",
     "semantic_hash": ""
   },
   "frontend/src/components/telemetry/CanalTelemetry.tsx": {
@@ -90,8 +90,8 @@
     "semantic_hash": ""
   },
   "frontend/src/types/index.ts": {
-    "mtime": 1790351862.0612411,
-    "ast_hash": "091230aed74a9312d871c330008f511e",
+    "mtime": 1790354426.1456332,
+    "ast_hash": "8dc849797f7716acb3d728ce57623d46",
     "semantic_hash": ""
   },
   "frontend/tsconfig.app.json": {
@@ -175,8 +175,8 @@
     "semantic_hash": ""
   },
   "frontend/src/components/layout/CommandControlBar.tsx": {
-    "mtime": 1790351862.056085,
-    "ast_hash": "1790d24e52f5529dbe2933c4f07b51be",
+    "mtime": 1790354395.401781,
+    "ast_hash": "abc4b4be570de2b32af4029a37795b50",
     "semantic_hash": ""
   },
   "scripts/generate_synthetic_geotiff.py": {
@@ -215,8 +215,13 @@
     "semantic_hash": ""
   },
   "start.py": {
-    "mtime": 1790353518.6972654,
-    "ast_hash": "0b7b0abbd6a734241e17b44bb62ef828",
+    "mtime": 1790354196.6033542,
+    "ast_hash": "e4b4688f735d6b3e14cead1f6955f5f6",
+    "semantic_hash": ""
+  },
+  "backend/command_data.py": {
+    "mtime": 1790354246.9258542,
+    "ast_hash": "52bcb75fba3b8890146b137817d22d3b",
     "semantic_hash": ""
   }
 }

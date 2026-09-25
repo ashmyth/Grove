@@ -35,8 +35,31 @@ def main():
         print("ERROR: uvicorn is not installed. Run: pip install -r backend/requirements.txt")
         sys.exit(1)
 
-    # 3. Schedule auto-opening the browser
-    target_url = "http://127.0.0.1:8000/"
+    # 3. Ensure port 8000 is free (prevent WinError 10048 address in use)
+    import socket
+    port = 8000
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        is_port_in_use = (s.connect_ex(("127.0.0.1", port)) == 0)
+    
+    if is_port_in_use:
+        print(f"Notice: Port {port} is occupied. Releasing port...")
+        try:
+            cmd = f"netstat -ano | findstr :{port}"
+            output = subprocess.check_output(cmd, shell=True).decode("utf-8", errors="ignore")
+            pids = set()
+            for line in output.strip().splitlines():
+                parts = line.split()
+                if len(parts) >= 5 and "LISTENING" in parts:
+                    pids.add(parts[-1])
+            for pid in pids:
+                if pid and pid != "0":
+                    subprocess.run(f"taskkill /PID {pid} /F", shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            time.sleep(1.0)
+        except Exception as e:
+            print(f"Warning: Could not auto-clear port: {e}")
+
+    # 4. Schedule auto-opening the browser
+    target_url = f"http://127.0.0.1:{port}/"
     print(f"\n[2/3] Launching unified FastAPI server on {target_url}...")
     
     def open_browser():
