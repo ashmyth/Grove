@@ -68,3 +68,5 @@ graphify-out/.graphify_*
 *.swp
 *.swo
 .DS_Store
+frontend_backup/
+grove-logo.svg

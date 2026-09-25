@@ -1,11 +1,11 @@
-import React from "react";
-import { Moon, Sun, Download, RefreshCw, Satellite, Radio } from "lucide-react";
+import { Moon, Sun, Download, RefreshCw, Satellite, Radio, LayoutGrid } from "lucide-react";
 
 interface HeaderProps {
   theme: "dark" | "light";
   onToggleTheme: () => void;
   onRefresh: () => void;
   onExport: () => void;
+  onOpenConsole?: () => void;
   cycleDays: number;
 }
 
@@ -14,6 +14,7 @@ export const Header: React.FC<HeaderProps> = ({
   onToggleTheme,
   onRefresh,
   onExport,
+  onOpenConsole,
   cycleDays,
 }) => {
   return (
@@ -96,6 +97,29 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Action Controls */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        {onOpenConsole && (
+          <button
+            onClick={onOpenConsole}
+            title="Open Area Launch Console"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "6px 12px",
+              borderRadius: "6px",
+              backgroundColor: "var(--bg-surface)",
+              color: "var(--text-main)",
+              border: "1px solid var(--border-subtle)",
+              fontSize: "12px",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            <LayoutGrid size={14} color="var(--accent-brand)" />
+            <span>Launch Console</span>
+          </button>
+        )}
+
         <button
           onClick={onRefresh}
           title="Refresh Data"

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { LandingConsole } from "./components/landing/LandingConsole";
 import { Header } from "./components/layout/Header";
 import { CommandControlBar } from "./components/layout/CommandControlBar";
 import { CanalTelemetry } from "./components/telemetry/CanalTelemetry";
@@ -21,6 +22,7 @@ import type {
 } from "./types";
 
 export function App() {
+  const [viewMode, setViewMode] = useState<"landing" | "dashboard">("landing");
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [overview, setOverview] = useState<CommandOverview | null>(null);
   const [advisories, setAdvisories] = useState<CanalAdvisoryItem[]>([]);
@@ -72,6 +74,11 @@ export function App() {
     }
   };
 
+  const handleLaunchFromLanding = async (payload: AnalysisInputPayload) => {
+    await handleRunAnalysis(payload);
+    setViewMode("dashboard");
+  };
+
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
@@ -84,6 +91,15 @@ export function App() {
 
   const selectedParcel = parcels?.features.find((f) => f.properties.id === selectedParcelId) || null;
 
+  if (viewMode === "landing") {
+    return (
+      <LandingConsole
+        onLaunch={handleLaunchFromLanding}
+        isLoading={isComputing}
+      />
+    );
+  }
+
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", overflow: "hidden" }}>
       {/* Global Command Header */}
@@ -92,6 +108,7 @@ export function App() {
         onToggleTheme={toggleTheme}
         onRefresh={loadData}
         onExport={() => alert("Exporting 8-Day Canal Command Advisory (PDF/CSV)...")}
+        onOpenConsole={() => setViewMode("landing")}
         cycleDays={overview?.cycle_days || 8}
       />
 

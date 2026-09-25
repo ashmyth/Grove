@@ -50,13 +50,13 @@
     "semantic_hash": ""
   },
   "frontend/package.json": {
-    "mtime": 1790362953.3920138,
-    "ast_hash": "87eb87a389e2b49749d498d05961703e",
+    "mtime": 1790352853.361319,
+    "ast_hash": "7c3a1ba714902551df15a89311088a87",
     "semantic_hash": ""
   },
   "frontend/src/App.tsx": {
-    "mtime": 1790376214.9686399,
-    "ast_hash": "6ed64a8810c49eaf2c4c77544320cb70",
+    "mtime": 1790358902.1980665,
+    "ast_hash": "c527d22211865f644caf189be6e68a02",
     "semantic_hash": ""
   },
   "frontend/src/components/analytics/AnalyticsDrawer.tsx": {
@@ -65,8 +65,8 @@
     "semantic_hash": ""
   },
   "frontend/src/components/layout/Header.tsx": {
-    "mtime": 1790376163.6907868,
-    "ast_hash": "e6a3369041f5dfb7994ed1d642b0cf04",
+    "mtime": 1790351862.056085,
+    "ast_hash": "8343f307ff916474b0c44a3bcd6c8ea2",
     "semantic_hash": ""
   },
   "frontend/src/components/map/MapViewer.tsx": {
@@ -110,8 +110,8 @@
     "semantic_hash": ""
   },
   "frontend/vite.config.ts": {
-    "mtime": 1790363309.0284133,
-    "ast_hash": "b0307380854c69118b4db2c7c84d2a1e",
+    "mtime": 1790351862.0638874,
+    "ast_hash": "3758d257629381dd81f44deadae83074",
     "semantic_hash": ""
   },
   "frontend/README.md": {
@@ -195,13 +195,18 @@
     "semantic_hash": ""
   },
   "frontend/electron/main.cjs": {
-    "mtime": 1790363380.771487,
-    "ast_hash": "061ce8fcd8e2980adebd1df95f7f2a58",
+    "mtime": 1790352839.1740866,
+    "ast_hash": "d56fb22a9fa35b23f6c142351e8f864f",
+    "semantic_hash": ""
+  },
+  "frontend/electron/main.ts": {
+    "mtime": 1790352778.9858978,
+    "ast_hash": "838750fb6b1c126a78d678185335211c",
     "semantic_hash": ""
   },
   "frontend/electron/preload.cjs": {
-    "mtime": 1790362926.750056,
-    "ast_hash": "1d2570a55baad243e564a4e08f5d14a5",
+    "mtime": 1790352797.003387,
+    "ast_hash": "29766c1312d84cb628e42c96a2df6372",
     "semantic_hash": ""
   },
   "start.py": {
@@ -222,26 +227,6 @@
   "backend/weights/model_metrics.json": {
     "mtime": 1790356513.6848423,
     "ast_hash": "d447abd39dad62989b1ab55391eea197",
-    "semantic_hash": ""
-  },
-  "create-shortcut.ps1": {
-    "mtime": 1790364435.9198031,
-    "ast_hash": "539b619a9b69516bd3f86b611e103fac",
-    "semantic_hash": ""
-  },
-  "frontend/src/components/landing/LandingConsole.tsx": {
-    "mtime": 1790376253.7445352,
-    "ast_hash": "98d89482457a7ca310d5e82a8b77745d",
-    "semantic_hash": ""
-  },
-  "launch-grove.ps1": {
-    "mtime": 1790364584.4514396,
-    "ast_hash": "7475929c99f30ba529e6759fe5d1d821",
-    "semantic_hash": ""
-  },
-  "backend/requirements.txt": {
-    "mtime": 1790362667.628117,
-    "ast_hash": "735e8d7d2e409b7fd734a8f10cdc56cd",
     "semantic_hash": ""
   }
 }

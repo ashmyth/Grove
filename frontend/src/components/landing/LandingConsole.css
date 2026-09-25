@@ -1,0 +1,601 @@
+/* ==========================================================================
+   Grove Minimalist Launch Console (Editorial / High-Tech Agency Aesthetic)
+   ========================================================================== */
+
+.grove-landing-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f7f7f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #111111;
+}
+
+/* Ambient glow */
+.landing-ambient-glow {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.035) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.grove-landing-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 920px;
+  width: 100%;
+  padding: 24px;
+  animation: fadeInConsole 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInConsole {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================================================
+   Brand Header & Bespoke Pixelated 'grove' Typography
+   ========================================================================== */
+
+.grove-brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  user-select: none;
+}
+
+.grove-logo-mark {
+  display: flex;
+  align-items: baseline;
+  font-size: 88px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  color: #000000;
+  position: relative;
+}
+
+.logo-letter {
+  position: relative;
+  display: inline-block;
+}
+
+/* Pixel block accents on 'g' */
+.letter-g::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #000000;
+  top: 4px;
+  left: -9px;
+  border-radius: 1px;
+}
+
+.letter-g::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #000000;
+  bottom: 0px;
+  left: -9px;
+  border-radius: 1px;
+}
+
+/* Pixel block accent on 'r' */
+.letter-r::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #000000;
+  top: 14px;
+  right: -5px;
+  border-radius: 1px;
+}
+
+.grove-subheading {
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666666;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Floating Command Console Card
+   ========================================================================== */
+
+.grove-console-card {
+  width: 100%;
+  max-width: 800px;
+  background: #000000;
+  border-radius: 30px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.16), 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grove-console-card:hover {
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Top Section (White) */
+.console-top-section {
+  background-color: #ffffff;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  position: relative;
+}
+
+.area-input-container {
+  position: relative;
+  flex: 1;
+  max-width: 580px;
+}
+
+.area-text-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: "Space Mono", "JetBrains Mono", Consolas, monospace;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111111;
+  background: transparent;
+  padding: 6px 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.area-text-input::placeholder {
+  color: #999999;
+  font-weight: 400;
+}
+
+.area-underline {
+  width: 100%;
+  height: 1.5px;
+  background-color: #111111;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.area-text-input:focus + .area-underline {
+  opacity: 1;
+  height: 2px;
+}
+
+/* Autocomplete Dropdown */
+.area-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+  overflow: hidden;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.area-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.area-dropdown-item:hover {
+  background-color: #f3f3f4;
+}
+
+.dropdown-pin-icon {
+  color: #10b981;
+}
+
+.dropdown-item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.item-state {
+  font-size: 11px;
+  color: #777777;
+}
+
+.area-dropdown-close {
+  padding: 8px 16px;
+  font-size: 11px;
+  color: #888888;
+  background: #fafafa;
+  text-align: right;
+  cursor: pointer;
+  border-top: 1px solid #eeeeee;
+}
+
+.area-dropdown-close:hover {
+  color: #111111;
+}
+
+/* Area Badge (Right) */
+.area-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.area-polygon-svg {
+  opacity: 0.85;
+}
+
+.area-badge-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.01em;
+}
+
+/* Bottom Section (Black) */
+.console-bottom-section {
+  background-color: #000000;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Box 1: Multi-file Upload Box */
+.upload-geojson-box {
+  width: 120px;
+  height: 96px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.02);
+  flex-shrink: 0;
+}
+
+.upload-geojson-box:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+.upload-geojson-box.has-files {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.upload-empty-state,
+.upload-active-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.upload-plus-icon {
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.upload-check-icon {
+  color: #10b981;
+  margin-bottom: 4px;
+}
+
+.upload-label {
+  font-size: 11px;
+  font-family: "Space Mono", monospace;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: -0.01em;
+}
+
+.upload-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.upload-subtitle {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Box 2: Visual Indicator Thumbnail */
+.console-indicator-tile {
+  width: 96px;
+  height: 96px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #1c1c1f, #0d0d0f);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.indicator-gradient-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.18), transparent 70%);
+}
+
+.indicator-inner-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px;
+  gap: 4px;
+}
+
+.indicator-tag {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.indicator-pilot-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.indicator-sat-badge {
+  font-size: 8px;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+/* Box 3: Timeline Section */
+.console-timeline-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.timeline-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.timeline-subtitle {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: "Space Mono", monospace;
+}
+
+.timeline-inputs-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date-pill-wrapper {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 5px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.15s;
+}
+
+.date-pill-wrapper:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.date-pill-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: "Space Mono", Consolas, monospace;
+  font-size: 12px;
+  cursor: pointer;
+  width: 105px;
+}
+
+.date-pill-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.timeline-arrow {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+}
+
+/* Box 4: Stepper Section (Right) */
+.console-stepper-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  flex-shrink: 0;
+  padding-left: 8px;
+}
+
+.stepper-info-icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: help;
+}
+
+.stepper-info-icon:hover {
+  color: #ffffff;
+}
+
+.stepper-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.stepper-btn:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.stepper-value-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepper-number {
+  font-family: "Space Mono", monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.stepper-unit {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Action Button & Footer
+   ========================================================================== */
+
+.console-action-footer {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.grove-launch-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 16px 36px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.grove-launch-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  background-color: #1a1a1a;
+}
+
+.grove-launch-button:active {
+  transform: translateY(0);
+}
+
+.launch-arrow-icon {
+  transition: transform 0.2s ease;
+}
+
+.grove-launch-button:hover .launch-arrow-icon {
+  transform: translateX(4px);
+}
+
+.launch-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.console-meta-info {
+  font-size: 11px;
+  color: #888888;
+  letter-spacing: 0.02em;
+}
