@@ -15,7 +15,7 @@ It delivers automated 10m crop parcel boundary mapping, all-weather moisture str
 ## 📚 Core Documentation
 
 - 📋 **[Product Requirements Document (PRD)](./prd.md):** Complete specifications following `/to-spec` with extensive user stories, implementation decisions, and testing seams.
-- 🏗️ **[Technical Architecture & System Specification](./architecture.md):** In-depth engineering design covering multi-modal neural architectures, GEE cloud offloading, SAR polarimetric processing, hydrological formulations, and Streamlit GIS dashboard specs.
+- 🏗️ **[Technical Architecture & System Specification](./architecture.md):** In-depth engineering design covering multi-modal neural architectures, GEE cloud offloading, SAR polarimetric processing, hydrological formulations, and React GIS dashboard architecture.
 
 ---
 
@@ -25,7 +25,8 @@ It delivers automated 10m crop parcel boundary mapping, all-weather moisture str
 - **Deep Learning & Foundation Models:** PyTorch, HuggingFace (`ibm-nasa-geospatial/Prithvi-100M`), TorchVision
 - **Classical ML & Signal Processing:** Scikit-Learn (Random Forest Fallback), SciPy (Savitzky-Golay filtering)
 - **Hydrology Engine:** Hargreaves-Samani $ET_o$, FAO-56 stage-wise $K_c$ water balance
-- **User Interface:** Streamlit, Folium/Leaflet, Plotly
+- **Backend API:** FastAPI (Async REST endpoints, GeoJSON/raster streaming, Pydantic)
+- **User Interface (Frontend):** React (TypeScript, Vite, MapLibre GL / Leaflet-React, Recharts, TailwindCSS)
 
 ---
 

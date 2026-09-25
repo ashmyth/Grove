@@ -27,7 +27,7 @@ Traditional agricultural monitoring and canal irrigation scheduling in smallhold
 2. **Lightweight Geospatial Foundation Model:** Employs NASA/IBM's `Prithvi-EO-1.0-100M` ViT backbone as a frozen spatial-spectral feature extractor paired with an asymmetric 2D CNN radar branch (`MSF-Net` late-fusion) and a zero-GPU Scikit-Learn Random Forest fallback.
 3. **Region-Adaptive Phenology Alignment (RAM):** Implements dynamic Savitzky-Golay filtering on temporal vegetation signals to derive Start of Season (SOS), Peak Vegetative, and Length of Growing Period (LGP), preventing false stress alarms from staggered sowing.
 4. **Hydrological Water Deficit Engine:** Combines the Hargreaves-Samani $ET_o$ model with FAO-56 stage-specific crop coefficients ($K_c$) and effective rainfall calculations to generate actionable 8-day volumetric water deficit maps ($m^3/\text{ha}$ and $mm$ depth).
-5. **Interactive Web Dashboard:** Delivers a lightweight Streamlit interface featuring Leaflet geospatial layers, canal command block aggregations, sluice gate discharge recommendations ($Q = V / t$), and parcel-level time-series inspectors.
+5. **Interactive Web Application (React Frontend):** Delivers a responsive, component-driven React web application (TypeScript + Vite) paired with a high-performance FastAPI backend, featuring interactive WebGL/Leaflet geospatial layers, canal command block aggregations, sluice gate discharge recommendations ($Q = V / t$), and parcel-level time-series inspectors.
 
 ---
 
@@ -68,7 +68,7 @@ Traditional agricultural monitoring and canal irrigation scheduling in smallhold
 22. As a hydrologist, I want Reference Evapotranspiration ($ET_o$) calculated via the temperature-and-radiation-based Hargreaves-Samani formulation, so that calculation remains accurate even in data-sparse rural catchments without full weather stations.
 23. As a hydrologist, I want stage-dependent crop coefficients ($K_{c,\text{ini}}, K_{c,\text{mid}}, K_{c,\text{end}}$) dynamically linked to the Savitzky-Golay phenology tracker, so that crop water demand ($ET_c$) adjusts precisely with vegetative growth.
 24. As a hydrologist, I want effective rainfall ($P_{\text{eff}}$) computed using empirical agricultural runoff factors ($0.8 \times P_{\text{total}}$), so that non-infiltrating monsoon storm bursts do not skew soil moisture balances.
-25. As a system administrator, I want modular Python architecture with decoupled modules (`gee_pipeline.py`, `data_loader.py`, `model.py`, `stress.py`, `hydrology.py`, `app.py`), so that any component can be updated or tested independently without breaking downstream layers.
+25. As a system administrator, I want modular architecture with decoupled Python backend services and a dedicated React frontend application, so that UI components and backend AI/hydrology engines can scale and deploy independently.
 
 ---
 
@@ -76,16 +76,20 @@ Traditional agricultural monitoring and canal irrigation scheduling in smallhold
 
 ### 1. Modules Built & Architectural Boundaries
 
-The platform is strictly partitioned into five core decoupled modules (~1,500 lines total):
+The platform is strictly partitioned into a high-performance Python/PyTorch backend and a modern React frontend:
 
 ```
 Grove Codebase Architecture
-├── gee_pipeline.py    # GEE cloud authentication, cloud-masking, SAR speckle filter, raster export
-├── data_loader.py     # Local/cloud raster ingestion, memory-mapped slicing, PyTorch Dataset wrappers
-├── model.py           # Prithvi-EO-100M ViT backbone, SAR 2D CNN branch, MSF-Net late fusion, RF fallback
-├── stress.py          # Savitzky-Golay RAM phenology tracker, multi-index stress ensemble (VCI, SMI, LST)
-├── hydrology.py       # Hargreaves-Samani ET0, FAO-56 Kc, Peff, 8-day volumetric water deficit engine
-└── app.py             # Streamlit interactive GIS dashboard (Leaflet, Folium, Plotly, canal advisories)
+├── backend/
+│   ├── api.py             # FastAPI REST endpoints serving GeoJSON, rasters & advisories
+│   ├── gee_pipeline.py    # GEE cloud authentication, cloud-masking, SAR speckle filter, raster export
+│   ├── data_loader.py     # Local/cloud raster ingestion, memory-mapped slicing, PyTorch Dataset wrappers
+│   ├── model.py           # Prithvi-EO-100M ViT backbone, SAR 2D CNN branch, MSF-Net late fusion, RF fallback
+│   ├── stress.py          # Savitzky-Golay RAM phenology tracker, multi-index stress ensemble (VCI, SMI, LST)
+│   └── hydrology.py       # Hargreaves-Samani ET0, FAO-56 Kc, Peff, 8-day volumetric water deficit engine
+└── frontend/              # Modern React + TypeScript + Vite web application
+    ├── src/components/    # Interactive map, canal block tables, time-series charts
+    └── src/services/      # REST API client connecting to FastAPI backend
 ```
 
 ### 2. Interfaces & API Contracts
@@ -176,7 +180,7 @@ class HydrologyEngine:
 2. **Radar Branch Fallback Seam:** Unit tests feeding empty/NaN optical tensors to `MultimodalCropClassifier` to confirm the auxiliary radar branch produces valid, non-zero crop probability distributions without runtime exception.
 3. **Savitzky-Golay Curve Smoothing Seam:** Synthetic noisy NDVI curve tests ensuring dynamic SOS (Start of Season) detection accurately identifies known injection peaks within a $\pm 3$-day window.
 4. **Raster Shape & Dimension Seam:** PyTorch dataset loader tests ensuring multi-channel GeoTIFF tiles always conform to expected tensor dimensions `(B, C, H, W)` and properly normalize reflectance values into the $[0, 1]$ interval.
-5. **Streamlit UI Session State Seam:** Headless validation checking that default shapefile boundaries and mock canal blocks render without crashing the Leaflet map component.
+5. **React Frontend & REST API Integration Seam:** Headless integration and component test validation checking that default GeoJSON boundaries and mock canal blocks render without runtime error, and that API responses conform to typed TypeScript interfaces.
 
 ---
 
