@@ -227,20 +227,69 @@ export interface PixelTimeseriesData {
 
 ---
 
-## 4. Git Collaboration Rules for AI Agents
+## 4. Git Parallel Workflow & Collaboration Rules
 
-1. **Branch Naming Convention:**
-   - Teammate 1 Agent: `git checkout -b feature/t1-data-pipeline`
-   - Teammate 2 Agent: `git checkout -b feature/t2-ml-hydrology`
-   - Teammate 3 Agent: `git checkout -b feature/t3-react-fastapi`
-2. **Commit Message Format:**
-   Follow conventional commits:
-   - `feat(data): ...` (Teammate 1)
-   - `feat(ml): ...` or `feat(hydro): ...` (Teammate 2)
-   - `feat(api): ...` or `feat(ui): ...` (Teammate 3)
-3. **Graphify Rule:**
-   After writing code in your branch, run:
+To ensure 100% isolation and avoid code collisions or merge conflicts when working simultaneously:
+
+### 🔄 The Standard Parallel Git Lifecycle
+
+```
+main (protected baseline)
+  │
+  ├──► git checkout -b feature/t1-data-pipeline ──► work ──► PR #1 ──► merge to main
+  │
+  ├──► git checkout -b feature/t2-ml-hydrology ──► work ──► PR #2 ──► merge to main
+  │
+  └──► git checkout -b feature/t3-react-fastapi ──► work ──► PR #3 ──► merge to main
+```
+
+#### Step 1: Starting Your Task
+Always create your isolated feature branch from the latest `main`:
+```bash
+git checkout main
+git pull origin main
+
+# Teammate 1:
+git checkout -b feature/t1-data-pipeline
+
+# Teammate 2:
+git checkout -b feature/t2-ml-hydrology
+
+# Teammate 3:
+git checkout -b feature/t3-react-fastapi
+```
+
+#### Step 2: Committing Your Work
+Make small, frequent commits using conventional commit syntax:
+- Teammate 1: `git commit -m "feat(data): implement GEE cloud masking and speckle filter"`
+- Teammate 2: `git commit -m "feat(ml): implement Prithvi ViT and Hargreaves ET0 engine"`
+- Teammate 3: `git commit -m "feat(ui): implement CanalAdvisory table and Leaflet MapViewer"`
+
+#### Step 3: Keeping Up to Date with Teammates (Syncing)
+When another teammate merges their feature into `main`, rebase or merge `main` into your branch:
+```bash
+git fetch origin
+git merge origin/main
+```
+Because of the **strict disjoint file ownership** (Teammate 1, 2, and 3 touch zero shared files), Git will cleanly merge changes without conflicts!
+
+#### Step 4: Knowledge Graph Update
+Whenever you add or modify code, run Graphify to update the AST graph:
+```bash
+python -m graphify update .
+```
+
+#### Step 5: Pull Request & Merge
+1. Push your branch to GitHub:
    ```bash
-   python -m graphify update .
+   git push -u origin <your-branch-name>
    ```
-   to keep the knowledge graph and architecture map synchronized.
+2. Open a Pull Request into `main`.
+3. Verify that your tests pass (`pytest tests/`).
+4. Merge into `main`. Clean up local branch:
+   ```bash
+   git checkout main
+   git pull origin main
+   git branch -d <your-branch-name>
+   ```
+
