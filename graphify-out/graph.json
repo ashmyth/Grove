@@ -1,0 +1,806 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "id": "cmsi_stress_ensemble",
+      "label": "Composite Moisture Stress Index (CMSI)",
+      "community": 0,
+      "file_type": "document",
+      "norm_label": "composite moisture stress index (cmsi)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "crop_insurance_auditor",
+      "label": "PMFBY Crop Insurance Auditor",
+      "community": 0,
+      "file_type": "document",
+      "norm_label": "pmfby crop insurance auditor",
+      "source_file": "prd.md"
+    },
+    {
+      "id": "ram_phenology_tracker",
+      "label": "Region-Adaptive Phenology Alignment (RAM)",
+      "community": 0,
+      "file_type": "document",
+      "norm_label": "region-adaptive phenology alignment (ram)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "savgol_filter",
+      "label": "Savitzky-Golay Polynomial Smoother",
+      "community": 0,
+      "file_type": "document",
+      "norm_label": "savitzky-golay polynomial smoother",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "smi_sar_index",
+      "label": "SAR Soil Moisture Index (SMI_SAR)",
+      "community": 0,
+      "file_type": "document",
+      "norm_label": "sar soil moisture index (smi_sar)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "split_window_lst",
+      "label": "Split-Window LST Inversion",
+      "community": 0,
+      "file_type": "document",
+      "norm_label": "split-window lst inversion",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "tai_lst_anomaly",
+      "label": "Thermal Anomaly Index (TAI_LST)",
+      "community": 0,
+      "file_type": "document",
+      "norm_label": "thermal anomaly index (tai_lst)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "vci_index",
+      "label": "Vegetation Condition Index (VCI)",
+      "community": 0,
+      "file_type": "document",
+      "norm_label": "vegetation condition index (vci)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "auxiliary_loss_heads",
+      "label": "Branch-Specific Auxiliary Loss Heads",
+      "community": 1,
+      "file_type": "document",
+      "norm_label": "branch-specific auxiliary loss heads",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "data_loader",
+      "label": "Memory-Mapped Raster Loader (rasterio)",
+      "community": 1,
+      "file_type": "document",
+      "norm_label": "memory-mapped raster loader (rasterio)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "ml_geospatial_engineer",
+      "label": "Geospatial Data & ML Engineer",
+      "community": 1,
+      "file_type": "document",
+      "norm_label": "geospatial data & ml engineer",
+      "source_file": "prd.md"
+    },
+    {
+      "id": "msf_net_fusion",
+      "label": "MSF-Net Asymmetric Late-Fusion Network",
+      "community": 1,
+      "file_type": "document",
+      "norm_label": "msf-net asymmetric late-fusion network",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "prithvi_vit_100m",
+      "label": "Prithvi-EO-1.0-100M ViT Backbone (Frozen)",
+      "community": 1,
+      "file_type": "document",
+      "norm_label": "prithvi-eo-1.0-100m vit backbone (frozen)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "random_forest_fallback",
+      "label": "Scikit-Learn Random Forest Fallback",
+      "community": 1,
+      "file_type": "document",
+      "norm_label": "scikit-learn random forest fallback",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "sar_2dcnn_patch_encoder",
+      "label": "SAR Structural 2D CNN Patch Encoder",
+      "community": 1,
+      "file_type": "document",
+      "norm_label": "sar structural 2d cnn patch encoder",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "cloud_masking_scl",
+      "label": "SCL Cloud Masking (NaN Filter)",
+      "community": 2,
+      "file_type": "document",
+      "norm_label": "scl cloud masking (nan filter)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "gee_pipeline",
+      "label": "Google Earth Engine Preprocessing Pipeline",
+      "community": 2,
+      "file_type": "document",
+      "norm_label": "google earth engine preprocessing pipeline",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "landsat_8_tirs",
+      "label": "Landsat-8 TIRS Thermal Band 10",
+      "community": 2,
+      "file_type": "document",
+      "norm_label": "landsat-8 tirs thermal band 10",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "polarimetric_decomp",
+      "label": "Polarimetric Decomposition (mv, ms)",
+      "community": 2,
+      "file_type": "document",
+      "norm_label": "polarimetric decomposition (mv, ms)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "refined_lee_filter",
+      "label": "Refined Lee Speckle Filter (7x7)",
+      "community": 2,
+      "file_type": "document",
+      "norm_label": "refined lee speckle filter (7x7)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "sentinel_1_sar",
+      "label": "Sentinel-1 C-Band SAR GRD",
+      "community": 2,
+      "file_type": "document",
+      "norm_label": "sentinel-1 c-band sar grd",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "sentinel_2_optical",
+      "label": "Sentinel-2 MSI Optical Reflectance",
+      "community": 2,
+      "file_type": "document",
+      "norm_label": "sentinel-2 msi optical reflectance",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "api_crops_geojson",
+      "label": "GET /api/v1/crops/geojson",
+      "community": 3,
+      "file_type": "document",
+      "norm_label": "get /api/v1/crops/geojson",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "api_pixel_timeseries",
+      "label": "GET /api/v1/pixel/timeseries",
+      "community": 3,
+      "file_type": "document",
+      "norm_label": "get /api/v1/pixel/timeseries",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "api_stress_tiles",
+      "label": "GET /api/v1/stress/tiles",
+      "community": 3,
+      "file_type": "document",
+      "norm_label": "get /api/v1/stress/tiles",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "fastapi_backend",
+      "label": "FastAPI Async REST Service",
+      "community": 3,
+      "file_type": "document",
+      "norm_label": "fastapi async rest service",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "map_viewer_component",
+      "label": "MapViewer Component (WebGL / Leaflet)",
+      "community": 3,
+      "file_type": "document",
+      "norm_label": "mapviewer component (webgl / leaflet)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "smallholder_farmer",
+      "label": "Smallholder Farmer & FPO",
+      "community": 3,
+      "file_type": "document",
+      "norm_label": "smallholder farmer & fpo",
+      "source_file": "prd.md"
+    },
+    {
+      "id": "effective_rainfall",
+      "label": "Effective Rainfall Model (Peff = 0.8*P)",
+      "community": 4,
+      "file_type": "document",
+      "norm_label": "effective rainfall model (peff = 0.8*p)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "era5_land",
+      "label": "ECMWF ERA5-Land Meteorology Grids",
+      "community": 4,
+      "file_type": "document",
+      "norm_label": "ecmwf era5-land meteorology grids",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "fao56_crop_coefficients",
+      "label": "FAO-56 Dynamic Crop Coefficients (Kc)",
+      "community": 4,
+      "file_type": "document",
+      "norm_label": "fao-56 dynamic crop coefficients (kc)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "hargreaves_et0_engine",
+      "label": "Hargreaves-Samani ET0 Engine",
+      "community": 4,
+      "file_type": "document",
+      "norm_label": "hargreaves-samani et0 engine",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "sluice_discharge_scheduler",
+      "label": "Sluice Release Discharge Scheduler (Q = V/t)",
+      "community": 4,
+      "file_type": "document",
+      "norm_label": "sluice release discharge scheduler (q = v/t)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "volumetric_water_deficit",
+      "label": "8-Day Volumetric Water Deficit (m3/ha & mm)",
+      "community": 4,
+      "file_type": "document",
+      "norm_label": "8-day volumetric water deficit (m3/ha & mm)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "api_canal_advisories",
+      "label": "GET /api/v1/canals/advisories",
+      "community": 5,
+      "file_type": "document",
+      "norm_label": "get /api/v1/canals/advisories",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "canal_advisory_component",
+      "label": "CanalAdvisory Component (Sluice Tables & Gauges)",
+      "community": 5,
+      "file_type": "document",
+      "norm_label": "canaladvisory component (sluice tables & gauges)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "canal_command_engineer",
+      "label": "Canal Command Engineer / Sluice Operator",
+      "community": 5,
+      "file_type": "document",
+      "norm_label": "canal command engineer / sluice operator",
+      "source_file": "prd.md"
+    },
+    {
+      "id": "export_advisory_component",
+      "label": "ExportAdvisory Component (PDF / CSV)",
+      "community": 5,
+      "file_type": "document",
+      "norm_label": "exportadvisory component (pdf / csv)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "agricultural_extension_officer",
+      "label": "Agricultural Extension Officer",
+      "community": 6,
+      "file_type": "document",
+      "norm_label": "agricultural extension officer",
+      "source_file": "prd.md"
+    },
+    {
+      "id": "phenology_chart_component",
+      "label": "PhenologyChart Component (Recharts Time-Series)",
+      "community": 6,
+      "file_type": "document",
+      "norm_label": "phenologychart component (recharts time-series)",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "react_frontend",
+      "label": "React 18/19 + Vite Frontend Application",
+      "community": 6,
+      "file_type": "document",
+      "norm_label": "react 18/19 + vite frontend application",
+      "source_file": "architecture.md"
+    },
+    {
+      "id": "grove_platform",
+      "label": "Grove (GeoPrithvi-Agri)",
+      "community": 7,
+      "file_type": "document",
+      "norm_label": "grove (geoprithvi-agri)",
+      "source_file": "architecture.md"
+    }
+  ],
+  "links": [
+    {
+      "source": "canal_advisory_component",
+      "target": "api_canal_advisories",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "data_loader",
+      "target": "prithvi_vit_100m",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "data_loader",
+      "target": "sar_2dcnn_patch_encoder",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "era5_land",
+      "target": "effective_rainfall",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "era5_land",
+      "target": "hargreaves_et0_engine",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "fastapi_backend",
+      "target": "cmsi_stress_ensemble",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "fastapi_backend",
+      "target": "msf_net_fusion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "fastapi_backend",
+      "target": "sluice_discharge_scheduler",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "landsat_8_tirs",
+      "target": "split_window_lst",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "map_viewer_component",
+      "target": "api_crops_geojson",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "map_viewer_component",
+      "target": "api_stress_tiles",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "phenology_chart_component",
+      "target": "api_pixel_timeseries",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "polarimetric_decomp",
+      "target": "smi_sar_index",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "prithvi_vit_100m",
+      "target": "msf_net_fusion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "ram_phenology_tracker",
+      "target": "fao56_crop_coefficients",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "ram_phenology_tracker",
+      "target": "vci_index",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "refined_lee_filter",
+      "target": "polarimetric_decomp",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "sar_2dcnn_patch_encoder",
+      "target": "msf_net_fusion",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "sentinel_1_sar",
+      "target": "refined_lee_filter",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "sentinel_2_optical",
+      "target": "cloud_masking_scl",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "sentinel_2_optical",
+      "target": "ram_phenology_tracker",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "split_window_lst",
+      "target": "tai_lst_anomaly",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "volumetric_water_deficit",
+      "target": "sluice_discharge_scheduler",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "fastapi_backend",
+      "target": "api_canal_advisories",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "fastapi_backend",
+      "target": "api_crops_geojson",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "fastapi_backend",
+      "target": "api_pixel_timeseries",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "fastapi_backend",
+      "target": "api_stress_tiles",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "msf_net_fusion",
+      "target": "auxiliary_loss_heads",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "ram_phenology_tracker",
+      "target": "savgol_filter",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "react_frontend",
+      "target": "canal_advisory_component",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "react_frontend",
+      "target": "export_advisory_component",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "react_frontend",
+      "target": "map_viewer_component",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "react_frontend",
+      "target": "phenology_chart_component",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "agricultural_extension_officer",
+      "target": "phenology_chart_component",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "prd.md",
+      "weight": 1.0
+    },
+    {
+      "source": "canal_command_engineer",
+      "target": "canal_advisory_component",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "prd.md",
+      "weight": 1.0
+    },
+    {
+      "source": "canal_command_engineer",
+      "target": "export_advisory_component",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "prd.md",
+      "weight": 1.0
+    },
+    {
+      "source": "crop_insurance_auditor",
+      "target": "smi_sar_index",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "prd.md",
+      "weight": 1.0
+    },
+    {
+      "source": "gee_pipeline",
+      "target": "era5_land",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "gee_pipeline",
+      "target": "landsat_8_tirs",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "gee_pipeline",
+      "target": "sentinel_1_sar",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "gee_pipeline",
+      "target": "sentinel_2_optical",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "ml_geospatial_engineer",
+      "target": "msf_net_fusion",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "prd.md",
+      "weight": 1.0
+    },
+    {
+      "source": "smallholder_farmer",
+      "target": "map_viewer_component",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "prd.md",
+      "weight": 1.0
+    },
+    {
+      "source": "data_loader",
+      "target": "gee_pipeline",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "effective_rainfall",
+      "target": "volumetric_water_deficit",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "fao56_crop_coefficients",
+      "target": "volumetric_water_deficit",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "hargreaves_et0_engine",
+      "target": "volumetric_water_deficit",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "smi_sar_index",
+      "target": "cmsi_stress_ensemble",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "tai_lst_anomaly",
+      "target": "cmsi_stress_ensemble",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "vci_index",
+      "target": "cmsi_stress_ensemble",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    },
+    {
+      "source": "msf_net_fusion",
+      "target": "random_forest_fallback",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "source_file": "architecture.md",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "fbbc844defb73850bd64b7326b979549129822e4"
+}
