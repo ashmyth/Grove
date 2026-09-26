@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Plus, Minus, Info, MapPin, Check, ArrowRight } from "lucide-react";
 import type { AnalysisInputPayload } from "../../types";
+import groveLogo from "../../assets/grove-logo.svg";
 import "./LandingConsole.css";
 
 interface LandingConsoleProps {
@@ -90,13 +91,7 @@ export const LandingConsole: React.FC<LandingConsoleProps> = ({ onLaunch, isLoad
       <div className="grove-landing-content">
         {/* Brand Logo Header */}
         <div className="grove-brand-header">
-          <div className="grove-logo-mark">
-            <span className="logo-letter letter-g">g</span>
-            <span className="logo-letter letter-r">r</span>
-            <span className="logo-letter letter-o">o</span>
-            <span className="logo-letter letter-v">v</span>
-            <span className="logo-letter letter-e">e</span>
-          </div>
+          <img src={groveLogo} alt="Grove" className="grove-brand-logo-img" />
           <p className="grove-subheading">AI-Driven Automated Crop Mapping & 8-Day Canal Command Advisory</p>
         </div>
 

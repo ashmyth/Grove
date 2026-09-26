@@ -65,55 +65,19 @@
   user-select: none;
 }
 
-.grove-logo-mark {
-  display: flex;
-  align-items: baseline;
-  font-size: 88px;
-  font-weight: 900;
-  letter-spacing: -0.06em;
-  line-height: 0.9;
-  color: #000000;
-  position: relative;
+.grove-brand-logo-img {
+  width: 260px;
+  max-width: 82vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  user-select: none;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.04));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.logo-letter {
-  position: relative;
-  display: inline-block;
-}
-
-/* Pixel block accents on 'g' */
-.letter-g::before {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background-color: #000000;
-  top: 4px;
-  left: -9px;
-  border-radius: 1px;
-}
-
-.letter-g::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background-color: #000000;
-  bottom: 0px;
-  left: -9px;
-  border-radius: 1px;
-}
-
-/* Pixel block accent on 'r' */
-.letter-r::before {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background-color: #000000;
-  top: 14px;
-  right: -5px;
-  border-radius: 1px;
+.grove-brand-logo-img:hover {
+  transform: scale(1.02);
 }
 
 .grove-subheading {
