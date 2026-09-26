@@ -38,10 +38,18 @@ except ImportError:
     logger.warning("Rasterio not installed. Authentic GeoTIFF chips cannot be read without rasterio.")
 
 def get_available_satellite_chips() -> List[str]:
-    """Returns all available authentic HLS / Sentinel satellite chips in the data directory."""
+    """Returns all available authentic HLS / Sentinel satellite chips and stacks in the data directory."""
     data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-    chips = glob.glob(os.path.join(data_dir, "*.tif"))
-    return chips
+    chips = glob.glob(os.path.join(data_dir, "*.tif")) + glob.glob(os.path.join(data_dir, "**", "*.tif"), recursive=True)
+    # Deduplicate while preserving order
+    seen = set()
+    unique_chips = []
+    for c in chips:
+        norm = os.path.abspath(c)
+        if norm not in seen:
+            seen.add(norm)
+            unique_chips.append(norm)
+    return unique_chips
 
 
 def load_feature_tensors(sample_id: str = "chip_102_345_merged") -> Dict[str, Any]:

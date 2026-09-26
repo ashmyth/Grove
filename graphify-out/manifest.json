@@ -40,8 +40,8 @@
     "semantic_hash": ""
   },
   "backend/main.py": {
-    "mtime": 1790385025.005557,
-    "ast_hash": "4377e9ede2babeefc563de6fbb58d2e0",
+    "mtime": 1790387902.9919076,
+    "ast_hash": "04577eca3b5de5c789106ac722200437",
     "semantic_hash": ""
   },
   "frontend/.oxlintrc.json": {
@@ -120,7 +120,7 @@
     "semantic_hash": ""
   },
   "frontend/index.html": {
-    "mtime": 1790385025.0295887,
+    "mtime": 1790386467.2210443,
     "ast_hash": "44737f46046f1a5d99f8417c2c9dac32",
     "semantic_hash": ""
   },
@@ -150,13 +150,13 @@
     "semantic_hash": ""
   },
   "backend/data_loader.py": {
-    "mtime": 1790385025.0045538,
-    "ast_hash": "3cdd7e32780a910238dbb016569591c9",
+    "mtime": 1790387130.340412,
+    "ast_hash": "b1fbb8527f0cb418a1bd4ba978b87472",
     "semantic_hash": ""
   },
   "backend/gee_pipeline.py": {
-    "mtime": 1790385025.0045538,
-    "ast_hash": "952f31a76364f77ec3826ae8ff978a2e",
+    "mtime": 1790386595.2111967,
+    "ast_hash": "620f69c262336ae09a55728fc68b28dc",
     "semantic_hash": ""
   },
   "backend/hydrology.py": {
@@ -165,13 +165,13 @@
     "semantic_hash": ""
   },
   "backend/model.py": {
-    "mtime": 1790385025.005557,
-    "ast_hash": "5d2f5e58cd1db2db1c7a0086b3b40dab",
+    "mtime": 1790387807.9119115,
+    "ast_hash": "cb07ae66dd3a76bfc6e5ba50fdeee8d7",
     "semantic_hash": ""
   },
   "backend/stress.py": {
-    "mtime": 1790385025.006557,
-    "ast_hash": "fc47cf31cbd71bd1661f6fe8b0549cc2",
+    "mtime": 1790386611.2269335,
+    "ast_hash": "4c35c62c130ba25d581243a7025ae5e0",
     "semantic_hash": ""
   },
   "frontend/src/components/layout/CommandControlBar.tsx": {
@@ -210,18 +210,18 @@
     "semantic_hash": ""
   },
   "backend/command_data.py": {
-    "mtime": 1790385025.0045538,
-    "ast_hash": "c96610f7bc6202071a0afc75aeeba6a9",
+    "mtime": 1790387863.8121867,
+    "ast_hash": "99d34a6acd694034e925e261fe2d7839",
     "semantic_hash": ""
   },
   "backend/train.py": {
-    "mtime": 1790385025.0075529,
-    "ast_hash": "63700da2059a4c205c11561470820d60",
+    "mtime": 1790387795.989563,
+    "ast_hash": "af4878d5e9da84e634c16248f3e049a0",
     "semantic_hash": ""
   },
   "backend/weights/model_metrics.json": {
-    "mtime": 1790385025.0075529,
-    "ast_hash": "d447abd39dad62989b1ab55391eea197",
+    "mtime": 1790387820.393401,
+    "ast_hash": "ecd5bad5ad774d964dbbffff6306857e",
     "semantic_hash": ""
   },
   "create-shortcut.ps1": {
@@ -230,7 +230,7 @@
     "semantic_hash": ""
   },
   "frontend/src/components/landing/LandingConsole.tsx": {
-    "mtime": 1790385025.0691004,
+    "mtime": 1790386467.2232122,
     "ast_hash": "d4509047e3828ff88f61137ddab5861e",
     "semantic_hash": ""
   },

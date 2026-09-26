@@ -566,40 +566,85 @@ def load_kuttanad_data() -> Tuple[Dict[str, Any], Dict[str, Any]]:
         with open(parcels_path, "r", encoding="utf-8") as f:
             raw_parcels = json.load(f)
         
-        # Enrich raw features with Grove operational properties
+        # Extract authentic pixel observations exclusively from Sentinel-2 MSI stack
+        kuttanad_tif = DATA_DIR / "sentinel-2 data" / "kuttanad_sentinel_stack.tif"
+        real_stats = {}
+        if kuttanad_tif.exists():
+            try:
+                import rasterio
+                from rasterio.mask import mask
+                import numpy as np
+                with rasterio.open(kuttanad_tif) as src:
+                    for feat in raw_parcels.get("features", []):
+                        pid = feat.get("properties", {}).get("parcel_id")
+                        geom = [feat["geometry"]]
+                        out_img, _ = mask(src, geom, crop=True)
+                        valid = np.isfinite(out_img[0]) & (out_img[0] > -0.5) & np.isfinite(out_img[1])
+                        if valid.any():
+                            ndvi_m = float(np.nanmean(out_img[0, valid]))
+                            ndwi_m = float(np.nanmean(out_img[1, valid]))
+                            real_stats[pid] = {
+                                "ndvi": round(ndvi_m, 4),
+                                "ndwi": round(ndwi_m, 4),
+                                "valid_pixels": int(valid.sum())
+                            }
+            except Exception as e:
+                print(f"[GIS] Note reading kuttanad_sentinel_stack.tif: {e}")
+
+        # Enrich raw features with authentic Sentinel-2 telemetry
         enriched_features = []
         for i, feat in enumerate(raw_parcels.get("features", [])):
             props = feat.get("properties", {})
+            pid = props.get("parcel_id", f"PARCEL-K{i+1:03d}")
             crop = props.get("crop_type", "Paddy")
             block = props.get("canal_block", "BLOCK_NORTH_MAIN")
             
             reach = "head" if i < 2 else ("middle" if i < 4 else "tail")
-            stress_level = "Normal" if reach == "head" else ("Moderate" if reach == "middle" else "Severe")
-            stress_score = 0.20 if reach == "head" else (0.55 if reach == "middle" else 0.86)
-            ndvi = 0.82 if reach == "head" else (0.62 if reach == "middle" else 0.40)
-            smi = 0.78 if reach == "head" else (0.50 if reach == "middle" else 0.18)
-            lst = -0.6 if reach == "head" else (1.2 if reach == "middle" else 3.6)
-            def_m3 = 35.0 if reach == "head" else (120.0 if reach == "middle" else 275.0)
-            disc = 0.40 if reach == "head" else (1.15 if reach == "middle" else 2.60)
+            
+            if pid not in real_stats:
+                raise RuntimeError(f"Authentic Sentinel-2 data missing for parcel {pid}. Dummy fallbacks are prohibited.")
+            
+            sat = real_stats[pid]
+            ndvi = sat["ndvi"]
+            ndwi = sat["ndwi"]
+            
+            # Canopy water stress derived directly from authentic Sentinel-2 NDWI & NDVI
+            # NDWI (Gao 1996) reflects leaf water content: lower NDWI indicates water stress
+            # Normalized canopy moisture score: range [0.0 = severe stress, 1.0 = optimal hydration]
+            hydration_score = float(np.clip((ndwi - 0.25) / 0.35, 0.05, 0.95))
+            stress_score = round(1.0 - hydration_score, 2)
+            
+            if stress_score < 0.30:
+                stress_level = "Normal"
+            elif stress_score < 0.55:
+                stress_level = "Mild"
+            elif stress_score < 0.75:
+                stress_level = "Moderate"
+            else:
+                stress_level = "Severe"
+
+            def_m3 = round(stress_score * 320.0, 1)
+            disc = round(stress_score * 3.0, 2)
             
             enriched_features.append({
                 "type": "Feature",
-                "id": props.get("parcel_id", f"PARCEL-K{i+1:03d}"),
+                "id": pid,
                 "properties": {
-                    "id": props.get("parcel_id", f"PARCEL-K{i+1:03d}"),
+                    "id": pid,
                     "block_name": f"{block} ({reach.capitalize()})",
                     "reach": reach,
                     "crop_type": crop,
+                    "crop_code": props.get("crop_code", 0),
                     "stage": "Tillering / Vegetative" if reach == "head" else "Flowering",
                     "stress_level": stress_level,
                     "stress_score": stress_score,
                     "ndvi": ndvi,
-                    "smi_sar": smi,
-                    "lst_anomaly": lst,
+                    "ndwi": ndwi,
                     "deficit_m3_ha": def_m3,
                     "recommended_discharge": disc,
                     "area_ha": props.get("area_ha", 15.0),
-                    "farmer": f"Kuttanad Polder #{i+1}"
+                    "farmer": f"Kuttanad Polder #{i+1} (Authentic S2)",
+                    "valid_s2_pixels": sat["valid_pixels"]
                 },
                 "geometry": feat.get("geometry")
             })
@@ -609,7 +654,7 @@ def load_kuttanad_data() -> Tuple[Dict[str, Any], Dict[str, Any]]:
             "features": enriched_features
         }
     else:
-        parcels_collection = SIRHIND_PARCELS_GEOJSON
+        raise FileNotFoundError(f"Parcels GeoJSON missing at {parcels_path}. Dummy fallbacks prohibited.")
 
     return canal_network, parcels_collection
 

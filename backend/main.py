@@ -99,7 +99,7 @@ def enrich_parcels_with_ai(parcels_geojson: Dict[str, Any]) -> Dict[str, Any]:
         p["features_used"] = pred["features_used"]
     return parcels_geojson
 
-current_command_id = "sirhind_punjab"
+current_command_id = "kuttanad_kerala"
 current_canal_network, current_parcels = get_command_system(current_command_id)
 current_parcels = enrich_parcels_with_ai(copy.deepcopy(current_parcels))
 

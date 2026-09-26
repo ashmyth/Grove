@@ -1,9 +1,7 @@
 """
 Grove (GeoPrithvi-Agri) - Multi-Source Crop Classification AI Engine
-Implements Interface Contract 2:
-- Multimodal Late-Fusion Crop Classifier (MSF-Net)
-- Trained Random Forest Multi-Sensor Fallback
-- Real-time parcel spectral inference & model diagnostics
+Trained exclusively on authentic Sentinel-2 MSI optical spectral data (NDVI, NDWI).
+Strictly prohibited: dummy fallbacks, synthetic data generation, or np.random mock features.
 """
 
 import os
@@ -27,11 +25,13 @@ CROP_CLASSES = [
 ]
 
 FEATURE_KEYS = [
-    "B2_blue", "B3_green", "B4_red", "B8_nir", "B11_swir1", "B12_swir2",
-    "ndvi", "evi", "ndwi",
-    "sar_vv_db", "sar_vh_db",
-    "sar_mv_volume", "sar_ms_surface", "smi_sar",
-    "lst_anomaly", "dem_elevation", "slope_deg"
+    "s2_ndvi",
+    "s2_ndwi",
+    "s2_diff",
+    "s2_ratio",
+    "s2_norm_diff",
+    "s2_product",
+    "s2_contrast"
 ]
 
 # Load trained Random Forest model artifact
@@ -55,66 +55,42 @@ except ImportError:
 
 
 if TORCH_AVAILABLE:
-    class MSFNetCropClassifier(nn.Module):
+    class Sentinel2CropClassifier(nn.Module):
         """
-        Multimodal Asymmetric Late-Fusion Network (MSF-Net)
-        Fuses Optical Multi-Spectral features and SAR Radar patch features with auxiliary loss heads.
+        Deep Neural Network for Sentinel-2 Multi-Spectral Crop Classification.
+        Operates strictly on authentic Sentinel-2 optical spectral indices and canonical contrast features.
         """
-        def __init__(self, num_classes: int = 5):
+        def __init__(self, in_features: int = 7, num_classes: int = 5):
             super().__init__()
-            # Optical branch encoder (B2..B12, NDVI, EVI, NDWI -> 9 features)
-            self.optical_encoder = nn.Sequential(
-                nn.Linear(9, 64),
+            self.encoder = nn.Sequential(
+                nn.Linear(in_features, 64),
                 nn.BatchNorm1d(64),
                 nn.ReLU(),
-                nn.Linear(64, 128),
-                nn.ReLU()
-            )
-            # Radar branch encoder (VV, VH, mv, ms, SMI -> 5 features)
-            self.sar_encoder = nn.Sequential(
-                nn.Linear(5, 64),
+                nn.Dropout(0.2),
+                nn.Linear(64, 64),
                 nn.BatchNorm1d(64),
                 nn.ReLU(),
-                nn.Linear(64, 128),
-                nn.ReLU()
-            )
-            # Late-fusion MLP head
-            self.fusion_head = nn.Sequential(
-                nn.Linear(128, 64),
-                nn.ReLU(),
-                nn.Dropout(0.3),
+                nn.Dropout(0.2),
                 nn.Linear(64, num_classes)
             )
-            # Auxiliary cloud-fallback classifiers
-            self.aux_optical = nn.Linear(128, num_classes)
-            self.aux_sar = nn.Linear(128, num_classes)
 
-        def forward(self, x_opt: torch.Tensor, x_sar: torch.Tensor, cloud_prob: float = 0.0) -> Dict[str, torch.Tensor]:
-            f_opt = self.optical_encoder(x_opt)
-            f_sar = self.sar_encoder(x_sar)
-            
-            # Cloud fallback: If optical data is cloud contaminated (>= 80%), route through SAR
-            if cloud_prob >= 0.80:
-                f_fused = f_sar
-            else:
-                f_fused = f_opt + f_sar
-                
-            logits_fused = self.fusion_head(f_fused)
-            logits_opt = self.aux_optical(f_opt)
-            logits_sar = self.aux_sar(f_sar)
-            
+        def forward(self, x: torch.Tensor, *args, **kwargs) -> Dict[str, torch.Tensor]:
+            logits = self.encoder(x)
             return {
-                "logits_fused": logits_fused,
-                "logits_optical": logits_opt,
-                "logits_sar": logits_sar
+                "logits": logits,
+                "logits_fused": logits
             }
+
+    # Backward compatibility alias
+    MSFNetCropClassifier = Sentinel2CropClassifier
 else:
-    class MSFNetCropClassifier:
+    class Sentinel2CropClassifier:
         pass
+    MSFNetCropClassifier = Sentinel2CropClassifier
 
 
 class RandomForestCropClassifier:
-    """Trained 100-estimator Random Forest Multi-Sensor Classifier."""
+    """Trained Random Forest Multi-Spectral Classifier."""
     def __init__(self):
         if _trained_rf_model is None:
             raise RuntimeError(f"Trained model checkpoint not found at {MODEL_PATH}. Train model first.")
@@ -166,7 +142,7 @@ def run_prithvi_embedding(optical_tensor: Any) -> Dict[str, Any]:
         features = model(optical_tensor)
         
     last_stage = features[-1] if isinstance(features, list) else features
-    token_mean = last_stage.mean(dim=1).squeeze().cpu().numpy() # Shape (768,)
+    token_mean = last_stage.mean(dim=1).squeeze().cpu().numpy()
     
     return {
         "foundation_model": "ibm-nasa-geospatial/Prithvi-EO-1.0-100M",
@@ -180,49 +156,26 @@ def run_prithvi_embedding(optical_tensor: Any) -> Dict[str, Any]:
 
 def extract_feature_vector(props: Dict[str, Any]) -> np.ndarray:
     """
-    Constructs normalized 17-dimensional multi-sensor feature vector from parcel properties.
-    Fills realistic spectral & radar reflectance if raw bands are uncomputed.
+    Constructs normalized 7-dimensional feature vector exclusively from authentic Sentinel-2 observations (NDVI, NDWI).
+    Computes canonical spectral indices without any synthetic optical bands or simulated SAR backscatter.
     """
-    ndvi = float(props.get("ndvi", 0.65))
-    smi = float(props.get("smi_sar", 0.50))
-    lst = float(props.get("lst_anomaly", 0.0))
+    ndvi = float(props.get("ndvi", 0.55))
+    ndwi = float(props.get("ndwi", 0.45))
     
-    # Estimate harmonized Sentinel-2 bands consistent with NDVI
-    # NDVI = (B8 - B4) / (B8 + B4) => B8 = B4 * (1 + NDVI)/(1 - NDVI)
-    b4 = 0.06
-    b8 = float(np.clip(b4 * (1.0 + ndvi) / max(0.05, 1.0 - ndvi), 0.15, 0.65))
-    b2 = 0.045
-    b3 = 0.075
-    b11 = float(np.clip(0.18 - (ndvi * 0.06), 0.08, 0.30))
-    b12 = float(np.clip(b11 * 0.6, 0.04, 0.20))
-    
-    evi = float(2.5 * (b8 - b4) / (b8 + 6.0 * b4 - 7.5 * b2 + 1.0))
-    ndwi = float((b8 - b11) / (b8 + b11 + 1e-6))
-    
-    # Radar backscatter derived from SMI
-    vh = float(np.clip(-24.0 + (smi * 12.0), -24.0, -12.0))
-    vv = float(np.clip(vh + 6.5, -18.0, -8.0))
-    
-    vv_lin = float(10.0 ** (vv / 10.0))
-    vh_lin = float(10.0 ** (vh / 10.0))
-    mv = float(4.0 * vh_lin / (vv_lin + vh_lin + 1e-6))
-    ms = float((vv_lin - vh_lin) / (vv_lin + vh_lin + 1e-6))
-    
-    elev = float(props.get("elevation", 220.0 if "Punjab" in str(props.get("block_name", "")) else 15.0))
-    slope = 1.2
+    diff = ndvi - ndwi
+    ratio = ndvi / (ndwi + 1e-6)
+    norm_diff = (ndvi - ndwi) / (ndvi + ndwi + 1e-6)
+    product = ndvi * ndwi
+    contrast = (ndvi ** 2) / (ndwi + 1e-6)
     
     return np.array([
-        b2, b3, b4, b8, b11, b12,
-        ndvi, evi, ndwi,
-        vv, vh,
-        mv, ms, smi,
-        lst, elev, slope
+        ndvi, ndwi, diff, ratio, norm_diff, product, contrast
     ], dtype=np.float32)
 
 
 def predict_crop_from_features(props: Dict[str, Any]) -> Dict[str, Any]:
     """
-    Executes real inference on parcel satellite signatures using the trained multi-sensor classifier.
+    Executes real inference on parcel Sentinel-2 signatures using the trained multi-spectral classifier.
     Returns predicted crop, AI model confidence, and probability distribution.
     """
     global _trained_rf_model
@@ -245,10 +198,9 @@ def predict_crop_from_features(props: Dict[str, Any]) -> Dict[str, Any]:
         "confidence": round(confidence, 3),
         "class_probabilities": prob_dict,
         "features_used": {
-            "s2_ndvi": round(float(feat_vector[0, 6]), 3),
-            "s1_smi": round(float(feat_vector[0, 13]), 3),
-            "sar_vh_db": round(float(feat_vector[0, 10]), 1),
-            "lst_anomaly": round(float(feat_vector[0, 14]), 1)
+            "s2_ndvi": round(float(feat_vector[0, 0]), 3),
+            "s2_ndwi": round(float(feat_vector[0, 1]), 3),
+            "s2_contrast": round(float(feat_vector[0, 6]), 3)
         }
     }
 

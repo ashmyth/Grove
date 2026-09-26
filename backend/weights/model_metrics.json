@@ -1,46 +1,56 @@
 {
-  "model_name": "RandomForest-MSF-CropClassifier",
-  "training_samples": 1000,
-  "test_samples": 250,
-  "accuracy": 0.964,
-  "macro_f1": 0.9643,
-  "macro_precision": 0.9654,
-  "macro_recall": 0.964,
+  "model_name": "RandomForest-Sentinel2-Crop-Classifier",
+  "dataset_source": "Authentic Sentinel-2 MSI (Kuttanad Agricultural Basin)",
+  "feature_keys": [
+    "s2_ndvi",
+    "s2_ndwi",
+    "s2_diff",
+    "s2_ratio",
+    "s2_norm_diff",
+    "s2_product",
+    "s2_contrast"
+  ],
+  "training_samples": 12536,
+  "test_samples": 3134,
+  "accuracy": 0.507,
+  "macro_f1": 0.5067,
+  "macro_precision": 0.5079,
+  "macro_recall": 0.5071,
   "confusion_matrix": [
     [
-      50,
-      0,
-      0,
-      0,
-      0
+      340,
+      93,
+      66,
+      48,
+      81
     ],
     [
-      0,
-      47,
-      3,
-      0,
-      0
+      63,
+      244,
+      183,
+      52,
+      85
     ],
     [
-      0,
-      3,
-      47,
-      0,
-      0
+      54,
+      170,
+      309,
+      35,
+      59
     ],
     [
-      0,
-      0,
-      0,
-      50,
-      0
+      39,
+      46,
+      29,
+      386,
+      124
     ],
     [
-      0,
-      0,
-      3,
-      0,
-      47
+      60,
+      49,
+      44,
+      165,
+      310
     ]
   ],
   "class_names": [
@@ -52,68 +62,64 @@
   ],
   "per_class_metrics": {
     "Paddy (Rice)": {
-      "precision": 1.0,
-      "recall": 1.0,
-      "f1_score": 1.0,
-      "support": 50
+      "precision": 0.612,
+      "recall": 0.541,
+      "f1_score": 0.574,
+      "support": 628
     },
     "Cotton": {
-      "precision": 0.94,
-      "recall": 0.94,
-      "f1_score": 0.94,
-      "support": 50
+      "precision": 0.405,
+      "recall": 0.389,
+      "f1_score": 0.397,
+      "support": 627
     },
     "Maize": {
-      "precision": 0.887,
-      "recall": 0.94,
-      "f1_score": 0.913,
-      "support": 50
+      "precision": 0.49,
+      "recall": 0.493,
+      "f1_score": 0.491,
+      "support": 627
     },
     "Sugarcane": {
-      "precision": 1.0,
-      "recall": 1.0,
-      "f1_score": 1.0,
-      "support": 50
+      "precision": 0.563,
+      "recall": 0.619,
+      "f1_score": 0.589,
+      "support": 624
     },
     "Wheat / Pulses / Mustard": {
-      "precision": 1.0,
-      "recall": 0.94,
-      "f1_score": 0.969,
-      "support": 50
+      "precision": 0.47,
+      "recall": 0.494,
+      "f1_score": 0.482,
+      "support": 628
     }
   },
-  "top_features": [
+  "feature_importances": [
     {
-      "feature": "dem_elevation",
-      "importance": 0.2401
+      "feature": "s2_ndvi",
+      "importance": 0.1749
     },
     {
-      "feature": "ndwi",
-      "importance": 0.124
+      "feature": "s2_ndwi",
+      "importance": 0.1717
     },
     {
-      "feature": "smi_sar",
-      "importance": 0.1179
+      "feature": "s2_product",
+      "importance": 0.171
     },
     {
-      "feature": "sar_vh_db",
-      "importance": 0.1096
+      "feature": "s2_diff",
+      "importance": 0.1477
     },
     {
-      "feature": "B12_swir2",
-      "importance": 0.0939
+      "feature": "s2_contrast",
+      "importance": 0.1186
     },
     {
-      "feature": "B11_swir1",
-      "importance": 0.072
+      "feature": "s2_ratio",
+      "importance": 0.1083
     },
     {
-      "feature": "sar_vv_db",
-      "importance": 0.0606
-    },
-    {
-      "feature": "ndvi",
-      "importance": 0.0517
+      "feature": "s2_norm_diff",
+      "importance": 0.1079
     }
   ]
 }
