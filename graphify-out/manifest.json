@@ -50,13 +50,13 @@
     "semantic_hash": ""
   },
   "frontend/package.json": {
-    "mtime": 1790385025.0308683,
-    "ast_hash": "77c548ff7778f55d768abfa710f1bd50",
+    "mtime": 1790388797.9444406,
+    "ast_hash": "46751ca062880e19d708586e210f369b",
     "semantic_hash": ""
   },
   "frontend/src/App.tsx": {
-    "mtime": 1790388427.1925883,
-    "ast_hash": "e2f1b7cab6d1821d52bed1fcb291a8b6",
+    "mtime": 1790388893.3790255,
+    "ast_hash": "6ed64a8810c49eaf2c4c77544320cb70",
     "semantic_hash": ""
   },
   "frontend/src/components/analytics/AnalyticsDrawer.tsx": {
@@ -264,9 +264,9 @@
     "ast_hash": "d4636ee606c8f476f51e3e913c5b63fd",
     "semantic_hash": ""
   },
-  "frontend/src/components/loading/LoadingScreen.tsx": {
-    "mtime": 1790388175.0319605,
-    "ast_hash": "a0e79157264f81f47d1dc182c4c613f1",
+  "docs/research_training_protocols.md": {
+    "mtime": 1790389028.7014525,
+    "ast_hash": "81b58da01cb1b19d8e850b549437a953",
     "semantic_hash": ""
   }
 }

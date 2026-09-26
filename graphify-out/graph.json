@@ -10,8 +10,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_command_data",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "command_data.py"
     },
     {
@@ -21,8 +21,8 @@
       "source_location": "L499",
       "_origin": "ast",
       "id": "backend_command_data_load_kuttanad_data",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "load_kuttanad_data()"
     },
     {
@@ -32,8 +32,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_command_data_py_any",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "any"
     },
     {
@@ -43,8 +43,8 @@
       "source_location": "L662",
       "_origin": "ast",
       "id": "backend_command_data_get_command_system",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "get_command_system()"
     },
     {
@@ -54,8 +54,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_command_data_rationale_1",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "grove (geoprithvi-agri) - high-fidelity agricultural gis datasets provides..."
     },
     {
@@ -65,8 +65,8 @@
       "source_location": "L500",
       "_origin": "ast",
       "id": "backend_command_data_rationale_500",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "loads and formats the real kuttanad dataset created by teammate 1."
     },
     {
@@ -76,8 +76,8 @@
       "source_location": "L663",
       "_origin": "ast",
       "id": "backend_command_data_rationale_663",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "returns (canal_network_geojson, parcels_geojson) matching the selected region."
     },
     {
@@ -87,8 +87,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_data_loader",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 30,
+      "community_name": "data_loader.py",
       "norm_label": "data_loader.py"
     },
     {
@@ -98,8 +98,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_data_loader_get_available_satellite_chips",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "get_available_satellite_chips()"
     },
     {
@@ -109,8 +109,8 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_data_loader_load_feature_tensors",
-      "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "load_feature_tensors()"
     },
     {
@@ -120,8 +120,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_data_loader_py_any",
-      "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "any"
     },
     {
@@ -132,7 +132,7 @@
       "_origin": "ast",
       "id": "backend_data_loader_grovedataset",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "grovedataset"
     },
     {
@@ -143,7 +143,7 @@
       "_origin": "ast",
       "id": "dataset",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "dataset"
     },
     {
@@ -154,7 +154,7 @@
       "_origin": "ast",
       "id": "backend_data_loader_grovedataset_init",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": ".__init__()"
     },
     {
@@ -165,7 +165,7 @@
       "_origin": "ast",
       "id": "backend_data_loader_grovedataset_len",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": ".__len__()"
     },
     {
@@ -175,8 +175,8 @@
       "source_location": "L182",
       "_origin": "ast",
       "id": "backend_data_loader_grovedataset_getitem",
-      "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": ".__getitem__()"
     },
     {
@@ -186,8 +186,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_data_loader_rationale_1",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 30,
+      "community_name": "data_loader.py",
       "norm_label": "memory-mapped geospatial data loader & pytorch dataset part of grove..."
     },
     {
@@ -197,8 +197,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_data_loader_rationale_41",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "returns all available authentic hls / sentinel satellite chips and stacks in..."
     },
     {
@@ -208,8 +208,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "backend_data_loader_rationale_56",
-      "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "interface 1 implementation: memory-mapped geospatial satellite loader. loads..."
     },
     {
@@ -220,7 +220,7 @@
       "_origin": "ast",
       "id": "backend_data_loader_rationale_171",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "memory-mapped pytorch dataset for streaming 10m sentinel optical/sar chip..."
     },
     {
@@ -230,7 +230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_gee_pipeline",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "gee_pipeline.py"
     },
@@ -242,7 +242,7 @@
       "_origin": "ast",
       "id": "backend_gee_pipeline_initialize_gee",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "initialize_gee()"
     },
     {
@@ -252,7 +252,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "backend_gee_pipeline_mask_s2_clouds",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "mask_s2_clouds()"
     },
@@ -263,7 +263,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_gee_pipeline_py_any",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "any"
     },
@@ -274,7 +274,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "backend_gee_pipeline_compute_spectral_indices",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "compute_spectral_indices()"
     },
@@ -285,7 +285,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "backend_gee_pipeline_apply_refined_lee_filter",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "apply_refined_lee_filter()"
     },
@@ -296,7 +296,7 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "backend_gee_pipeline_compute_sar_polarimetric_proxies",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "compute_sar_polarimetric_proxies()"
     },
@@ -307,7 +307,7 @@
       "source_location": "L151",
       "_origin": "ast",
       "id": "backend_gee_pipeline_compute_landsat_lst",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "compute_landsat_lst()"
     },
@@ -318,7 +318,7 @@
       "source_location": "L178",
       "_origin": "ast",
       "id": "backend_gee_pipeline_fetch_era5_meteorology",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "fetch_era5_meteorology()"
     },
@@ -329,7 +329,7 @@
       "source_location": "L213",
       "_origin": "ast",
       "id": "backend_gee_pipeline_build_composite_image",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "build_composite_image()"
     },
@@ -341,7 +341,7 @@
       "_origin": "ast",
       "id": "backend_gee_pipeline_geepipeline",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "geepipeline"
     },
     {
@@ -352,7 +352,7 @@
       "_origin": "ast",
       "id": "backend_gee_pipeline_geepipeline_init",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": ".__init__()"
     },
     {
@@ -363,7 +363,7 @@
       "_origin": "ast",
       "id": "backend_gee_pipeline_geepipeline_is_connected",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": ".is_connected()"
     },
     {
@@ -373,7 +373,7 @@
       "source_location": "L259",
       "_origin": "ast",
       "id": "backend_gee_pipeline_geepipeline_fetch_command_data",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": ".fetch_command_data()"
     },
@@ -384,7 +384,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_1",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "google earth engine (gee) remote sensing preprocessing pipeline part of grove..."
     },
@@ -396,7 +396,7 @@
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_31",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "authenticates and initializes google earth engine session. supports service..."
     },
     {
@@ -406,7 +406,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_67",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "applies scene classification layer (scl) cloud mask to sentinel-2 imagery...."
     },
@@ -417,7 +417,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_80",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "calculates 10m spectral indices: - ndvi = (b8 - b4) / (b8 + b4) - evi = 2.5 *..."
     },
@@ -428,7 +428,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_106",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "applies a 7x7 directional refined lee speckle filter on sentinel-1 sar imagery...."
     },
@@ -439,7 +439,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_131",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "calculates dual-polarization polarimetric proxies from sentinel-1 vv and vh: -..."
     },
@@ -450,7 +450,7 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_152",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "computes land surface temperature (lst in \u00b0c) from landsat-8 tirs band 10."
     },
@@ -461,7 +461,7 @@
       "source_location": "L179",
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_179",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "ingests ecmwf era5-land gridded daily weather variables over the aoi. requires..."
     },
@@ -472,7 +472,7 @@
       "source_location": "L214",
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_214",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "norm_label": "constructs a 12-channel composite image at 10m spatial resolution."
     },
@@ -484,7 +484,7 @@
       "_origin": "ast",
       "id": "backend_gee_pipeline_rationale_252",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "wrapper class providing high-level interface to earth engine routines."
     },
     {
@@ -494,8 +494,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_hydrology",
-      "community": 21,
-      "community_name": "HydrologyEngine",
+      "community": 30,
+      "community_name": "data_loader.py",
       "norm_label": "hydrology.py"
     },
     {
@@ -604,8 +604,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_hydrology_rationale_1",
-      "community": 21,
-      "community_name": "HydrologyEngine",
+      "community": 30,
+      "community_name": "data_loader.py",
       "norm_label": "grove (geoprithvi-agri) - satellite hydrology & irrigation deficit engine..."
     },
     {
@@ -692,7 +692,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_main",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "norm_label": "main.py"
     },
@@ -704,7 +704,7 @@
       "_origin": "ast",
       "id": "backend_main_canaladvisoryitem",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "canaladvisoryitem"
     },
     {
@@ -715,7 +715,7 @@
       "_origin": "ast",
       "id": "basemodel",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "basemodel"
     },
     {
@@ -726,7 +726,7 @@
       "_origin": "ast",
       "id": "backend_main_pixeltimeseriesdata",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "pixeltimeseriesdata"
     },
     {
@@ -737,7 +737,7 @@
       "_origin": "ast",
       "id": "backend_main_commandoverview",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "commandoverview"
     },
     {
@@ -748,7 +748,7 @@
       "_origin": "ast",
       "id": "backend_main_analysisinputpayload",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "analysisinputpayload"
     },
     {
@@ -759,7 +759,7 @@
       "_origin": "ast",
       "id": "backend_main_enrich_parcels_with_ai",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "enrich_parcels_with_ai()"
     },
     {
@@ -770,7 +770,7 @@
       "_origin": "ast",
       "id": "backend_main_py_any",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "any"
     },
     {
@@ -781,7 +781,7 @@
       "_origin": "ast",
       "id": "get",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "get"
     },
     {
@@ -792,7 +792,7 @@
       "_origin": "ast",
       "id": "backend_main_health_check",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "health_check()"
     },
     {
@@ -802,7 +802,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "backend_main_get_diagnostics",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "norm_label": "get_diagnostics()"
     },
@@ -813,8 +813,8 @@
       "source_location": "L137",
       "_origin": "ast",
       "id": "backend_main_list_satellite_chips",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "list_satellite_chips()"
     },
     {
@@ -824,8 +824,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "post",
-      "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "post"
     },
     {
@@ -835,8 +835,8 @@
       "source_location": "L160",
       "_origin": "ast",
       "id": "backend_main_extract_prithvi_embedding",
-      "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "extract_prithvi_embedding()"
     },
     {
@@ -847,7 +847,7 @@
       "_origin": "ast",
       "id": "backend_main_get_command_overview",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "get_command_overview()"
     },
     {
@@ -858,7 +858,7 @@
       "_origin": "ast",
       "id": "backend_main_get_canal_advisory",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "get_canal_advisory()"
     },
     {
@@ -869,7 +869,7 @@
       "_origin": "ast",
       "id": "backend_main_get_parcels_geojson",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "get_parcels_geojson()"
     },
     {
@@ -879,8 +879,8 @@
       "source_location": "L253",
       "_origin": "ast",
       "id": "backend_main_get_canal_network",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "get_canal_network()"
     },
     {
@@ -891,7 +891,7 @@
       "_origin": "ast",
       "id": "backend_main_get_pixel_timeseries",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "get_pixel_timeseries()"
     },
     {
@@ -902,7 +902,7 @@
       "_origin": "ast",
       "id": "backend_main_run_command_analysis",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "run_command_analysis()"
     },
     {
@@ -913,7 +913,7 @@
       "_origin": "ast",
       "id": "backend_main_serve_react_app",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "serve_react_app()"
     },
     {
@@ -923,7 +923,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_main_rationale_1",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "norm_label": "grove (geoprithvi-agri) fastapi backend service fully integrates teammate 1..."
     },
@@ -935,7 +935,7 @@
       "_origin": "ast",
       "id": "backend_main_rationale_92",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "enriches parcel geojson with real trained ai model crop predictions,..."
     },
     {
@@ -945,7 +945,7 @@
       "source_location": "L125",
       "_origin": "ast",
       "id": "backend_main_rationale_125",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "norm_label": "returns empirical evaluation metrics from the trained random forest and msf-net..."
     },
@@ -956,8 +956,8 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "backend_main_rationale_138",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "returns catalog of authentic multi-temporal hls 18-band satellite chips..."
     },
     {
@@ -967,8 +967,8 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "backend_main_rationale_161",
-      "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community": 28,
+      "community_name": "load_feature_tensors",
       "norm_label": "executes a real forward pass on an authentic satellite chip using the ibm-nasa..."
     },
     {
@@ -979,7 +979,7 @@
       "_origin": "ast",
       "id": "backend_main_rationale_321",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "executes the full ai & hydrology pipeline across the selected command area: 1...."
     },
     {
@@ -989,7 +989,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_model",
-      "community": 18,
+      "community": 32,
       "community_name": "model.py",
       "norm_label": "model.py"
     },
@@ -1001,7 +1001,7 @@
       "_origin": "ast",
       "id": "backend_model_sentinel2cropclassifier",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "sentinel2cropclassifier"
     },
     {
@@ -1012,7 +1012,7 @@
       "_origin": "ast",
       "id": "backend_model_sentinel2cropclassifier_init",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": ".__init__()"
     },
     {
@@ -1023,7 +1023,7 @@
       "_origin": "ast",
       "id": "backend_model_sentinel2cropclassifier_forward",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": ".forward()"
     },
     {
@@ -1034,7 +1034,7 @@
       "_origin": "ast",
       "id": "tensor",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "tensor"
     },
     {
@@ -1045,7 +1045,7 @@
       "_origin": "ast",
       "id": "backend_model_randomforestcropclassifier",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "randomforestcropclassifier"
     },
     {
@@ -1056,7 +1056,7 @@
       "_origin": "ast",
       "id": "backend_model_randomforestcropclassifier_init",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": ".__init__()"
     },
     {
@@ -1067,7 +1067,7 @@
       "_origin": "ast",
       "id": "backend_model_randomforestcropclassifier_predict",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": ".predict()"
     },
     {
@@ -1078,7 +1078,7 @@
       "_origin": "ast",
       "id": "backend_model_py_ndarray",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "ndarray"
     },
     {
@@ -1089,7 +1089,7 @@
       "_origin": "ast",
       "id": "backend_model_randomforestcropclassifier_predict_proba",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": ".predict_proba()"
     },
     {
@@ -1099,7 +1099,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "backend_model_get_prithvi_model",
-      "community": 18,
+      "community": 32,
       "community_name": "model.py",
       "norm_label": "get_prithvi_model()"
     },
@@ -1110,7 +1110,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "backend_model_run_prithvi_embedding",
-      "community": 18,
+      "community": 32,
       "community_name": "model.py",
       "norm_label": "run_prithvi_embedding()"
     },
@@ -1122,7 +1122,7 @@
       "_origin": "ast",
       "id": "backend_model_py_any",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "any"
     },
     {
@@ -1133,7 +1133,7 @@
       "_origin": "ast",
       "id": "backend_model_extract_feature_vector",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "extract_feature_vector()"
     },
     {
@@ -1144,7 +1144,7 @@
       "_origin": "ast",
       "id": "backend_model_predict_crop_from_features",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "predict_crop_from_features()"
     },
     {
@@ -1154,7 +1154,7 @@
       "source_location": "L208",
       "_origin": "ast",
       "id": "backend_model_get_model_diagnostics",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "norm_label": "get_model_diagnostics()"
     },
@@ -1165,7 +1165,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_model_rationale_1",
-      "community": 18,
+      "community": 32,
       "community_name": "model.py",
       "norm_label": "grove (geoprithvi-agri) - multi-source crop classification ai engine trained..."
     },
@@ -1177,7 +1177,7 @@
       "_origin": "ast",
       "id": "backend_model_rationale_59",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "deep neural network for sentinel-2 multi-spectral crop classification. operates..."
     },
     {
@@ -1188,7 +1188,7 @@
       "_origin": "ast",
       "id": "backend_model_rationale_93",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "trained random forest multi-spectral classifier."
     },
     {
@@ -1198,7 +1198,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "backend_model_rationale_112",
-      "community": 18,
+      "community": 32,
       "community_name": "model.py",
       "norm_label": "loads and caches the official ibm-nasa prithvi-eo 100m foundation model..."
     },
@@ -1209,7 +1209,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "backend_model_rationale_129",
-      "community": 18,
+      "community": 32,
       "community_name": "model.py",
       "norm_label": "runs forward pass through the ibm-nasa prithvi-eo 100m foundation vit. input..."
     },
@@ -1221,7 +1221,7 @@
       "_origin": "ast",
       "id": "backend_model_rationale_158",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "constructs normalized 7-dimensional feature vector exclusively from authentic..."
     },
     {
@@ -1232,7 +1232,7 @@
       "_origin": "ast",
       "id": "backend_model_rationale_177",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "executes real inference on parcel sentinel-2 signatures using the trained..."
     },
     {
@@ -1242,7 +1242,7 @@
       "source_location": "L209",
       "_origin": "ast",
       "id": "backend_model_rationale_209",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "norm_label": "returns trained model performance metrics, confusion matrix, feature..."
     },
@@ -1253,8 +1253,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_stress",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 30,
+      "community_name": "data_loader.py",
       "norm_label": "stress.py"
     },
     {
@@ -1265,7 +1265,7 @@
       "_origin": "ast",
       "id": "backend_stress_phenologystressengine",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": "phenologystressengine"
     },
     {
@@ -1276,7 +1276,7 @@
       "_origin": "ast",
       "id": "backend_stress_phenologystressengine_init",
       "community": 4,
-      "community_name": "main.py",
+      "community_name": "get",
       "norm_label": ".__init__()"
     },
     {
@@ -1286,8 +1286,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_stress_phenologystressengine_compute_phenology_markers",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 33,
+      "community_name": ".compute_phenology_markers",
       "norm_label": ".compute_phenology_markers()"
     },
     {
@@ -1297,8 +1297,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "backend_stress_py_ndarray",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 33,
+      "community_name": ".compute_phenology_markers",
       "norm_label": "ndarray"
     },
     {
@@ -1308,8 +1308,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "backend_stress_phenologystressengine_evaluate_stress_ensemble",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 33,
+      "community_name": ".compute_phenology_markers",
       "norm_label": ".evaluate_stress_ensemble()"
     },
     {
@@ -1319,8 +1319,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_stress_rationale_16",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 33,
+      "community_name": ".compute_phenology_markers",
       "norm_label": "extracts sos (start of season), peak vegetative, and lgp (length of growing..."
     },
     {
@@ -1330,8 +1330,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "backend_stress_rationale_72",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 33,
+      "community_name": ".compute_phenology_markers",
       "norm_label": "evaluates the composite moisture stress index (cmsi). stage-dependent weights:..."
     },
     {
@@ -1341,8 +1341,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_train",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "train.py"
     },
     {
@@ -1353,7 +1353,7 @@
       "_origin": "ast",
       "id": "backend_train_compute_s2_feature_vector",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "compute_s2_feature_vector()"
     },
     {
@@ -1364,7 +1364,7 @@
       "_origin": "ast",
       "id": "backend_train_load_authentic_sentinel2_data",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "load_authentic_sentinel2_data()"
     },
     {
@@ -1375,7 +1375,7 @@
       "_origin": "ast",
       "id": "backend_train_train_sentinel2_models",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "train_sentinel2_models()"
     },
     {
@@ -1385,8 +1385,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_train_rationale_1",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "grove (geoprithvi-agri) - authentic sentinel-2 crop classification training..."
     },
     {
@@ -1397,7 +1397,7 @@
       "_origin": "ast",
       "id": "backend_train_rationale_50",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "computes deterministic spectral contrast features exclusively from authentic..."
     },
     {
@@ -1408,7 +1408,7 @@
       "_origin": "ast",
       "id": "backend_train_rationale_63",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "extracts authentic sentinel-2 feature observations from: 1. authentic 5-band..."
     },
     {
@@ -1628,7 +1628,7 @@
       "_origin": "ast",
       "id": "frontend_package",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "package.json"
     },
     {
@@ -1639,7 +1639,7 @@
       "_origin": "ast",
       "id": "frontend_package_name",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "name"
     },
     {
@@ -1650,7 +1650,7 @@
       "_origin": "ast",
       "id": "frontend_package_private",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "private"
     },
     {
@@ -1661,7 +1661,7 @@
       "_origin": "ast",
       "id": "frontend_package_version",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "version"
     },
     {
@@ -1672,7 +1672,7 @@
       "_origin": "ast",
       "id": "frontend_package_type",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "type"
     },
     {
@@ -1683,7 +1683,7 @@
       "_origin": "ast",
       "id": "frontend_package_main",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "main"
     },
     {
@@ -1694,7 +1694,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "scripts"
     },
     {
@@ -1705,7 +1705,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_dev",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "dev"
     },
     {
@@ -1716,7 +1716,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_build",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "build"
     },
     {
@@ -1727,7 +1727,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_lint",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "lint"
     },
     {
@@ -1738,7 +1738,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_preview",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "preview"
     },
     {
@@ -1749,7 +1749,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_electron_dev",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "electron:dev"
     },
     {
@@ -1760,7 +1760,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_electron_start",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "electron:start"
     },
     {
@@ -1771,7 +1771,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_electron_build",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "electron:build"
     },
     {
@@ -1782,7 +1782,7 @@
       "_origin": "ast",
       "id": "frontend_package_scripts_backend_dev",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "backend:dev"
     },
     {
@@ -1793,7 +1793,7 @@
       "_origin": "ast",
       "id": "frontend_package_dependencies",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "dependencies"
     },
     {
@@ -1804,7 +1804,7 @@
       "_origin": "ast",
       "id": "frontend_package_dependencies_types_leaflet",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "@types/leaflet"
     },
     {
@@ -1815,146 +1815,168 @@
       "_origin": "ast",
       "id": "types_leaflet",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "@types/leaflet"
+    },
+    {
+      "label": "gsap",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "frontend_package_dependencies_gsap",
+      "community": 11,
+      "community_name": "dependencies",
+      "norm_label": "gsap"
+    },
+    {
+      "label": "gsap",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "gsap",
+      "community": 11,
+      "community_name": "dependencies",
+      "norm_label": "gsap"
     },
     {
       "label": "leaflet",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "frontend_package_dependencies_leaflet",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "leaflet"
     },
     {
       "label": "leaflet",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "leaflet",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "leaflet"
     },
     {
       "label": "lucide-react",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "frontend_package_dependencies_lucide_react",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "lucide-react"
     },
     {
       "label": "lucide-react",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "lucide_react",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "lucide-react"
     },
     {
       "label": "react",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "react"
     },
     {
       "label": "react",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "react",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "react"
     },
     {
       "label": "react-dom",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_dom",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "react-dom"
     },
     {
       "label": "react-dom",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "react_dom",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "react-dom"
     },
     {
       "label": "react-leaflet",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "frontend_package_dependencies_react_leaflet",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "react-leaflet"
     },
     {
       "label": "react-leaflet",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "react_leaflet",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "react-leaflet"
     },
     {
       "label": "recharts",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "frontend_package_dependencies_recharts",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "recharts"
     },
     {
       "label": "recharts",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "recharts",
       "community": 11,
-      "community_name": "scripts",
+      "community_name": "dependencies",
       "norm_label": "recharts"
     },
     {
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "frontend_package_devdependencies",
       "community": 2,
@@ -1965,7 +1987,7 @@
       "label": "@tailwindcss/vite",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_tailwindcss_vite",
       "community": 2,
@@ -1976,7 +1998,7 @@
       "label": "@tailwindcss/vite",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "tailwindcss_vite",
       "community": 2,
@@ -1987,7 +2009,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_types_node",
       "community": 2,
@@ -1998,7 +2020,7 @@
       "label": "@types/node",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "types_node",
       "community": 2,
@@ -2009,7 +2031,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_types_react",
       "community": 2,
@@ -2020,7 +2042,7 @@
       "label": "@types/react",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "types_react",
       "community": 2,
@@ -2031,7 +2053,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_types_react_dom",
       "community": 2,
@@ -2042,7 +2064,7 @@
       "label": "@types/react-dom",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "types_react_dom",
       "community": 2,
@@ -2053,7 +2075,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_vitejs_plugin_react",
       "community": 2,
@@ -2064,7 +2086,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "vitejs_plugin_react",
       "community": 2,
@@ -2075,7 +2097,7 @@
       "label": "concurrently",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_concurrently",
       "community": 2,
@@ -2086,7 +2108,7 @@
       "label": "concurrently",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "concurrently",
       "community": 2,
@@ -2097,7 +2119,7 @@
       "label": "cross-env",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_cross_env",
       "community": 2,
@@ -2108,7 +2130,7 @@
       "label": "cross-env",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "cross_env",
       "community": 2,
@@ -2119,7 +2141,7 @@
       "label": "electron",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_electron",
       "community": 2,
@@ -2130,7 +2152,7 @@
       "label": "electron",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "electron",
       "community": 2,
@@ -2141,7 +2163,7 @@
       "label": "oxlint",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_oxlint",
       "community": 2,
@@ -2152,7 +2174,7 @@
       "label": "oxlint",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "oxlint",
       "community": 2,
@@ -2163,7 +2185,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_tailwindcss",
       "community": 2,
@@ -2174,7 +2196,7 @@
       "label": "tailwindcss",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "tailwindcss",
       "community": 2,
@@ -2185,7 +2207,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_typescript",
       "community": 2,
@@ -2196,7 +2218,7 @@
       "label": "typescript",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "typescript",
       "community": 2,
@@ -2207,7 +2229,7 @@
       "label": "vite",
       "file_type": "code",
       "source_file": "frontend/package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "frontend_package_devdependencies_vite",
       "community": 2,
@@ -2218,7 +2240,7 @@
       "label": "vite",
       "file_type": "concept",
       "source_file": "frontend/package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "vite",
       "community": 2,
@@ -2240,7 +2262,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L25",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "frontend_src_app_app",
       "community": 1,
@@ -2389,28 +2411,6 @@
       "community": 1,
       "community_name": "App.tsx",
       "norm_label": "header()"
-    },
-    {
-      "label": "LoadingScreen.tsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/loading/LoadingScreen.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_components_loading_loadingscreen",
-      "community": 1,
-      "community_name": "App.tsx",
-      "norm_label": "loadingscreen.tsx"
-    },
-    {
-      "label": "LoadingScreen()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/loading/LoadingScreen.tsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "frontend_src_components_loading_loadingscreen_loadingscreen",
-      "community": 1,
-      "community_name": "App.tsx",
-      "norm_label": "loadingscreen()"
     },
     {
       "label": "MapViewer.tsx",
@@ -3310,8 +3310,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_build_graph",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "norm_label": "build_graph.py"
     },
     {
@@ -3321,8 +3321,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_get_era5land",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 31,
+      "community_name": "os",
       "norm_label": "get_era5land.py"
     },
     {
@@ -3332,8 +3332,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_get_era5land_rationale_1",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 31,
+      "community_name": "os",
       "norm_label": "download era5-land meteorological data into data/era5_land/ official source:..."
     },
     {
@@ -3343,8 +3343,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_get_sentinel",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 31,
+      "community_name": "os",
       "norm_label": "get_sentinel.py"
     },
     {
@@ -3354,8 +3354,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_get_sentinel_rationale_1",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 31,
+      "community_name": "os",
       "norm_label": "download sentinel-1 sar & sentinel-2 msi data into data/sentinel1_sar/ and..."
     },
     {
@@ -3365,8 +3365,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_get_srtm_landsat",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 31,
+      "community_name": "os",
       "norm_label": "get_srtm_landsat.py"
     },
     {
@@ -3376,8 +3376,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_get_srtm_landsat_rationale_1",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 31,
+      "community_name": "os",
       "norm_label": "download srtm dem & landsat-8 tirs band 10 into data/srtm_dem/ and..."
     },
     {
@@ -3388,7 +3388,7 @@
       "_origin": "ast",
       "id": "start",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "start.py"
     },
     {
@@ -3399,7 +3399,7 @@
       "_origin": "ast",
       "id": "start_main",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "main()"
     },
     {
@@ -3410,7 +3410,7 @@
       "_origin": "ast",
       "id": "start_rationale_1",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "grove (geoprithvi-agri) unified single-command runner launches the entire full-..."
     },
     {
@@ -3421,7 +3421,7 @@
       "_origin": "ast",
       "id": "tests_test_data_loader",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "test_data_loader.py"
     },
     {
@@ -3432,7 +3432,7 @@
       "_origin": "ast",
       "id": "tests_test_data_loader_test_interface_1_contract",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "test_interface_1_contract()"
     },
     {
@@ -3443,7 +3443,7 @@
       "_origin": "ast",
       "id": "tests_test_data_loader_test_grove_dataset",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "test_grove_dataset()"
     },
     {
@@ -3454,7 +3454,7 @@
       "_origin": "ast",
       "id": "tests_test_data_loader_test_gee_pipeline_graceful",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "test_gee_pipeline_graceful()"
     },
     {
@@ -3465,7 +3465,7 @@
       "_origin": "ast",
       "id": "tests_test_data_loader_rationale_1",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "unit tests for teammate 1: data pipeline & data loader verifies interface 1..."
     },
     {
@@ -3476,7 +3476,7 @@
       "_origin": "ast",
       "id": "tests_test_data_loader_rationale_16",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "verifies interface 1 return dictionary keys and shapes."
     },
     {
@@ -3487,7 +3487,7 @@
       "_origin": "ast",
       "id": "tests_test_data_loader_rationale_41",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "verifies pytorch / numpy grovedataset indexing."
     },
     {
@@ -3498,7 +3498,7 @@
       "_origin": "ast",
       "id": "tests_test_data_loader_rationale_56",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "norm_label": "verifies gee pipeline initialization and fallback handling."
     },
     {
@@ -3564,7 +3564,7 @@
       "_origin": "ast",
       "id": "tests_test_model",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "test_model.py"
     },
     {
@@ -3575,7 +3575,7 @@
       "_origin": "ast",
       "id": "tests_test_model_test_msf_net_dimensions",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "test_msf_net_dimensions()"
     },
     {
@@ -3586,7 +3586,7 @@
       "_origin": "ast",
       "id": "tests_test_model_test_msf_net_radar_fallback",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "test_msf_net_radar_fallback()"
     },
     {
@@ -3597,7 +3597,7 @@
       "_origin": "ast",
       "id": "tests_test_model_test_random_forest_fallback",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "test_random_forest_fallback()"
     },
     {
@@ -3608,7 +3608,7 @@
       "_origin": "ast",
       "id": "tests_test_model_test_run_crop_inference_interface",
       "community": 18,
-      "community_name": "model.py",
+      "community_name": "predict_crop_from_features",
       "norm_label": "test_run_crop_inference_interface()"
     },
     {
@@ -4193,6 +4193,127 @@
       "community": 25,
       "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
       "norm_label": "\u26a0\ufe0f important notes"
+    },
+    {
+      "label": "research_training_protocols.md",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "research_training_protocols.md"
+    },
+    {
+      "label": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "geoprithvi-agri \u2014 empirical research & training protocols"
+    },
+    {
+      "label": "1. Preprocessing Philosophy: 7-Day Linear Resampling",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_1_preprocessing_philosophy_7_day_linear_resampling",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "1. preprocessing philosophy: 7-day linear resampling"
+    },
+    {
+      "label": "2. Fusion Architecture: Asymmetric Late-Fusion (MSF-Net)",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_2_fusion_architecture_asymmetric_late_fusion_msf_net",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "2. fusion architecture: asymmetric late-fusion (msf-net)"
+    },
+    {
+      "label": "3. Loss Regularization: Multi-Task Auxiliary Supervision",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_3_loss_regularization_multi_task_auxiliary_supervision",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "3. loss regularization: multi-task auxiliary supervision"
+    },
+    {
+      "label": "4. Ground-Truth Quality & Sample Thresholding",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_4_ground_truth_quality_sample_thresholding",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "4. ground-truth quality & sample thresholding"
+    },
+    {
+      "label": "5. Class Imbalance Strategy: Balanced Subset Undersampling",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_5_class_imbalance_strategy_balanced_subset_undersampling",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "5. class imbalance strategy: balanced subset undersampling"
+    },
+    {
+      "label": "6. Cross-Regional Generalization: Region-Aware Environmental Embeddings (RAM)",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_6_cross_regional_generalization_region_aware_environmental_embeddings_ram",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "6. cross-regional generalization: region-aware environmental embeddings (ram)"
+    },
+    {
+      "label": "7. Transfer Learning & Sample Size Thresholds",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_7_transfer_learning_sample_size_thresholds",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "7. transfer learning & sample size thresholds"
+    },
+    {
+      "label": "8. Sensor Complementarity: Tri-Modal Optical + SAR + Thermal Fusion",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_8_sensor_complementarity_tri_modal_optical_sar_thermal_fusion",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "8. sensor complementarity: tri-modal optical + sar + thermal fusion"
+    },
+    {
+      "label": "Protocol Implementation Matrix",
+      "file_type": "document",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "docs_research_training_protocols_protocol_implementation_matrix",
+      "community": 29,
+      "community_name": "GeoPrithvi-Agri \u2014 Empirical Research & Training Protocols",
+      "norm_label": "protocol implementation matrix"
     },
     {
       "label": "frontend/README.md",
@@ -4993,7 +5114,7 @@
     {
       "label": "ee",
       "_origin": "semantic",
-      "community": 10,
+      "community": 3,
       "community_name": "gee_pipeline.py",
       "external": true,
       "file_type": "concept",
@@ -5005,8 +5126,8 @@
     {
       "label": "logging",
       "_origin": "semantic",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 3,
+      "community_name": "gee_pipeline.py",
       "external": true,
       "file_type": "concept",
       "norm_label": "logging",
@@ -5017,8 +5138,8 @@
     {
       "label": "math",
       "_origin": "semantic",
-      "community": 21,
-      "community_name": "HydrologyEngine",
+      "community": 3,
+      "community_name": "gee_pipeline.py",
       "external": true,
       "file_type": "concept",
       "norm_label": "math",
@@ -5053,8 +5174,8 @@
     {
       "label": "numpy",
       "_origin": "semantic",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 30,
+      "community_name": "data_loader.py",
       "external": true,
       "file_type": "concept",
       "norm_label": "numpy",
@@ -5066,7 +5187,7 @@
       "label": "subprocess",
       "_origin": "semantic",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "external": true,
       "file_type": "concept",
       "norm_label": "subprocess",
@@ -5078,7 +5199,7 @@
       "label": "time",
       "_origin": "semantic",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "external": true,
       "file_type": "concept",
       "norm_label": "time",
@@ -5090,7 +5211,7 @@
       "label": "webbrowser",
       "_origin": "semantic",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "external": true,
       "file_type": "concept",
       "norm_label": "webbrowser",
@@ -5101,8 +5222,8 @@
     {
       "label": "os",
       "_origin": "semantic",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 31,
+      "community_name": "os",
       "external": true,
       "file_type": "concept",
       "norm_label": "os",
@@ -5114,7 +5235,7 @@
       "label": "sys",
       "_origin": "semantic",
       "community": 10,
-      "community_name": "gee_pipeline.py",
+      "community_name": "test_data_loader.py",
       "external": true,
       "file_type": "concept",
       "norm_label": "sys",
@@ -5125,7 +5246,7 @@
     {
       "label": "copy",
       "_origin": "semantic",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "external": true,
       "file_type": "concept",
@@ -5137,7 +5258,7 @@
     {
       "label": "fastapi",
       "_origin": "semantic",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "external": true,
       "file_type": "concept",
@@ -5149,7 +5270,7 @@
     {
       "label": "fastapi_middleware_cors",
       "_origin": "semantic",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "external": true,
       "file_type": "concept",
@@ -5161,7 +5282,7 @@
     {
       "label": "fastapi_responses",
       "_origin": "semantic",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "external": true,
       "file_type": "concept",
@@ -5173,7 +5294,7 @@
     {
       "label": "fastapi_staticfiles",
       "_origin": "semantic",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "external": true,
       "file_type": "concept",
@@ -5185,8 +5306,8 @@
     {
       "label": "pathlib",
       "_origin": "semantic",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "external": true,
       "file_type": "concept",
       "norm_label": "pathlib",
@@ -5197,7 +5318,7 @@
     {
       "label": "pydantic",
       "_origin": "semantic",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "external": true,
       "file_type": "concept",
@@ -5209,8 +5330,8 @@
     {
       "label": "typing",
       "_origin": "semantic",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 30,
+      "community_name": "data_loader.py",
       "external": true,
       "file_type": "concept",
       "norm_label": "typing",
@@ -5221,7 +5342,7 @@
     {
       "label": "uvicorn",
       "_origin": "semantic",
-      "community": 4,
+      "community": 27,
       "community_name": "main.py",
       "external": true,
       "file_type": "concept",
@@ -5266,8 +5387,8 @@
     },
     {
       "label": "json",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 26,
+      "community_name": "get_command_system",
       "external": true,
       "file_type": "concept",
       "norm_label": "json",
@@ -8672,18 +8793,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/loading/LoadingScreen.tsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_components_loading_loadingscreen",
-      "target": "ref_react",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/map/MapViewer.tsx",
       "source_location": "L1",
       "weight": 1.0,
@@ -8855,7 +8964,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package",
@@ -9024,7 +9133,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_leaflet",
+      "target": "frontend_package_dependencies_gsap",
       "confidence_score": 1.0
     },
     {
@@ -9035,7 +9144,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_lucide_react",
+      "target": "frontend_package_dependencies_leaflet",
       "confidence_score": 1.0
     },
     {
@@ -9046,7 +9155,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_react",
+      "target": "frontend_package_dependencies_lucide_react",
       "confidence_score": 1.0
     },
     {
@@ -9057,7 +9166,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_react_dom",
+      "target": "frontend_package_dependencies_react",
       "confidence_score": 1.0
     },
     {
@@ -9068,7 +9177,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_react_leaflet",
+      "target": "frontend_package_dependencies_react_dom",
       "confidence_score": 1.0
     },
     {
@@ -9076,6 +9185,17 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
       "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_react_leaflet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_dependencies",
@@ -9113,6 +9233,18 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
+      "source": "frontend_package_dependencies_gsap",
+      "target": "gsap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast",
       "source": "frontend_package_dependencies_leaflet",
       "target": "leaflet",
       "confidence_score": 1.0
@@ -9121,7 +9253,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9133,7 +9265,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9145,7 +9277,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9157,7 +9289,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9169,7 +9301,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9181,7 +9313,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9192,7 +9324,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9203,7 +9335,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9214,7 +9346,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9225,7 +9357,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9236,7 +9368,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9247,7 +9379,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9258,7 +9390,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9269,7 +9401,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9280,7 +9412,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9291,7 +9423,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9302,7 +9434,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_package_devdependencies",
@@ -9313,7 +9445,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9325,7 +9457,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9337,7 +9469,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9349,7 +9481,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9361,7 +9493,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9373,7 +9505,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9385,7 +9517,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9397,7 +9529,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9409,7 +9541,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9421,7 +9553,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9433,7 +9565,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9445,7 +9577,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "frontend/package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -9457,7 +9589,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9565,30 +9697,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_app",
-      "target": "frontend_src_components_loading_loadingscreen",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/App.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_app",
-      "target": "frontend_src_components_loading_loadingscreen_loadingscreen",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/App.tsx",
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
@@ -9637,7 +9745,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9649,7 +9757,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9661,7 +9769,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9673,7 +9781,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9685,7 +9793,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9697,7 +9805,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9709,7 +9817,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9721,7 +9829,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9733,7 +9841,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9745,7 +9853,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9757,7 +9865,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9769,7 +9877,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9781,7 +9889,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app",
@@ -9806,7 +9914,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L42",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app_app",
@@ -9818,7 +9926,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L44",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app_app",
@@ -9830,7 +9938,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L41",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app_app",
@@ -9842,7 +9950,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L43",
+      "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app_app",
@@ -9854,7 +9962,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L65",
+      "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_app_app",
@@ -10173,17 +10281,6 @@
       "_origin": "ast",
       "source": "frontend_src_components_layout_header",
       "target": "ref_lucide_react",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/components/loading/LoadingScreen.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_components_loading_loadingscreen",
-      "target": "frontend_src_components_loading_loadingscreen_loadingscreen",
       "confidence_score": 1.0
     },
     {
@@ -12192,6 +12289,116 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols",
+      "target": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "target": "docs_research_training_protocols_1_preprocessing_philosophy_7_day_linear_resampling",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "target": "docs_research_training_protocols_2_fusion_architecture_asymmetric_late_fusion_msf_net",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "target": "docs_research_training_protocols_3_loss_regularization_multi_task_auxiliary_supervision",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "target": "docs_research_training_protocols_4_ground_truth_quality_sample_thresholding",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "target": "docs_research_training_protocols_5_class_imbalance_strategy_balanced_subset_undersampling",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "target": "docs_research_training_protocols_6_cross_regional_generalization_region_aware_environmental_embeddings_ram",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "target": "docs_research_training_protocols_7_transfer_learning_sample_size_thresholds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "target": "docs_research_training_protocols_8_sensor_complementarity_tri_modal_optical_sar_thermal_fusion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/research_training_protocols.md",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_research_training_protocols_geoprithvi_agri_empirical_research_training_protocols",
+      "target": "docs_research_training_protocols_protocol_implementation_matrix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/README.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -13053,5 +13260,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4452740e7c5777ae88d0ad9c6a139a53928847c6"
+  "built_at_commit": "f0380c44ad7fb43d1dd5e1830435486fd42a6bec"
 }
