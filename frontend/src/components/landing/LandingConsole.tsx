@@ -250,63 +250,65 @@ export const LandingConsole: React.FC<LandingConsoleProps> = ({ onLaunch, isLoad
                 </div>
               </div>
 
-              {/* Enlarged White Capsule Bar with Center Arrow */}
-              <div className="timeline-capsule-bar">
-                <button
-                  type="button"
-                  className={`date-capsule-item ${isCalendarOpen && activeCalendarPill === "start" ? "is-active-pill" : ""}`}
-                  onClick={() => {
-                    setActiveCalendarPill("start");
-                    setIsCalendarOpen(true);
-                  }}
-                  title="Click to select start date via custom calendar"
-                >
-                  <span className="date-pill-text">
-                    {startDate ? formatToDMY(startDate) : "dd-mm-yyyy"}
-                  </span>
-                </button>
+              {/* Enlarged White Capsule Bar with Center Arrow & Anchored Popover Below */}
+              <div className="timeline-capsule-wrapper">
+                <div className="timeline-capsule-bar">
+                  <button
+                    type="button"
+                    className={`date-capsule-item ${isCalendarOpen && activeCalendarPill === "start" ? "is-active-pill" : ""}`}
+                    onClick={() => {
+                      setActiveCalendarPill("start");
+                      setIsCalendarOpen(true);
+                    }}
+                    title="Click to select start date via custom calendar"
+                  >
+                    <span className="date-pill-text">
+                      {startDate ? formatToDMY(startDate) : "dd-mm-yyyy"}
+                    </span>
+                  </button>
 
-                {/* Center Arrow */}
-                <div className="timeline-capsule-arrow" aria-hidden="true">
-                  <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2 8H20M20 8L13 1.5M20 8L13 14.5"
-                      stroke="#000000"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  {/* Center Arrow */}
+                  <div className="timeline-capsule-arrow" aria-hidden="true">
+                    <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M2 8H20M20 8L13 1.5M20 8L13 14.5"
+                        stroke="#000000"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+
+                  <button
+                    type="button"
+                    className={`date-capsule-item ${isCalendarOpen && activeCalendarPill === "end" ? "is-active-pill" : ""}`}
+                    onClick={() => {
+                      setActiveCalendarPill("end");
+                      setIsCalendarOpen(true);
+                    }}
+                    title="Click to select end date via custom calendar"
+                  >
+                    <span className="date-pill-text">
+                      {endDate ? formatToDMY(endDate) : "dd-mm-yyyy"}
+                    </span>
+                  </button>
                 </div>
 
-                <button
-                  type="button"
-                  className={`date-capsule-item ${isCalendarOpen && activeCalendarPill === "end" ? "is-active-pill" : ""}`}
-                  onClick={() => {
-                    setActiveCalendarPill("end");
-                    setIsCalendarOpen(true);
-                  }}
-                  title="Click to select end date via custom calendar"
-                >
-                  <span className="date-pill-text">
-                    {endDate ? formatToDMY(endDate) : "dd-mm-yyyy"}
-                  </span>
-                </button>
+                {/* Custom Calendar Popover anchored cleanly below date field */}
+                {isCalendarOpen && (
+                  <CustomCalendar
+                    startDate={startDate}
+                    endDate={endDate}
+                    activePill={activeCalendarPill}
+                    onChange={(newStart, newEnd) => {
+                      setStartDate(newStart);
+                      setEndDate(newEnd);
+                    }}
+                    onClose={() => setIsCalendarOpen(false)}
+                  />
+                )}
               </div>
-
-              {/* Custom Calendar Popover anchored above capsule */}
-              {isCalendarOpen && (
-                <CustomCalendar
-                  startDate={startDate}
-                  endDate={endDate}
-                  activePill={activeCalendarPill}
-                  onChange={(newStart, newEnd) => {
-                    setStartDate(newStart);
-                    setEndDate(newEnd);
-                  }}
-                  onClose={() => setIsCalendarOpen(false)}
-                />
-              )}
             </div>
 
             {/* Box 4: Sluice Discharge Stepper (Enlarged 46px Rounded Buttons & m3/s) */}

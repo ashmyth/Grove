@@ -12,10 +12,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   z-index: 1000;
   font-family: "Space Mono", monospace, system-ui, sans-serif;
   color: #000000;
+  padding: 30px 16px;
+  box-sizing: border-box;
 }
 
 .grove-landing-content {
@@ -455,6 +458,11 @@
 }
 
 /* Enlarged White Capsule Bar with Center Arrow */
+.timeline-capsule-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .timeline-capsule-bar {
   background-color: #FFFFFF;
   border-radius: 16px;

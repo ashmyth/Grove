@@ -4,7 +4,7 @@
 
 .custom-calendar-popover {
   position: absolute;
-  bottom: calc(100% + 14px);
+  top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%);
   width: 340px;
@@ -12,18 +12,18 @@
   border: 2px solid #333333;
   border-radius: 18px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 8px 24px rgba(0, 0, 0, 0.6);
-  padding: 18px;
+  padding: 16px;
   box-sizing: border-box;
   z-index: 1000;
   font-family: "Space Mono", monospace;
   color: #FFFFFF;
-  animation: calendarPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: calendarPop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes calendarPop {
   from {
     opacity: 0;
-    transform: translate(-50%, 10px) scale(0.96);
+    transform: translate(-50%, -8px) scale(0.96);
   }
   to {
     opacity: 1;
