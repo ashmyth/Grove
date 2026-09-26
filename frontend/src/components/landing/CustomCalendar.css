@@ -1,54 +1,103 @@
 /* ==========================================================================
-   Custom Calendar Popover (Brutalist Monochrome / Space Mono System)
+   Custom Calendar Window Modal (Brutalist / Space Mono Floating Window)
    ========================================================================== */
 
-.custom-calendar-popover {
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 340px;
-  background-color: #0E0E0E;
-  border: 2px solid #333333;
-  border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 8px 24px rgba(0, 0, 0, 0.6);
-  padding: 16px;
+.calendar-window-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
   box-sizing: border-box;
-  z-index: 1000;
-  font-family: "Space Mono", monospace;
-  color: #FFFFFF;
-  animation: calendarPop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInOverlay 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes calendarPop {
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.calendar-window-box {
+  width: 420px;
+  max-width: calc(100vw - 32px);
+  background-color: #0E0E0E;
+  border: 2px solid #333333;
+  border-radius: 22px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.95), 0 10px 30px rgba(0, 0, 0, 0.7);
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+  color: #FFFFFF;
+  animation: scaleInWindow 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleInWindow {
   from {
     opacity: 0;
-    transform: translate(-50%, -8px) scale(0.96);
+    transform: scale(0.92) translateY(14px);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, 0) scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 
-/* Header */
-.calendar-popover-header {
+/* Window Titlebar */
+.calendar-window-titlebar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
   border-bottom: 1px solid #222222;
+}
+
+.window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.window-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.window-dots .dot.red {
+  background-color: #EF4444;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.window-dots .dot.red:hover {
+  opacity: 0.8;
+}
+
+.window-dots .dot.yellow {
+  background-color: #F59E0B;
+}
+
+.window-dots .dot.green {
+  background-color: #10B981;
 }
 
 .calendar-header-title {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #AAAAAA;
+  color: #CCCCCC;
 }
 
 .calendar-title-icon {

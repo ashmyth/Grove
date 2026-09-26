@@ -135,17 +135,29 @@ export const CustomCalendar: React.FC<CustomCalendarProps> = ({
   const diffDays = Math.max(1, Math.round((eDate.getTime() - sDate.getTime()) / (1000 * 3600 * 24)) + 1);
 
   return (
-    <div className="custom-calendar-popover" ref={popoverRef}>
-      {/* Popover Header */}
-      <div className="calendar-popover-header">
-        <div className="calendar-header-title">
-          <CalendarIcon size={14} className="calendar-title-icon" />
-          <span>IRRIGATION CYCLE SELECTOR</span>
+    <div className="calendar-window-overlay" onClick={onClose}>
+      <div
+        className="calendar-window-box"
+        ref={popoverRef}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
+        {/* Window Title Bar */}
+        <div className="calendar-window-titlebar">
+          <div className="window-dots">
+            <span className="dot red" onClick={onClose} title="Close window" />
+            <span className="dot yellow" />
+            <span className="dot green" />
+          </div>
+          <div className="calendar-header-title">
+            <CalendarIcon size={14} className="calendar-title-icon" />
+            <span>IRRIGATION CYCLE WINDOW</span>
+          </div>
+          <button type="button" className="calendar-close-x" onClick={onClose} title="Close window">
+            ×
+          </button>
         </div>
-        <button type="button" className="calendar-close-x" onClick={onClose}>
-          ×
-        </button>
-      </div>
 
       {/* Preset Rotation Pills */}
       <div className="calendar-preset-bar">
