@@ -566,8 +566,8 @@ def load_kuttanad_data() -> Tuple[Dict[str, Any], Dict[str, Any]]:
         with open(parcels_path, "r", encoding="utf-8") as f:
             raw_parcels = json.load(f)
         
-        # Extract authentic pixel observations exclusively from Sentinel-2 MSI stack
-        kuttanad_tif = DATA_DIR / "sentinel-2 data" / "kuttanad_sentinel_stack.tif"
+        # Extract authentic pixel observations exclusively from Sentinel stack
+        kuttanad_tif = DATA_DIR / "sentinel_stack" / "kuttanad_sentinel_stack.tif"
         real_stats = {}
         if kuttanad_tif.exists():
             try:

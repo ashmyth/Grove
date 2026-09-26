@@ -55,8 +55,8 @@
     "semantic_hash": ""
   },
   "frontend/src/App.tsx": {
-    "mtime": 1790385025.0465302,
-    "ast_hash": "6ed64a8810c49eaf2c4c77544320cb70",
+    "mtime": 1790388427.1925883,
+    "ast_hash": "e2f1b7cab6d1821d52bed1fcb291a8b6",
     "semantic_hash": ""
   },
   "frontend/src/components/analytics/AnalyticsDrawer.tsx": {
@@ -210,17 +210,17 @@
     "semantic_hash": ""
   },
   "backend/command_data.py": {
-    "mtime": 1790387863.8121867,
-    "ast_hash": "99d34a6acd694034e925e261fe2d7839",
+    "mtime": 1790388434.682237,
+    "ast_hash": "f1fb2fd0160976160f786c13e4792230",
     "semantic_hash": ""
   },
   "backend/train.py": {
-    "mtime": 1790387795.989563,
-    "ast_hash": "af4878d5e9da84e634c16248f3e049a0",
+    "mtime": 1790388401.7594001,
+    "ast_hash": "92b94f4e8ec80021fae74984fa145a14",
     "semantic_hash": ""
   },
   "backend/weights/model_metrics.json": {
-    "mtime": 1790387820.393401,
+    "mtime": 1790388490.0755234,
     "ast_hash": "ecd5bad5ad774d964dbbffff6306857e",
     "semantic_hash": ""
   },
@@ -262,6 +262,11 @@
   "data/README.md": {
     "mtime": 1790385334.0347533,
     "ast_hash": "d4636ee606c8f476f51e3e913c5b63fd",
+    "semantic_hash": ""
+  },
+  "frontend/src/components/loading/LoadingScreen.tsx": {
+    "mtime": 1790388175.0319605,
+    "ast_hash": "a0e79157264f81f47d1dc182c4c613f1",
     "semantic_hash": ""
   }
 }

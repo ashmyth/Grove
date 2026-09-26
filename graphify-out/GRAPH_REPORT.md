@@ -1,16 +1,16 @@
 # Graph Report - Grove  (2026-09-26)
 
 ## Corpus Check
-- 46 files · ~34,568 words
+- 47 files · ~34,863 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 479 nodes · 681 edges · 26 communities (20 shown, 6 thin omitted)
+- 481 nodes · 685 edges · 25 communities (19 shown, 6 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 18 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7380ddc5`
+- Built from commit: `4452740e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,13 +18,12 @@
 - FastAPI Async REST Service
 - App.tsx
 - devDependencies
-- gee_pipeline.py
 - main.py
 - 🔄 The Standard Parallel Git Lifecycle
 - Grove (GeoPrithvi-Agri)
 - compilerOptions
 - compilerOptions
-- test_data_loader.py
+- gee_pipeline.py
 - scripts
 - plugins
 - React + TypeScript + Vite
@@ -66,7 +65,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (26 total, 6 thin omitted)
+## Communities (25 total, 6 thin omitted)
 
 ### Community 0 - "FastAPI Async REST Service"
 Cohesion: 0.06
@@ -74,19 +73,15 @@ Nodes (41): Agricultural Extension Officer, GET /api/v1/canals/advisories, GET /
 
 ### Community 1 - "App.tsx"
 Cohesion: 0.10
-Nodes (37): App(), AnalyticsDrawer(), AnalyticsDrawerProps, LandingConsole(), LandingConsoleProps, PRESET_AREAS, CommandControlBar(), CommandControlBarProps (+29 more)
+Nodes (38): App(), AnalyticsDrawer(), AnalyticsDrawerProps, LandingConsole(), LandingConsoleProps, PRESET_AREAS, CommandControlBar(), CommandControlBarProps (+30 more)
 
 ### Community 2 - "devDependencies"
 Cohesion: 0.08
 Nodes (25): concurrently, cross-env, electron, devDependencies, concurrently, cross-env, electron, oxlint (+17 more)
 
-### Community 3 - "gee_pipeline.py"
-Cohesion: 0.20
-Nodes (17): apply_refined_lee_filter(), build_composite_image(), compute_landsat_lst(), compute_sar_polarimetric_proxies(), compute_spectral_indices(), fetch_era5_meteorology(), mask_s2_clouds(), Any (+9 more)
-
 ### Community 4 - "main.py"
 Cohesion: 0.07
-Nodes (46): get_command_system(), load_kuttanad_data(), Any, Loads and formats the real Kuttanad dataset created by Teammate 1., Returns (canal_network_geojson, parcels_geojson) matching the selected region., GEEPipeline, Wrapper class providing high-level interface to Earth Engine routines., AnalysisInputPayload (+38 more)
+Nodes (45): get_command_system(), load_kuttanad_data(), Any, Loads and formats the real Kuttanad dataset created by Teammate 1., Returns (canal_network_geojson, parcels_geojson) matching the selected region., get_available_satellite_chips(), Returns all available authentic HLS / Sentinel satellite chips and stacks in…, GEEPipeline (+37 more)
 
 ### Community 6 - "🔄 The Standard Parallel Git Lifecycle"
 Cohesion: 0.06
@@ -100,9 +95,9 @@ Nodes (23): compilerOptions, allowArbitraryExtensions, allowImportingTsExtension
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection, noEmit, noFallthroughCasesInSwitch (+11 more)
 
-### Community 10 - "test_data_loader.py"
-Cohesion: 0.08
-Nodes (23): get_available_satellite_chips(), GroveDataset, load_feature_tensors(), Any, Memory-Mapped Geospatial Data Loader & PyTorch Dataset Part of Grove…, Memory-Mapped PyTorch Dataset for streaming 10m Sentinel optical/SAR chip…, Returns all available authentic HLS / Sentinel satellite chips and stacks in…, Interface 1 Implementation: Memory-Mapped Geospatial Satellite Loader. Loads… (+15 more)
+### Community 10 - "gee_pipeline.py"
+Cohesion: 0.06
+Nodes (40): GroveDataset, load_feature_tensors(), Any, Memory-Mapped PyTorch Dataset for streaming 10m Sentinel optical/SAR chip…, Interface 1 Implementation: Memory-Mapped Geospatial Satellite Loader. Loads…, apply_refined_lee_filter(), build_composite_image(), compute_landsat_lst() (+32 more)
 
 ### Community 11 - "scripts"
 Cohesion: 0.07
@@ -126,7 +121,7 @@ Nodes (28): For --cluster-only, For git commit hook, For /graphify add, For /gra
 
 ### Community 18 - "model.py"
 Cohesion: 0.06
-Nodes (33): Grove (GeoPrithvi-Agri) - High-Fidelity Agricultural GIS Datasets Provides…, extract_feature_vector(), get_prithvi_model(), predict_crop_from_features(), Any, ndarray, RandomForestCropClassifier, Grove (GeoPrithvi-Agri) - Multi-Source Crop Classification AI Engine Trained… (+25 more)
+Nodes (34): Grove (GeoPrithvi-Agri) - High-Fidelity Agricultural GIS Datasets Provides…, Memory-Mapped Geospatial Data Loader & PyTorch Dataset Part of Grove…, extract_feature_vector(), get_prithvi_model(), predict_crop_from_features(), Any, ndarray, RandomForestCropClassifier (+26 more)
 
 ### Community 21 - "HydrologyEngine"
 Cohesion: 0.12
@@ -157,4 +152,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `FastAPI Async REST Service` be split into smaller, more focused modules?**
   _Cohesion score 0.06219512195121951 - nodes in this community are weakly interconnected._
 - **Should `App.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.10106382978723404 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0963265306122449 - nodes in this community are weakly interconnected._

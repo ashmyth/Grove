@@ -21,8 +21,8 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 DATA_DIR = ROOT_DIR / "data"
-SENTINEL2_TIF = DATA_DIR / "sentinel-2 data" / "kuttanad_sentinel_stack.tif"
-GROUND_TRUTH_CSV = DATA_DIR / "sentinel-2 data" / "kuttanad_ground_truth.csv"
+SENTINEL2_TIF = DATA_DIR / "sentinel_stack" / "kuttanad_sentinel_stack.tif"
+GROUND_TRUTH_CSV = DATA_DIR / "sentinel_stack" / "kuttanad_ground_truth.csv"
 PARCELS_GEOJSON = DATA_DIR / "sample_parcels.geojson"
 WEIGHTS_DIR = ROOT_DIR / "backend" / "weights"
 WEIGHTS_DIR.mkdir(parents=True, exist_ok=True)
