@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
-import { Plus, Minus, Info, MapPin, Check, ArrowRight } from "lucide-react";
+import { Plus, Minus, Info, MapPin, Check, ArrowRight, Clock } from "lucide-react";
 import type { AnalysisInputPayload } from "../../types";
 import groveLogo from "../../assets/grove-logo.svg";
+import { CustomCalendar } from "./CustomCalendar";
 import "./LandingConsole.css";
 
 interface LandingConsoleProps {
@@ -26,8 +27,20 @@ export const LandingConsole: React.FC<LandingConsoleProps> = ({ onLaunch, isLoad
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [customGeoJSON, setCustomGeoJSON] = useState<any>(null);
   const [isAreaDropdownOpen, setIsAreaDropdownOpen] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [activeCalendarPill, setActiveCalendarPill] = useState<"start" | "end">("start");
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Helper to display dates strictly in dd-mm-yyyy format matching Paper design
+  const formatToDMY = (isoDate: string) => {
+    if (!isoDate) return "dd-mm-yyyy";
+    const parts = isoDate.split("-");
+    if (parts.length === 3) {
+      return `${parts[2]}-${parts[1]}-${parts[0]}`;
+    }
+    return isoDate;
+  };
 
   // Handle multi-file GeoJSON upload and auto-merge
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -225,33 +238,78 @@ export const LandingConsole: React.FC<LandingConsoleProps> = ({ onLaunch, isLoad
               </div>
             )}
 
-            {/* Box 3: Timeline Section (Capsule Pills) */}
+            {/* Box 3: Timeline Section (Enlarged Capsule with Center Arrow & Clock Icon) */}
             <div className="console-timeline-section">
               <div className="timeline-header">
-                <span className="timeline-title">Timeline</span>
-                <span className="timeline-subtitle">Choose the irrigation cycle time period</span>
+                <div className="timeline-title-group">
+                  <Clock size={20} className="timeline-clock-icon" strokeWidth={2} />
+                  <span className="timeline-title">Timeline</span>
+                </div>
+                <div className="timeline-subtitle">
+                  Choose the irrigation cycle<br />time period
+                </div>
               </div>
+
+              {/* Enlarged White Capsule Bar with Center Arrow */}
               <div className="timeline-capsule-bar">
-                <div className="date-capsule-item">
-                  <input
-                    type="date"
-                    value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)}
-                    className="date-pill-input"
-                  />
+                <button
+                  type="button"
+                  className={`date-capsule-item ${isCalendarOpen && activeCalendarPill === "start" ? "is-active-pill" : ""}`}
+                  onClick={() => {
+                    setActiveCalendarPill("start");
+                    setIsCalendarOpen(true);
+                  }}
+                  title="Click to select start date via custom calendar"
+                >
+                  <span className="date-pill-text">
+                    {startDate ? formatToDMY(startDate) : "dd-mm-yyyy"}
+                  </span>
+                </button>
+
+                {/* Center Arrow */}
+                <div className="timeline-capsule-arrow" aria-hidden="true">
+                  <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M2 8H20M20 8L13 1.5M20 8L13 14.5"
+                      stroke="#000000"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
-                <div className="date-capsule-item">
-                  <input
-                    type="date"
-                    value={endDate}
-                    onChange={(e) => setEndDate(e.target.value)}
-                    className="date-pill-input"
-                  />
-                </div>
+
+                <button
+                  type="button"
+                  className={`date-capsule-item ${isCalendarOpen && activeCalendarPill === "end" ? "is-active-pill" : ""}`}
+                  onClick={() => {
+                    setActiveCalendarPill("end");
+                    setIsCalendarOpen(true);
+                  }}
+                  title="Click to select end date via custom calendar"
+                >
+                  <span className="date-pill-text">
+                    {endDate ? formatToDMY(endDate) : "dd-mm-yyyy"}
+                  </span>
+                </button>
               </div>
+
+              {/* Custom Calendar Popover anchored above capsule */}
+              {isCalendarOpen && (
+                <CustomCalendar
+                  startDate={startDate}
+                  endDate={endDate}
+                  activePill={activeCalendarPill}
+                  onChange={(newStart, newEnd) => {
+                    setStartDate(newStart);
+                    setEndDate(newEnd);
+                  }}
+                  onClose={() => setIsCalendarOpen(false)}
+                />
+              )}
             </div>
 
-            {/* Box 4: Sluice Discharge Stepper (38px Rounded Buttons & m3/s) */}
+            {/* Box 4: Sluice Discharge Stepper (Enlarged 46px Rounded Buttons & m3/s) */}
             <div className="console-stepper-section">
               <div className="stepper-info-icon" title="Target canal available discharge in cumecs (m³/s)">
                 <Info size={11} stroke="#FFFFFF" />
@@ -262,7 +320,7 @@ export const LandingConsole: React.FC<LandingConsoleProps> = ({ onLaunch, isLoad
                 onClick={() => setDischarge((prev) => Math.min(50, +(prev + 1.0).toFixed(1)))}
                 title="Increase discharge"
               >
-                <Plus size={16} stroke="#FFFFFF" />
+                <Plus size={19} stroke="#FFFFFF" strokeWidth={2.2} />
               </button>
               <div className="stepper-value-container">
                 <span className="stepper-number">{discharge.toFixed(1)}</span>
@@ -274,7 +332,7 @@ export const LandingConsole: React.FC<LandingConsoleProps> = ({ onLaunch, isLoad
                 onClick={() => setDischarge((prev) => Math.max(2.0, +(prev - 1.0).toFixed(1)))}
                 title="Decrease discharge"
               >
-                <Minus size={16} stroke="#000000" />
+                <Minus size={19} stroke="#000000" strokeWidth={2.4} />
               </button>
             </div>
           </div>
