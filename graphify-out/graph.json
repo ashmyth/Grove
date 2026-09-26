@@ -87,8 +87,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_data_loader",
-      "community": 10,
-      "community_name": "test_data_loader.py",
+      "community": 4,
+      "community_name": "main.py",
       "norm_label": "data_loader.py"
     },
     {
@@ -98,8 +98,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "backend_data_loader_get_available_satellite_chips",
-      "community": 10,
-      "community_name": "test_data_loader.py",
+      "community": 4,
+      "community_name": "main.py",
       "norm_label": "get_available_satellite_chips()"
     },
     {
@@ -186,8 +186,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_data_loader_rationale_1",
-      "community": 10,
-      "community_name": "test_data_loader.py",
+      "community": 4,
+      "community_name": "main.py",
       "norm_label": "memory-mapped geospatial data loader & pytorch dataset part of grove..."
     },
     {
@@ -197,8 +197,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "backend_data_loader_rationale_41",
-      "community": 10,
-      "community_name": "test_data_loader.py",
+      "community": 4,
+      "community_name": "main.py",
       "norm_label": "returns all available authentic hls / sentinel satellite chips in the data..."
     },
     {
@@ -824,8 +824,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "post",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 10,
+      "community_name": "test_data_loader.py",
       "norm_label": "post"
     },
     {
@@ -835,8 +835,8 @@
       "source_location": "L160",
       "_origin": "ast",
       "id": "backend_main_extract_prithvi_embedding",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 10,
+      "community_name": "test_data_loader.py",
       "norm_label": "extract_prithvi_embedding()"
     },
     {
@@ -967,8 +967,8 @@
       "source_location": "L161",
       "_origin": "ast",
       "id": "backend_main_rationale_161",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 10,
+      "community_name": "test_data_loader.py",
       "norm_label": "executes a real forward pass on an authentic satellite chip using the ibm-nasa..."
     },
     {
@@ -1154,8 +1154,8 @@
       "source_location": "L256",
       "_origin": "ast",
       "id": "backend_model_get_model_diagnostics",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 18,
+      "community_name": "model.py",
       "norm_label": "get_model_diagnostics()"
     },
     {
@@ -1242,8 +1242,8 @@
       "source_location": "L257",
       "_origin": "ast",
       "id": "backend_model_rationale_257",
-      "community": 4,
-      "community_name": "main.py",
+      "community": 18,
+      "community_name": "model.py",
       "norm_label": "returns trained model performance metrics, confusion matrix, feature..."
     },
     {
@@ -3271,6 +3271,72 @@
       "norm_label": "build_graph.py"
     },
     {
+      "label": "get_era5land.py",
+      "file_type": "code",
+      "source_file": "scripts/get_era5land.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_get_era5land",
+      "community": 10,
+      "community_name": "test_data_loader.py",
+      "norm_label": "get_era5land.py"
+    },
+    {
+      "label": "Download ERA5-Land meteorological data into data/era5_land/ Official Source:\u2026",
+      "file_type": "rationale",
+      "source_file": "scripts/get_era5land.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_get_era5land_rationale_1",
+      "community": 10,
+      "community_name": "test_data_loader.py",
+      "norm_label": "download era5-land meteorological data into data/era5_land/ official source:..."
+    },
+    {
+      "label": "get_sentinel.py",
+      "file_type": "code",
+      "source_file": "scripts/get_sentinel.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_get_sentinel",
+      "community": 10,
+      "community_name": "test_data_loader.py",
+      "norm_label": "get_sentinel.py"
+    },
+    {
+      "label": "Download Sentinel-1 SAR & Sentinel-2 MSI data into data/sentinel1_sar/ and\u2026",
+      "file_type": "rationale",
+      "source_file": "scripts/get_sentinel.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_get_sentinel_rationale_1",
+      "community": 10,
+      "community_name": "test_data_loader.py",
+      "norm_label": "download sentinel-1 sar & sentinel-2 msi data into data/sentinel1_sar/ and..."
+    },
+    {
+      "label": "get_srtm_landsat.py",
+      "file_type": "code",
+      "source_file": "scripts/get_srtm_landsat.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_get_srtm_landsat",
+      "community": 10,
+      "community_name": "test_data_loader.py",
+      "norm_label": "get_srtm_landsat.py"
+    },
+    {
+      "label": "Download SRTM DEM & Landsat-8 TIRS Band 10 into data/srtm_dem/ and\u2026",
+      "file_type": "rationale",
+      "source_file": "scripts/get_srtm_landsat.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_get_srtm_landsat_rationale_1",
+      "community": 10,
+      "community_name": "test_data_loader.py",
+      "norm_label": "download srtm dem & landsat-8 tirs band 10 into data/srtm_dem/ and..."
+    },
+    {
       "label": "start.py",
       "file_type": "code",
       "source_file": "start.py",
@@ -3929,6 +3995,160 @@
       "community": 6,
       "community_name": "\ud83d\udd04 The Standard Parallel Git Lifecycle",
       "norm_label": "\ud83d\udcc4 license"
+    },
+    {
+      "label": "data/README.md",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_readme",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "data/readme.md"
+    },
+    {
+      "label": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "dataset sources & download guide \u2014 grove (geoprithvi-agri)"
+    },
+    {
+      "label": "\ud83d\udcc1 Folder Structure",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "data_readme_folder_structure",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "\ud83d\udcc1 folder structure"
+    },
+    {
+      "label": "1. \ud83d\udef0\ufe0f Sentinel-2 MSI (Optical Multispectral)",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "data_readme_1_sentinel_2_msi_optical_multispectral",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "1. \ud83d\udef0\ufe0f sentinel-2 msi (optical multispectral)"
+    },
+    {
+      "label": "2. \ud83d\udce1 Sentinel-1 C-Band SAR (GRD)",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "data_readme_2_sentinel_1_c_band_sar_grd",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "2. \ud83d\udce1 sentinel-1 c-band sar (grd)"
+    },
+    {
+      "label": "3. \ud83c\udf24\ufe0f ERA5-Land Reanalysis (Meteorological)",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "data_readme_3_era5_land_reanalysis_meteorological",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "3. \ud83c\udf24\ufe0f era5-land reanalysis (meteorological)"
+    },
+    {
+      "label": "4. \ud83d\uddfa\ufe0f Canal Command Area Shapefiles",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L107",
+      "_origin": "ast",
+      "id": "data_readme_4_canal_command_area_shapefiles",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "4. \ud83d\uddfa\ufe0f canal command area shapefiles"
+    },
+    {
+      "label": "5. \ud83c\udf21\ufe0f Landsat-8 TIRS Band 10 (Thermal Infrared)",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "data_readme_5_landsat_8_tirs_band_10_thermal_infrared",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "5. \ud83c\udf21\ufe0f landsat-8 tirs band 10 (thermal infrared)"
+    },
+    {
+      "label": "6. \ud83c\udfd4\ufe0f SRTM Digital Elevation Model",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "data_readme_6_srtm_digital_elevation_model",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "6. \ud83c\udfd4\ufe0f srtm digital elevation model"
+    },
+    {
+      "label": "7. \ud83e\udde0 IBM-NASA Prithvi Crop Classification Dataset",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L181",
+      "_origin": "ast",
+      "id": "data_readme_7_ibm_nasa_prithvi_crop_classification_dataset",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "7. \ud83e\udde0 ibm-nasa prithvi crop classification dataset"
+    },
+    {
+      "label": "8. \ud83c\udf3e CIRAD GeoDE Agricultural Datasets",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L205",
+      "_origin": "ast",
+      "id": "data_readme_8_cirad_geode_agricultural_datasets",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "8. \ud83c\udf3e cirad geode agricultural datasets"
+    },
+    {
+      "label": "9. \ud83c\uddee\ud83c\uddf3 ISRO LISS-III / AWiFS & EOS-04 (RISAT-1A SAR)",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L222",
+      "_origin": "ast",
+      "id": "data_readme_9_isro_liss_iii_awifs_eos_04_risat_1a_sar",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "9. \ud83c\uddee\ud83c\uddf3 isro liss-iii / awifs & eos-04 (risat-1a sar)"
+    },
+    {
+      "label": "10. \ud83c\udf0d Landsat-8/9 OLI & MODIS",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L242",
+      "_origin": "ast",
+      "id": "data_readme_10_landsat_8_9_oli_modis",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "10. \ud83c\udf0d landsat-8/9 oli & modis"
+    },
+    {
+      "label": "\u26a0\ufe0f Important Notes",
+      "file_type": "document",
+      "source_file": "data/README.md",
+      "source_location": "L275",
+      "_origin": "ast",
+      "id": "data_readme_important_notes",
+      "community": 25,
+      "community_name": "Dataset Sources & Download Guide \u2014 Grove (GeoPrithvi-Agri)",
+      "norm_label": "\u26a0\ufe0f important notes"
     },
     {
       "label": "frontend/README.md",
@@ -4741,8 +4961,8 @@
     {
       "label": "logging",
       "_origin": "semantic",
-      "community": 10,
-      "community_name": "test_data_loader.py",
+      "community": 4,
+      "community_name": "main.py",
       "external": true,
       "file_type": "concept",
       "norm_label": "logging",
@@ -4789,8 +5009,8 @@
     {
       "label": "numpy",
       "_origin": "semantic",
-      "community": 18,
-      "community_name": "model.py",
+      "community": 21,
+      "community_name": "HydrologyEngine",
       "external": true,
       "file_type": "concept",
       "norm_label": "numpy",
@@ -10942,6 +11162,75 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/get_era5land.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_get_era5land",
+      "target": "os",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/get_era5land.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_get_era5land_rationale_1",
+      "target": "scripts_get_era5land",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/get_sentinel.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_get_sentinel",
+      "target": "os",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/get_sentinel.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_get_sentinel_rationale_1",
+      "target": "scripts_get_sentinel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/get_srtm_landsat.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_get_srtm_landsat",
+      "target": "os",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/get_srtm_landsat.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "scripts_get_srtm_landsat_rationale_1",
+      "target": "scripts_get_srtm_landsat",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -11630,6 +11919,149 @@
       "_origin": "ast",
       "source": "readme_grove_geoprithvi_agri",
       "target": "readme_technology_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme",
+      "target": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L242",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_10_landsat_8_9_oli_modis",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_1_sentinel_2_msi_optical_multispectral",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_2_sentinel_1_c_band_sar_grd",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_3_era5_land_reanalysis_meteorological",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_4_canal_command_area_shapefiles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_5_landsat_8_tirs_band_10_thermal_infrared",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L157",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_6_srtm_digital_elevation_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L181",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_7_ibm_nasa_prithvi_crop_classification_dataset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L205",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_8_cirad_geode_agricultural_datasets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L222",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_9_isro_liss_iii_awifs_eos_04_risat_1a_sar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_folder_structure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/README.md",
+      "source_location": "L275",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "data_readme_dataset_sources_download_guide_grove_geoprithvi_agri",
+      "target": "data_readme_important_notes",
       "confidence_score": 1.0
     },
     {
@@ -12496,5 +12928,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "243a8f26b05b1686e555bf259208ca8d8a5a2704"
+  "built_at_commit": "0aca1f7d9b231a082d74554de5177181983b526b"
 }

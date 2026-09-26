@@ -52,9 +52,33 @@ gee_service_account.json
 *.shx
 *.dbf
 *.prj
-data/
 outputs/
 checkpoints/
+
+# Raw dataset files inside data/ (too large for GitHub)
+# Folder structure and .gitkeep are committed; raw large files are not
+data/**/*.tif
+data/**/*.tiff
+data/**/*.geotiff
+data/**/*.nc
+data/**/*.hdf
+data/**/*.h5
+data/**/*.zip
+data/**/*.tar
+data/**/*.tgz
+data/**/*.jp2
+data/**/*.safe
+data/**/*.shp
+data/**/*.shx
+data/**/*.dbf
+data/**/*.prj
+data/**/*.parquet
+!data/**/.gitkeep
+!data/README.md
+!data/*.geojson
+
+# Ignore old dataset/ folder entirely
+dataset/
 
 # Graphify temporary files & caches
 .graphify_*
