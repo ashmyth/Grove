@@ -304,32 +304,8 @@
   white-space: nowrap;
 }
 
-.upload-active-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
-.upload-check-icon {
-  color: #10B981;
-}
-
-.upload-title {
-  font-family: "Space Mono", monospace;
-  font-size: 15px;
-  font-weight: 700;
-  color: #FFFFFF;
-}
-
-.upload-subtitle {
-  font-family: "Space Mono", monospace;
-  font-size: 11px;
-  color: #AAAAAA;
-}
-
-/* Box 2: Active Pilot Preset Card (#3A3A3A, 165px x 140px) */
-.console-indicator-tile {
+/* Box 2: Uploaded GeoJSON Card fading into darkness */
+.uploaded-fade-card {
   width: 165px;
   height: 140px;
   background-color: #3A3A3A;
@@ -339,55 +315,94 @@
   overflow: hidden;
   flex-shrink: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
   padding: 16px;
   box-sizing: border-box;
+  cursor: pointer;
+  animation: fadeInCard 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  -webkit-mask-image: linear-gradient(to right, #000000 0%, #000000 40%, rgba(0, 0, 0, 0) 95%);
+  mask-image: linear-gradient(to right, #000000 0%, #000000 40%, rgba(0, 0, 0, 0) 95%);
 }
 
-.indicator-gradient-glow {
+.uploaded-fade-card::after {
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 70px;
-  background: linear-gradient(270deg, #000000 0%, rgba(58, 58, 58, 0) 100%);
+  width: 80px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #000000 100%);
   pointer-events: none;
 }
 
-.indicator-inner-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  z-index: 1;
-  width: 100%;
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateX(-8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
 
-.indicator-tag {
+.uploaded-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 1;
+}
+
+.uploaded-tag {
   font-family: "Space Mono", monospace;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #AAAAAA;
-  text-transform: uppercase;
 }
 
-.indicator-pilot-name {
+.uploaded-name {
   font-family: "Space Mono", monospace;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   color: #FFFFFF;
-  line-height: 1.25;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 105px;
 }
 
-.indicator-sat-badge {
+.uploaded-meta {
   font-family: "Space Mono", monospace;
   font-size: 11px;
   color: #10B981;
-  background: rgba(16, 185, 129, 0.12);
-  padding: 2px 6px;
-  border-radius: 6px;
+}
+
+.uploaded-clear-btn {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 5;
+}
+
+.uploaded-clear-btn:hover {
+  background: #EF4444;
+  border-color: #EF4444;
 }
 
 /* Box 3: Timeline Section (Capsule Bar) */

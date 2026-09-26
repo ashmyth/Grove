@@ -160,9 +160,9 @@ export const LandingConsole: React.FC<LandingConsoleProps> = ({ onLaunch, isLoad
           <div className="console-bottom-section">
             {/* Box 1: Multi-file GeoJSON Upload Tile (198px x 140px, Dashed White) */}
             <div
-              className={`upload-geojson-box ${uploadedFiles.length > 0 ? "has-files" : ""}`}
+              className="upload-geojson-box"
               onClick={() => fileInputRef.current?.click()}
-              title="Click to select single or multiple .geojson files"
+              title="Click to upload .geojson file"
             >
               <input
                 ref={fileInputRef}
@@ -172,50 +172,58 @@ export const LandingConsole: React.FC<LandingConsoleProps> = ({ onLaunch, isLoad
                 onChange={handleFileUpload}
                 style={{ display: "none" }}
               />
-              {uploadedFiles.length > 0 ? (
-                <div className="upload-active-state">
-                  <Check size={26} className="upload-check-icon" />
-                  <span className="upload-title">
-                    {uploadedFiles.length} File{uploadedFiles.length > 1 ? "s" : ""}
-                  </span>
-                  <span className="upload-subtitle">GeoJSON Loaded</span>
-                </div>
-              ) : (
-                <div className="upload-empty-state">
-                  <svg
-                    viewBox="0 0 45 43"
-                    width="42"
-                    height="40"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="upload-plus-svg"
-                  >
-                    <path
-                      d="M23.523 0V43M45 22.477H0"
-                      stroke="#FFFFFF"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <span className="upload-label">Upload Geojson</span>
-                </div>
-              )}
-            </div>
-
-            {/* Box 2: Active Pilot Preset Card (#3A3A3A, 165px x 140px) */}
-            <div className="console-indicator-tile">
-              <div className="indicator-gradient-glow" />
-              <div className="indicator-inner-content">
-                <span className="indicator-tag">ACTIVE PILOT</span>
-                <span className="indicator-pilot-name">
-                  {selectedAreaId === "sirhind_punjab"
-                    ? "Sirhind (Alluvial)"
-                    : selectedAreaId === "kuttanad_kerala"
-                    ? "Kuttanad (Polder)"
-                    : "Command Area"}
-                </span>
-                <span className="indicator-sat-badge">10m Sentinel-1/2</span>
+              <div className="upload-empty-state">
+                <svg
+                  viewBox="0 0 45 43"
+                  width="45"
+                  height="43"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="upload-plus-svg"
+                >
+                  <path
+                    d="M23.523 0V43M45 22.477H0"
+                    stroke="#FFFFFF"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <span className="upload-label">Upload Geojson</span>
               </div>
             </div>
+
+            {/* Box 2: Uploaded GeoJSON Card (Fades into darkness) - ONLY rendered when a GeoJSON is added! */}
+            {uploadedFiles.length > 0 && (
+              <div
+                className="uploaded-fade-card"
+                title={`${uploadedFiles.length} file(s) loaded. Click to add more or clear.`}
+                onClick={() => fileInputRef.current?.click()}
+              >
+                <div className="uploaded-card-info">
+                  <span className="uploaded-tag">GEOJSON LOADED</span>
+                  <span className="uploaded-name">
+                    {uploadedFiles[0]?.name || "custom.geojson"}
+                  </span>
+                  <span className="uploaded-meta">
+                    {customGeoJSON?.features?.length || 1} parcel{customGeoJSON?.features?.length === 1 ? "" : "s"}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  className="uploaded-clear-btn"
+                  title="Remove uploaded GeoJSON"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setUploadedFiles([]);
+                    setCustomGeoJSON(null);
+                    setAreaInputText("Sirhind Canal Command, Punjab");
+                    setSelectedAreaId("sirhind_punjab");
+                    if (fileInputRef.current) fileInputRef.current.value = "";
+                  }}
+                >
+                  ×
+                </button>
+              </div>
+            )}
 
             {/* Box 3: Timeline Section (Capsule Pills) */}
             <div className="console-timeline-section">
